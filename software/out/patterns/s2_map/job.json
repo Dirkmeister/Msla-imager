@@ -1,0 +1,491 @@
+{
+ "format": "IF-13",
+ "version": "0.1",
+ "job_id": "s2_map",
+ "created": "2026-11-14T15:21:50-06:00",
+ "generator": "pcb-imager 0.1.0",
+ "purpose": {
+  "test": "S-2",
+  "notes": "Cells A1..D7 tile the image (pixel edges cols [0, 366, 731, 1097, 1463, 1829, 2194, 2560], rows [0, 360, 720, 1080, 1440]). Sub-zone j (row-major, shortest first) gets [65.4, 77.8, 92.5, 110.0, 130.9, 155.6, 185.1, 220.1] s. Read the first sub-zone that holds in each cell: one sub-zone = 2^(1/4) in irradiance.",
+  "params": {
+   "centre_s": 120.0,
+   "sub_times_s": [
+    65.4,
+    77.8,
+    92.5,
+    110.0,
+    130.9,
+    155.6,
+    185.1,
+    220.1
+   ]
+  }
+ },
+ "machine": {
+  "machine_id": "imager-v1",
+  "pitch_mm": 0.04725,
+  "image_w": 2560,
+  "image_h": 1440,
+  "native_rot_ccw": 90,
+  "native_mirror": false,
+  "panel_u_in": 6.0,
+  "panel_v_in": 4.5,
+  "guard_in": 0.1,
+  "flip_axis": "long",
+  "mirrored_side": "top",
+  "bias_px_u": 0,
+  "bias_px_v": 0
+ },
+ "calibration": {
+  "calibration_id": "none",
+  "offset_px": [
+   0.0,
+   0.0
+  ],
+  "rotation_mrad": 0.0,
+  "nominal_s": null,
+  "notes": ""
+ },
+ "polarity": "lit = material stays (copper on negative dry film)",
+ "frame_format": {
+  "type": "png",
+  "bit_depth": 1,
+  "width": 1440,
+  "height": 2560,
+  "lit": 1
+ },
+ "exposures": [
+  {
+   "id": "E1",
+   "side": "top",
+   "kind": "exposure",
+   "time": {
+    "mode": "fixed",
+    "end_s": 220.1
+   },
+   "prompt": "Panel top face down on the pins, press plate on, lid closed, then start.",
+   "frames": [
+    {
+     "t_s": 0.0,
+     "file": "e1_f00.png",
+     "sha256": "ac8a069d2fbed4af98b17a9dead4d259fad65b6585a7c1761b578b134bd93175",
+     "lit_px": 2458654
+    },
+    {
+     "t_s": 65.4,
+     "file": "e1_f01.png",
+     "sha256": "7b124d461a24c96a813ade518695fe482870934fa47928c29981006ef65a53f1",
+     "lit_px": 2154014
+    },
+    {
+     "t_s": 77.8,
+     "file": "e1_f02.png",
+     "sha256": "9ea58b1b0e1e1182eccebe2bfc038504580943993b1cdccdf60b5b1b75eed669",
+     "lit_px": 1849374
+    },
+    {
+     "t_s": 92.5,
+     "file": "e1_f03.png",
+     "sha256": "fbf7eb71581f81f2a3060f4029bd24d36e62aca01a15afd4f831366f5c00ec19",
+     "lit_px": 1544734
+    },
+    {
+     "t_s": 110.0,
+     "file": "e1_f04.png",
+     "sha256": "6e8a760cc14738286692893671ef19e41b1c1e4663339b7be34ed150316ee227",
+     "lit_px": 1240094
+    },
+    {
+     "t_s": 130.9,
+     "file": "e1_f05.png",
+     "sha256": "cf68f9eac441371590219fd6826fcd35ac18346ca42a841099ff3cb884d7f596",
+     "lit_px": 935454
+    },
+    {
+     "t_s": 155.6,
+     "file": "e1_f06.png",
+     "sha256": "fb2e785e5b4c90d3d6b77d5f2a0c23705453bfb1a9566fc7ea32ac1a51139d2b",
+     "lit_px": 630814
+    },
+    {
+     "t_s": 185.1,
+     "file": "e1_f07.png",
+     "sha256": "69114e1c6d100efd7923853ea91f69c16865e3d2fefb249bbaacb8fa192e7446",
+     "lit_px": 326174
+    },
+    {
+     "t_s": 220.1,
+     "file": "e1_f08.png",
+     "sha256": "d9c1b7d8e40f3f0f137fc8397eddf1a573f8cf0ce4293242e0faa33053dde5a3",
+     "lit_px": 0
+    }
+   ]
+  }
+ ],
+ "zones": [
+  {
+   "id": "A1",
+   "centre_in": [
+    -2.0407,
+    1.0045
+   ],
+   "screen_bbox_px": [
+    0,
+    1080,
+    366,
+    1440
+   ]
+  },
+  {
+   "id": "A2",
+   "centre_in": [
+    -1.3608,
+    1.0045
+   ],
+   "screen_bbox_px": [
+    366,
+    1080,
+    731,
+    1440
+   ]
+  },
+  {
+   "id": "A3",
+   "centre_in": [
+    -0.6808,
+    1.0045
+   ],
+   "screen_bbox_px": [
+    731,
+    1080,
+    1097,
+    1440
+   ]
+  },
+  {
+   "id": "A4",
+   "centre_in": [
+    0.0,
+    1.0045
+   ],
+   "screen_bbox_px": [
+    1097,
+    1080,
+    1463,
+    1440
+   ]
+  },
+  {
+   "id": "A5",
+   "centre_in": [
+    0.6808,
+    1.0045
+   ],
+   "screen_bbox_px": [
+    1463,
+    1080,
+    1829,
+    1440
+   ]
+  },
+  {
+   "id": "A6",
+   "centre_in": [
+    1.3608,
+    1.0045
+   ],
+   "screen_bbox_px": [
+    1829,
+    1080,
+    2194,
+    1440
+   ]
+  },
+  {
+   "id": "A7",
+   "centre_in": [
+    2.0407,
+    1.0045
+   ],
+   "screen_bbox_px": [
+    2194,
+    1080,
+    2560,
+    1440
+   ]
+  },
+  {
+   "id": "B1",
+   "centre_in": [
+    -2.0407,
+    0.3348
+   ],
+   "screen_bbox_px": [
+    0,
+    720,
+    366,
+    1080
+   ]
+  },
+  {
+   "id": "B2",
+   "centre_in": [
+    -1.3608,
+    0.3348
+   ],
+   "screen_bbox_px": [
+    366,
+    720,
+    731,
+    1080
+   ]
+  },
+  {
+   "id": "B3",
+   "centre_in": [
+    -0.6808,
+    0.3348
+   ],
+   "screen_bbox_px": [
+    731,
+    720,
+    1097,
+    1080
+   ]
+  },
+  {
+   "id": "B4",
+   "centre_in": [
+    0.0,
+    0.3348
+   ],
+   "screen_bbox_px": [
+    1097,
+    720,
+    1463,
+    1080
+   ]
+  },
+  {
+   "id": "B5",
+   "centre_in": [
+    0.6808,
+    0.3348
+   ],
+   "screen_bbox_px": [
+    1463,
+    720,
+    1829,
+    1080
+   ]
+  },
+  {
+   "id": "B6",
+   "centre_in": [
+    1.3608,
+    0.3348
+   ],
+   "screen_bbox_px": [
+    1829,
+    720,
+    2194,
+    1080
+   ]
+  },
+  {
+   "id": "B7",
+   "centre_in": [
+    2.0407,
+    0.3348
+   ],
+   "screen_bbox_px": [
+    2194,
+    720,
+    2560,
+    1080
+   ]
+  },
+  {
+   "id": "C1",
+   "centre_in": [
+    -2.0407,
+    -0.3348
+   ],
+   "screen_bbox_px": [
+    0,
+    360,
+    366,
+    720
+   ]
+  },
+  {
+   "id": "C2",
+   "centre_in": [
+    -1.3608,
+    -0.3348
+   ],
+   "screen_bbox_px": [
+    366,
+    360,
+    731,
+    720
+   ]
+  },
+  {
+   "id": "C3",
+   "centre_in": [
+    -0.6808,
+    -0.3348
+   ],
+   "screen_bbox_px": [
+    731,
+    360,
+    1097,
+    720
+   ]
+  },
+  {
+   "id": "C4",
+   "centre_in": [
+    0.0,
+    -0.3348
+   ],
+   "screen_bbox_px": [
+    1097,
+    360,
+    1463,
+    720
+   ]
+  },
+  {
+   "id": "C5",
+   "centre_in": [
+    0.6808,
+    -0.3348
+   ],
+   "screen_bbox_px": [
+    1463,
+    360,
+    1829,
+    720
+   ]
+  },
+  {
+   "id": "C6",
+   "centre_in": [
+    1.3608,
+    -0.3348
+   ],
+   "screen_bbox_px": [
+    1829,
+    360,
+    2194,
+    720
+   ]
+  },
+  {
+   "id": "C7",
+   "centre_in": [
+    2.0407,
+    -0.3348
+   ],
+   "screen_bbox_px": [
+    2194,
+    360,
+    2560,
+    720
+   ]
+  },
+  {
+   "id": "D1",
+   "centre_in": [
+    -2.0407,
+    -1.0045
+   ],
+   "screen_bbox_px": [
+    0,
+    0,
+    366,
+    360
+   ]
+  },
+  {
+   "id": "D2",
+   "centre_in": [
+    -1.3608,
+    -1.0045
+   ],
+   "screen_bbox_px": [
+    366,
+    0,
+    731,
+    360
+   ]
+  },
+  {
+   "id": "D3",
+   "centre_in": [
+    -0.6808,
+    -1.0045
+   ],
+   "screen_bbox_px": [
+    731,
+    0,
+    1097,
+    360
+   ]
+  },
+  {
+   "id": "D4",
+   "centre_in": [
+    0.0,
+    -1.0045
+   ],
+   "screen_bbox_px": [
+    1097,
+    0,
+    1463,
+    360
+   ]
+  },
+  {
+   "id": "D5",
+   "centre_in": [
+    0.6808,
+    -1.0045
+   ],
+   "screen_bbox_px": [
+    1463,
+    0,
+    1829,
+    360
+   ]
+  },
+  {
+   "id": "D6",
+   "centre_in": [
+    1.3608,
+    -1.0045
+   ],
+   "screen_bbox_px": [
+    1829,
+    0,
+    2194,
+    360
+   ]
+  },
+  {
+   "id": "D7",
+   "centre_in": [
+    2.0407,
+    -1.0045
+   ],
+   "screen_bbox_px": [
+    2194,
+    0,
+    2560,
+    360
+   ]
+  }
+ ]
+}

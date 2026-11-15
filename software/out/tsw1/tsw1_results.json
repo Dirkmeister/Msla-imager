@@ -1,0 +1,149 @@
+{
+ "criteria": {
+  "gerber": {
+   "10 mil lines = 5 px (all 10 structures)": true,
+   "10/10 spaces 5 or 6 px": true,
+   "every size = round(s/47.25 um)": true,
+   "bottom comb 5 px, spaces 5 or 6": true,
+   "ruler exactly 2400 px": "True",
+   "no opens, no shorts (50 structures)": true,
+   "mirror: front-to-back <= 0.5 px": true,
+   "mirror: top image is flipped": true,
+   "invert = bitwise NOT": true,
+   "drills carried": true
+  },
+  "svg": {
+   "10 mil lines = 5 px (all 10 structures)": true,
+   "10/10 spaces 5 or 6 px": true,
+   "every size = round(s/47.25 um)": true,
+   "bottom comb 5 px, spaces 5 or 6": true,
+   "ruler exactly 2400 px": "True",
+   "no opens, no shorts (50 structures)": true,
+   "mirror: front-to-back <= 0.5 px": true,
+   "mirror: top image is flipped": true,
+   "invert = bitwise NOT": true,
+   "drills carried": false
+  }
+ },
+ "measurements": {
+  "gerber": {
+   "widths_px": {
+    "5": [
+     3
+    ],
+    "10": [
+     5
+    ],
+    "15": [
+     8
+    ],
+    "20": [
+     11
+    ],
+    "25": [
+     13
+    ]
+   },
+   "wrong_structures": [],
+   "spaces_10_px": [
+    5,
+    6
+   ],
+   "opens": 0,
+   "shorts": 0,
+   "pad_sizes_px": [
+    24
+   ],
+   "ruler_line_px": [
+    5,
+    5
+   ],
+   "ruler_spacing_px": 2400.0,
+   "bottom_comb_widths_px": [
+    5
+   ],
+   "bottom_comb_spaces_px": [
+    5,
+    6
+   ],
+   "front_to_back_px": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0
+    ]
+   ],
+   "top_is_flipped": true,
+   "invert_exact": true,
+   "pixels_differing_from_direct_render": 0,
+   "holes_in_job": 3
+  },
+  "svg": {
+   "widths_px": {
+    "5": [
+     3
+    ],
+    "10": [
+     5
+    ],
+    "15": [
+     8
+    ],
+    "20": [
+     11
+    ],
+    "25": [
+     13
+    ]
+   },
+   "wrong_structures": [],
+   "spaces_10_px": [
+    5,
+    6
+   ],
+   "opens": 0,
+   "shorts": 0,
+   "pad_sizes_px": [
+    24,
+    25
+   ],
+   "ruler_line_px": [
+    5,
+    5
+   ],
+   "ruler_spacing_px": 2400.0,
+   "bottom_comb_widths_px": [
+    5
+   ],
+   "bottom_comb_spaces_px": [
+    5,
+    6
+   ],
+   "front_to_back_px": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0
+    ]
+   ],
+   "top_is_flipped": true,
+   "invert_exact": true,
+   "pixels_differing_from_direct_render": 1367,
+   "holes_in_job": 0
+  }
+ }
+}

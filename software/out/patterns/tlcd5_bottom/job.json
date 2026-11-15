@@ -1,0 +1,65 @@
+{
+ "format": "IF-13",
+ "version": "0.1",
+ "job_id": "tlcd5_bottom",
+ "created": "2026-11-14T15:21:49-06:00",
+ "generator": "pcb-imager 0.1.0",
+ "purpose": {
+  "test": "T-LCD-5, S-5 precursor",
+  "notes": "On screen the text reads mirrored (stamp rule). Expose the bottom face face-down; after develop or etch, 'F CU BOT' reads correctly from that face. Crosses at top-view (u, v) in = ((1.6, 0.7), (-1.6, -0.7), (1.6, -0.7)) sit at the same panel spot on both faces after the flip, so top and bottom crosses overlap through the board.",
+  "params": {}
+ },
+ "machine": {
+  "machine_id": "imager-v1",
+  "pitch_mm": 0.04725,
+  "image_w": 2560,
+  "image_h": 1440,
+  "native_rot_ccw": 90,
+  "native_mirror": false,
+  "panel_u_in": 6.0,
+  "panel_v_in": 4.5,
+  "guard_in": 0.1,
+  "flip_axis": "long",
+  "mirrored_side": "top",
+  "bias_px_u": 0,
+  "bias_px_v": 0
+ },
+ "calibration": {
+  "calibration_id": "none",
+  "offset_px": [
+   0.0,
+   0.0
+  ],
+  "rotation_mrad": 0.0,
+  "nominal_s": null,
+  "notes": ""
+ },
+ "polarity": "lit = material stays (copper on negative dry film)",
+ "frame_format": {
+  "type": "png",
+  "bit_depth": 1,
+  "width": 1440,
+  "height": 2560,
+  "lit": 1
+ },
+ "exposures": [
+  {
+   "id": "E1",
+   "side": "bottom",
+   "kind": "exposure",
+   "time": {
+    "mode": "nominal",
+    "scale": 1.0
+   },
+   "prompt": "Panel bottom face down on the pins, press plate on, lid closed, then start.",
+   "frames": [
+    {
+     "t_s": 0.0,
+     "file": "e1_f00.png",
+     "sha256": "9331498dd90149fc8545a09a859f1650a4223759ddc0ba8e5e8970e3ddf35706",
+     "lit_px": 54997
+    }
+   ]
+  }
+ ]
+}

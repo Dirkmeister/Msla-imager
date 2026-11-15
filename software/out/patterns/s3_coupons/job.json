@@ -1,0 +1,604 @@
+{
+ "format": "IF-13",
+ "version": "0.1",
+ "job_id": "s3_coupons",
+ "created": "2026-11-14T15:21:51-06:00",
+ "generator": "pcb-imager 0.1.0",
+ "purpose": {
+  "test": "S-3, T-SW-1",
+  "notes": "5 sites (C, TL, TR, BL, BR as read on copper), each with serpentine-comb structures at 5/5, 10/10, 15/15, 20/20, 25/25 mil, runs along u (top row) and along v (bottom row). Pads: S_A bottom-left, C_L top-left, S_B top-right, C_R bottom-right (runs along u). Opens: S_A-S_B; shorts: S to C_L and C_R. Ruler marks: 10 mil lines, centres 2400 px apart.",
+  "params": {
+   "sites": {
+    "C": [
+     -0.7925,
+     -0.4,
+     0.7925,
+     0.4
+    ],
+    "TL": [
+     -2.2811,
+     0.4394,
+     -0.6961,
+     1.2394
+    ],
+    "TR": [
+     0.6961,
+     0.4394,
+     2.2811,
+     1.2394
+    ],
+    "BL": [
+     -2.2811,
+     -1.2394,
+     -0.6961,
+     -0.4394
+    ],
+    "BR": [
+     0.6961,
+     -1.2394,
+     2.2811,
+     -0.4394
+    ]
+   },
+   "ruler_u_mm": [
+    -56.676375,
+    56.723625
+   ]
+  }
+ },
+ "machine": {
+  "machine_id": "imager-v1",
+  "pitch_mm": 0.04725,
+  "image_w": 2560,
+  "image_h": 1440,
+  "native_rot_ccw": 90,
+  "native_mirror": false,
+  "panel_u_in": 6.0,
+  "panel_v_in": 4.5,
+  "guard_in": 0.1,
+  "flip_axis": "long",
+  "mirrored_side": "top",
+  "bias_px_u": 0,
+  "bias_px_v": 0
+ },
+ "calibration": {
+  "calibration_id": "none",
+  "offset_px": [
+   0.0,
+   0.0
+  ],
+  "rotation_mrad": 0.0,
+  "nominal_s": null,
+  "notes": ""
+ },
+ "polarity": "lit = material stays (copper on negative dry film)",
+ "frame_format": {
+  "type": "png",
+  "bit_depth": 1,
+  "width": 1440,
+  "height": 2560,
+  "lit": 1
+ },
+ "exposures": [
+  {
+   "id": "E1",
+   "side": "top",
+   "kind": "exposure",
+   "time": {
+    "mode": "nominal",
+    "scale": 1.0
+   },
+   "prompt": "Panel top face down on the pins, press plate on, lid closed, then start.",
+   "frames": [
+    {
+     "t_s": 0.0,
+     "file": "e1_f00.png",
+     "sha256": "5f86b99789e56f7b0c82000c47d743db919adbfbcf5d30ec2a9a8b8b49236170",
+     "lit_px": 434899
+    }
+   ]
+  }
+ ],
+ "zones": [
+  {
+   "site": "C",
+   "s_mil": 5,
+   "orient": "u",
+   "path_len_in": 0.575,
+   "centre_in": [
+    -0.645,
+    0.1375
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 10,
+   "orient": "u",
+   "path_len_in": 0.615,
+   "centre_in": [
+    -0.34,
+    0.1375
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 15,
+   "orient": "u",
+   "path_len_in": 0.655,
+   "centre_in": [
+    -0.035,
+    0.1375
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 20,
+   "orient": "u",
+   "path_len_in": 0.715,
+   "centre_in": [
+    0.28,
+    0.1375
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 25,
+   "orient": "u",
+   "path_len_in": 0.785,
+   "centre_in": [
+    0.62,
+    0.1375
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 5,
+   "orient": "v",
+   "path_len_in": 0.575,
+   "centre_in": [
+    -0.69,
+    -0.2425
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 10,
+   "orient": "v",
+   "path_len_in": 0.615,
+   "centre_in": [
+    -0.425,
+    -0.2425
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 15,
+   "orient": "v",
+   "path_len_in": 0.655,
+   "centre_in": [
+    -0.12,
+    -0.2425
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 20,
+   "orient": "v",
+   "path_len_in": 0.715,
+   "centre_in": [
+    0.225,
+    -0.2425
+   ]
+  },
+  {
+   "site": "C",
+   "s_mil": 25,
+   "orient": "v",
+   "path_len_in": 0.785,
+   "centre_in": [
+    0.61,
+    -0.2425
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 5,
+   "orient": "u",
+   "path_len_in": 0.575,
+   "centre_in": [
+    -2.1336,
+    0.9769
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 10,
+   "orient": "u",
+   "path_len_in": 0.615,
+   "centre_in": [
+    -1.8286,
+    0.9769
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 15,
+   "orient": "u",
+   "path_len_in": 0.655,
+   "centre_in": [
+    -1.5236,
+    0.9769
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 20,
+   "orient": "u",
+   "path_len_in": 0.715,
+   "centre_in": [
+    -1.2086,
+    0.9769
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 25,
+   "orient": "u",
+   "path_len_in": 0.785,
+   "centre_in": [
+    -0.8686,
+    0.9769
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 5,
+   "orient": "v",
+   "path_len_in": 0.575,
+   "centre_in": [
+    -2.1786,
+    0.5969
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 10,
+   "orient": "v",
+   "path_len_in": 0.615,
+   "centre_in": [
+    -1.9136,
+    0.5969
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 15,
+   "orient": "v",
+   "path_len_in": 0.655,
+   "centre_in": [
+    -1.6086,
+    0.5969
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 20,
+   "orient": "v",
+   "path_len_in": 0.715,
+   "centre_in": [
+    -1.2636,
+    0.5969
+   ]
+  },
+  {
+   "site": "TL",
+   "s_mil": 25,
+   "orient": "v",
+   "path_len_in": 0.785,
+   "centre_in": [
+    -0.8786,
+    0.5969
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 5,
+   "orient": "u",
+   "path_len_in": 0.575,
+   "centre_in": [
+    0.8436,
+    0.9769
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 10,
+   "orient": "u",
+   "path_len_in": 0.615,
+   "centre_in": [
+    1.1486,
+    0.9769
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 15,
+   "orient": "u",
+   "path_len_in": 0.655,
+   "centre_in": [
+    1.4536,
+    0.9769
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 20,
+   "orient": "u",
+   "path_len_in": 0.715,
+   "centre_in": [
+    1.7686,
+    0.9769
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 25,
+   "orient": "u",
+   "path_len_in": 0.785,
+   "centre_in": [
+    2.1086,
+    0.9769
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 5,
+   "orient": "v",
+   "path_len_in": 0.575,
+   "centre_in": [
+    0.7986,
+    0.5969
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 10,
+   "orient": "v",
+   "path_len_in": 0.615,
+   "centre_in": [
+    1.0636,
+    0.5969
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 15,
+   "orient": "v",
+   "path_len_in": 0.655,
+   "centre_in": [
+    1.3686,
+    0.5969
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 20,
+   "orient": "v",
+   "path_len_in": 0.715,
+   "centre_in": [
+    1.7136,
+    0.5969
+   ]
+  },
+  {
+   "site": "TR",
+   "s_mil": 25,
+   "orient": "v",
+   "path_len_in": 0.785,
+   "centre_in": [
+    2.0986,
+    0.5969
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 5,
+   "orient": "u",
+   "path_len_in": 0.575,
+   "centre_in": [
+    -2.1336,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 10,
+   "orient": "u",
+   "path_len_in": 0.615,
+   "centre_in": [
+    -1.8286,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 15,
+   "orient": "u",
+   "path_len_in": 0.655,
+   "centre_in": [
+    -1.5236,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 20,
+   "orient": "u",
+   "path_len_in": 0.715,
+   "centre_in": [
+    -1.2086,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 25,
+   "orient": "u",
+   "path_len_in": 0.785,
+   "centre_in": [
+    -0.8686,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 5,
+   "orient": "v",
+   "path_len_in": 0.575,
+   "centre_in": [
+    -2.1786,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 10,
+   "orient": "v",
+   "path_len_in": 0.615,
+   "centre_in": [
+    -1.9136,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 15,
+   "orient": "v",
+   "path_len_in": 0.655,
+   "centre_in": [
+    -1.6086,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 20,
+   "orient": "v",
+   "path_len_in": 0.715,
+   "centre_in": [
+    -1.2636,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BL",
+   "s_mil": 25,
+   "orient": "v",
+   "path_len_in": 0.785,
+   "centre_in": [
+    -0.8786,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 5,
+   "orient": "u",
+   "path_len_in": 0.575,
+   "centre_in": [
+    0.8436,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 10,
+   "orient": "u",
+   "path_len_in": 0.615,
+   "centre_in": [
+    1.1486,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 15,
+   "orient": "u",
+   "path_len_in": 0.655,
+   "centre_in": [
+    1.4536,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 20,
+   "orient": "u",
+   "path_len_in": 0.715,
+   "centre_in": [
+    1.7686,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 25,
+   "orient": "u",
+   "path_len_in": 0.785,
+   "centre_in": [
+    2.1086,
+    -0.7019
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 5,
+   "orient": "v",
+   "path_len_in": 0.575,
+   "centre_in": [
+    0.7986,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 10,
+   "orient": "v",
+   "path_len_in": 0.615,
+   "centre_in": [
+    1.0636,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 15,
+   "orient": "v",
+   "path_len_in": 0.655,
+   "centre_in": [
+    1.3686,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 20,
+   "orient": "v",
+   "path_len_in": 0.715,
+   "centre_in": [
+    1.7136,
+    -1.0819
+   ]
+  },
+  {
+   "site": "BR",
+   "s_mil": 25,
+   "orient": "v",
+   "path_len_in": 0.785,
+   "centre_in": [
+    2.0986,
+    -1.0819
+   ]
+  }
+ ]
+}

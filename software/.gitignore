@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+out/jobs/
+out/tsw1/*_inv/
+.pytest_cache/

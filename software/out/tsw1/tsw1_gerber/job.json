@@ -1,0 +1,169 @@
+{
+ "format": "IF-13",
+ "version": "0.1",
+ "job_id": "tsw1_gerber",
+ "created": "2026-11-14T15:21:17-06:00",
+ "generator": "pcb-imager 0.1.0",
+ "purpose": {
+  "test": "board",
+  "notes": "converted by pcbimager.convert"
+ },
+ "machine": {
+  "machine_id": "imager-v1",
+  "pitch_mm": 0.04725,
+  "image_w": 2560,
+  "image_h": 1440,
+  "native_rot_ccw": 90,
+  "native_mirror": false,
+  "panel_u_in": 6.0,
+  "panel_v_in": 4.5,
+  "guard_in": 0.1,
+  "flip_axis": "long",
+  "mirrored_side": "top",
+  "bias_px_u": 0,
+  "bias_px_v": 0
+ },
+ "calibration": {
+  "calibration_id": "none",
+  "offset_px": [
+   0.0,
+   0.0
+  ],
+  "rotation_mrad": 0.0,
+  "nominal_s": null,
+  "notes": ""
+ },
+ "polarity": "lit = material stays (copper on negative dry film)",
+ "frame_format": {
+  "type": "png",
+  "bit_depth": 1,
+  "width": 1440,
+  "height": 2560,
+  "lit": 1
+ },
+ "exposures": [
+  {
+   "id": "top-copper",
+   "side": "top",
+   "kind": "exposure",
+   "layer": "copper",
+   "source": "tsw1-F_Cu.gtl",
+   "invert": false,
+   "time": {
+    "mode": "nominal",
+    "scale": 1.0
+   },
+   "prompt": "Panel top face down on the pins, press plate on, lid closed, then start.",
+   "frames": [
+    {
+     "t_s": 0.0,
+     "file": "e1_f00.png",
+     "sha256": "d62baec5aa4be55b5c89048fe7e64090b7c09431db9ba7112650ade792e16741",
+     "lit_px": 413277
+    }
+   ]
+  },
+  {
+   "id": "bottom-copper",
+   "side": "bottom",
+   "kind": "exposure",
+   "layer": "copper",
+   "source": "tsw1-B_Cu.gbl",
+   "invert": false,
+   "time": {
+    "mode": "nominal",
+    "scale": 1.0
+   },
+   "prompt": "Panel bottom face down on the pins, press plate on, lid closed, then start.",
+   "frames": [
+    {
+     "t_s": 0.0,
+     "file": "e2_f00.png",
+     "sha256": "1283e661a6a604fdbaabde01a659da4bc45c986442a4a3a6d32f29acf6ae5e85",
+     "lit_px": 43278
+    }
+   ]
+  }
+ ],
+ "placement": {
+  "reference_bbox_mm": [
+   92.06,
+   -131.48,
+   207.94,
+   -68.52
+  ],
+  "rotate_deg": 0,
+  "offset_in": [
+   0.0,
+   0.0
+  ]
+ },
+ "converter_report": {
+  "layers": [
+   {
+    "path": "/home/claude/pcb-imager/artwork/tsw1/gerber/tsw1-F_Cu.gtl",
+    "side": "top",
+    "fmt": "gerber",
+    "invert": false,
+    "objects": {
+     "track": 850,
+     "flash_rect": 200,
+     "flash_circle": 3
+    },
+    "render": {
+     "tracks": 939,
+     "flashes": 203,
+     "regions": 0,
+     "thin": 0
+    }
+   },
+   {
+    "path": "/home/claude/pcb-imager/artwork/tsw1/gerber/tsw1-B_Cu.gbl",
+    "side": "bottom",
+    "fmt": "gerber",
+    "invert": false,
+    "objects": {
+     "track": 89,
+     "flash_circle": 3
+    },
+    "render": {
+     "tracks": 186,
+     "flashes": 3,
+     "regions": 0,
+     "thin": 0
+    }
+   }
+  ],
+  "warnings": [],
+  "reference": "Edge.Cuts outline",
+  "board_in": [
+   4.5622,
+   2.4787
+  ],
+  "board_area_in": [
+   4.5622,
+   2.4787
+  ],
+  "holes": 3
+ },
+ "drills_panel_in": {
+  "origin": "panel centre, top view, u right, v up",
+  "holes": [
+   [
+    -1.5,
+    0.0,
+    0.035
+   ],
+   [
+    0.0,
+    -0.75,
+    0.035
+   ],
+   [
+    1.5,
+    0.0,
+    0.035
+   ]
+  ]
+ }
+}

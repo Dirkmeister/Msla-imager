@@ -1,0 +1,82 @@
+{
+  "Header": {
+    "GenerationSoftware": {
+      "Vendor": "KiCad",
+      "Application": "Pcbnew",
+      "Version": "7.0.11+dfsg-1build4"
+    },
+    "CreationDate": "2026-11-14T15:18:05-06:00"
+  },
+  "GeneralSpecs": {
+    "ProjectId": {
+      "Name": "tsw1",
+      "GUID": "74737731-2e6b-4696-9361-645f70636258",
+      "Revision": "rev?"
+    },
+    "Size": {
+      "X": 115.98,
+      "Y": 63.06
+    },
+    "LayerNumber": 2,
+    "BoardThickness": 1.6,
+    "Finish": "None"
+  },
+  "DesignRules": [
+    {
+      "Layers": "Outer",
+      "PadToPad": 0.0,
+      "PadToTrack": 0.0,
+      "TrackToTrack": 0.2,
+      "MinLineWidth": 0.127
+    }
+  ],
+  "FilesAttributes": [
+    {
+      "Path": "tsw1-F_Cu.gtl",
+      "FileFunction": "Copper,L1,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "tsw1-B_Cu.gbl",
+      "FileFunction": "Copper,L2,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "tsw1-Edge_Cuts.gm1",
+      "FileFunction": "Profile",
+      "FilePolarity": "Positive"
+    }
+  ],
+  "MaterialStackup": [
+    {
+      "Type": "Legend",
+      "Name": "Top Silk Screen"
+    },
+    {
+      "Type": "SolderMask",
+      "Name": "Top Solder Mask"
+    },
+    {
+      "Type": "Copper",
+      "Name": "F.Cu"
+    },
+    {
+      "Type": "Dielectric",
+      "Material": "FR4",
+      "Name": "F.Cu/B.Cu",
+      "Notes": "Type: dielectric layer 1 (from F.Cu to B.Cu)"
+    },
+    {
+      "Type": "Copper",
+      "Name": "B.Cu"
+    },
+    {
+      "Type": "SolderMask",
+      "Name": "Bottom Solder Mask"
+    },
+    {
+      "Type": "Legend",
+      "Name": "Bottom Silk Screen"
+    }
+  ]
+}

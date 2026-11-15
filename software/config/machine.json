@@ -1,0 +1,16 @@
+{
+  "_comment": "Machine geometry for pcb-imager. native_rot_ccw/native_mirror pending L2 (T-LCD-5, tlcd5_screen); flip_axis pending D-14 (L5); mirrored_side 'top' per the stamp rule (docs/orientation.md).",
+  "machine_id": "imager-v1",
+  "pitch_mm": 0.04725,
+  "image_w": 2560,
+  "image_h": 1440,
+  "native_rot_ccw": 90,
+  "native_mirror": false,
+  "panel_u_in": 6.0,
+  "panel_v_in": 4.5,
+  "guard_in": 0.1,
+  "flip_axis": "long",
+  "mirrored_side": "top",
+  "bias_px_u": 0,
+  "bias_px_v": 0
+}

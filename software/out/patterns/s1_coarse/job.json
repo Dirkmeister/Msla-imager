@@ -1,0 +1,311 @@
+{
+ "format": "IF-13",
+ "version": "0.1",
+ "job_id": "s1_coarse",
+ "created": "2026-11-14T15:21:50-06:00",
+ "generator": "pcb-imager 0.1.0",
+ "purpose": {
+  "test": "S-1",
+  "notes": "12 zones at sqrt(2) steps, 15 to 679 s, whole seconds (rounding error under 1.2%). Each zone: 10/10 mil comb along u and along v, a solid square, a solid square with a 10 mil cross slot. Read the first zone that holds and the window of zones that pass.",
+  "params": {
+   "t0_s": 15,
+   "ratio": "2^(1/2)",
+   "n": 12
+  }
+ },
+ "machine": {
+  "machine_id": "imager-v1",
+  "pitch_mm": 0.04725,
+  "image_w": 2560,
+  "image_h": 1440,
+  "native_rot_ccw": 90,
+  "native_mirror": false,
+  "panel_u_in": 6.0,
+  "panel_v_in": 4.5,
+  "guard_in": 0.1,
+  "flip_axis": "long",
+  "mirrored_side": "top",
+  "bias_px_u": 0,
+  "bias_px_v": 0
+ },
+ "calibration": {
+  "calibration_id": "none",
+  "offset_px": [
+   0.0,
+   0.0
+  ],
+  "rotation_mrad": 0.0,
+  "nominal_s": null,
+  "notes": ""
+ },
+ "polarity": "lit = material stays (copper on negative dry film)",
+ "frame_format": {
+  "type": "png",
+  "bit_depth": 1,
+  "width": 1440,
+  "height": 2560,
+  "lit": 1
+ },
+ "exposures": [
+  {
+   "id": "E1",
+   "side": "top",
+   "kind": "exposure",
+   "time": {
+    "mode": "fixed",
+    "end_s": 679
+   },
+   "prompt": "Panel top face down on the pins, press plate on, lid closed, then start.",
+   "frames": [
+    {
+     "t_s": 0.0,
+     "file": "e1_f00.png",
+     "sha256": "0edf03d1be1b814c043a44c40ca2deb4a6189044c056e1dac3b4ba317e7bf214",
+     "lit_px": 175379
+    },
+    {
+     "t_s": 15,
+     "file": "e1_f01.png",
+     "sha256": "a16522e30d4a22f149272f85e41d926116e0da1e229443313ea7b89d0a14daf2",
+     "lit_px": 162754
+    },
+    {
+     "t_s": 21,
+     "file": "e1_f02.png",
+     "sha256": "9cd29bbfa0c26c685e9dce9e14013f86f22f398936c0001dca9a1fc0dfb66aa3",
+     "lit_px": 150099
+    },
+    {
+     "t_s": 30,
+     "file": "e1_f03.png",
+     "sha256": "b194d48b86dd06a45bb6c693e9e12b2fdcc1ea2d22226e643ccca704bb01ce89",
+     "lit_px": 137444
+    },
+    {
+     "t_s": 42,
+     "file": "e1_f04.png",
+     "sha256": "c51661e8d9132330c6bc3ce9a47643c66c93db8d77749fcffc9726c7871d9855",
+     "lit_px": 124819
+    },
+    {
+     "t_s": 60,
+     "file": "e1_f05.png",
+     "sha256": "f2d23e9fdcecdc4e3a2132819eb3ae224452ff7b2bfb2bd3977b70c2fcb434b8",
+     "lit_px": 112194
+    },
+    {
+     "t_s": 85,
+     "file": "e1_f06.png",
+     "sha256": "ba975b55737d97e1d82c4d2698975c738cd7196bbaa01dce052a77673289f8b7",
+     "lit_px": 99539
+    },
+    {
+     "t_s": 120,
+     "file": "e1_f07.png",
+     "sha256": "c9548e55822aa2043b9426a649f50565881cebb072ebf63c04fc00b704272976",
+     "lit_px": 86884
+    },
+    {
+     "t_s": 170,
+     "file": "e1_f08.png",
+     "sha256": "6b3bb70e65cbe817b2bf9c591f4f0e95b38c9ecbbbd0b1ee2eccb26f2d16ceee",
+     "lit_px": 74259
+    },
+    {
+     "t_s": 240,
+     "file": "e1_f09.png",
+     "sha256": "709d76c0015aade43ac5413c5b325bf7e89ebb8db90927257bf33ade77ec41ec",
+     "lit_px": 61634
+    },
+    {
+     "t_s": 339,
+     "file": "e1_f10.png",
+     "sha256": "529da6c9a473d967964418496affde4a7544dfb09dd0121b9913bd7ea50ba539",
+     "lit_px": 48979
+    },
+    {
+     "t_s": 480,
+     "file": "e1_f11.png",
+     "sha256": "56d9c0fadffd0435303933b97a032e8d46c99e562addc2d207cdef47cf943237",
+     "lit_px": 36324
+    },
+    {
+     "t_s": 679,
+     "file": "e1_f12.png",
+     "sha256": "d9c1b7d8e40f3f0f137fc8397eddf1a573f8cf0ce4293242e0faa33053dde5a3",
+     "lit_px": 0
+    }
+   ]
+  }
+ ],
+ "zones": [
+  {
+   "id": "Z00",
+   "t_s": 15,
+   "centre_in": [
+    -0.57,
+    0.43
+   ],
+   "screen_bbox_px": [
+    888,
+    865,
+    1060,
+    1037
+   ]
+  },
+  {
+   "id": "Z01",
+   "t_s": 21,
+   "centre_in": [
+    -0.19,
+    0.43
+   ],
+   "screen_bbox_px": [
+    1092,
+    865,
+    1264,
+    1037
+   ]
+  },
+  {
+   "id": "Z02",
+   "t_s": 30,
+   "centre_in": [
+    0.19,
+    0.43
+   ],
+   "screen_bbox_px": [
+    1296,
+    865,
+    1468,
+    1037
+   ]
+  },
+  {
+   "id": "Z03",
+   "t_s": 42,
+   "centre_in": [
+    0.57,
+    0.43
+   ],
+   "screen_bbox_px": [
+    1500,
+    865,
+    1672,
+    1037
+   ]
+  },
+  {
+   "id": "Z04",
+   "t_s": 60,
+   "centre_in": [
+    -0.57,
+    -0.05
+   ],
+   "screen_bbox_px": [
+    888,
+    607,
+    1060,
+    779
+   ]
+  },
+  {
+   "id": "Z05",
+   "t_s": 85,
+   "centre_in": [
+    -0.19,
+    -0.05
+   ],
+   "screen_bbox_px": [
+    1092,
+    607,
+    1264,
+    779
+   ]
+  },
+  {
+   "id": "Z06",
+   "t_s": 120,
+   "centre_in": [
+    0.19,
+    -0.05
+   ],
+   "screen_bbox_px": [
+    1296,
+    607,
+    1468,
+    779
+   ]
+  },
+  {
+   "id": "Z07",
+   "t_s": 170,
+   "centre_in": [
+    0.57,
+    -0.05
+   ],
+   "screen_bbox_px": [
+    1500,
+    607,
+    1672,
+    779
+   ]
+  },
+  {
+   "id": "Z08",
+   "t_s": 240,
+   "centre_in": [
+    -0.57,
+    -0.53
+   ],
+   "screen_bbox_px": [
+    888,
+    349,
+    1060,
+    521
+   ]
+  },
+  {
+   "id": "Z09",
+   "t_s": 339,
+   "centre_in": [
+    -0.19,
+    -0.53
+   ],
+   "screen_bbox_px": [
+    1092,
+    349,
+    1264,
+    521
+   ]
+  },
+  {
+   "id": "Z10",
+   "t_s": 480,
+   "centre_in": [
+    0.19,
+    -0.53
+   ],
+   "screen_bbox_px": [
+    1296,
+    349,
+    1468,
+    521
+   ]
+  },
+  {
+   "id": "Z11",
+   "t_s": 679,
+   "centre_in": [
+    0.57,
+    -0.53
+   ],
+   "screen_bbox_px": [
+    1500,
+    349,
+    1672,
+    521
+   ]
+  }
+ ]
+}

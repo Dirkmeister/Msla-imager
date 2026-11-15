@@ -1,0 +1,231 @@
+{
+ "format": "IF-13",
+ "version": "0.1",
+ "job_id": "s1_fine",
+ "created": "2026-11-14T15:21:50-06:00",
+ "generator": "pcb-imager 0.1.0",
+ "purpose": {
+  "test": "S-1",
+  "notes": "8 zones at 2^(1/4) (+18.9%/step) from 60.0 s, one coarse step below the first good coarse zone. Regenerate with that start time.",
+  "params": {
+   "start_s": 60.0,
+   "ratio": "2^(1/4)",
+   "n": 8
+  }
+ },
+ "machine": {
+  "machine_id": "imager-v1",
+  "pitch_mm": 0.04725,
+  "image_w": 2560,
+  "image_h": 1440,
+  "native_rot_ccw": 90,
+  "native_mirror": false,
+  "panel_u_in": 6.0,
+  "panel_v_in": 4.5,
+  "guard_in": 0.1,
+  "flip_axis": "long",
+  "mirrored_side": "top",
+  "bias_px_u": 0,
+  "bias_px_v": 0
+ },
+ "calibration": {
+  "calibration_id": "none",
+  "offset_px": [
+   0.0,
+   0.0
+  ],
+  "rotation_mrad": 0.0,
+  "nominal_s": null,
+  "notes": ""
+ },
+ "polarity": "lit = material stays (copper on negative dry film)",
+ "frame_format": {
+  "type": "png",
+  "bit_depth": 1,
+  "width": 1440,
+  "height": 2560,
+  "lit": 1
+ },
+ "exposures": [
+  {
+   "id": "E1",
+   "side": "top",
+   "kind": "exposure",
+   "time": {
+    "mode": "fixed",
+    "end_s": 201.8
+   },
+   "prompt": "Panel top face down on the pins, press plate on, lid closed, then start.",
+   "frames": [
+    {
+     "t_s": 0.0,
+     "file": "e1_f00.png",
+     "sha256": "c7e796259b0242949b0b2906aeebf352ddd9b8cd50f7defe3b244274d1501de6",
+     "lit_px": 120750
+    },
+    {
+     "t_s": 60.0,
+     "file": "e1_f01.png",
+     "sha256": "b26f306d5d206d16652dede1cb4d80bf0a71a7e122190ab11375fe73dafffe93",
+     "lit_px": 108125
+    },
+    {
+     "t_s": 71.4,
+     "file": "e1_f02.png",
+     "sha256": "169b57802066199c7a78aeea28f83e48219ba3846ae47935b6a6f89a9ae0eabd",
+     "lit_px": 95470
+    },
+    {
+     "t_s": 84.9,
+     "file": "e1_f03.png",
+     "sha256": "e1812af2ce127764a397973bf55d2da564741d3280dcdf5321a2976116c5343f",
+     "lit_px": 82815
+    },
+    {
+     "t_s": 100.9,
+     "file": "e1_f04.png",
+     "sha256": "cb53c36237b1f470aa740da72333b87096dce5082331078f2413cf882f1f85f5",
+     "lit_px": 70190
+    },
+    {
+     "t_s": 120.0,
+     "file": "e1_f05.png",
+     "sha256": "3b1491240d9aae7608de7d501fa9828827c7af19dedb9258175f0e04872bdf00",
+     "lit_px": 57565
+    },
+    {
+     "t_s": 142.7,
+     "file": "e1_f06.png",
+     "sha256": "bb750f2d26557c884c25e055a9b8da2cfb16eb70004e3cd4b00dc7b284455b64",
+     "lit_px": 44910
+    },
+    {
+     "t_s": 169.7,
+     "file": "e1_f07.png",
+     "sha256": "1c8259398661a88050600d41cb9879f398fe2b512252dcccfcaddd9544cb82d4",
+     "lit_px": 32255
+    },
+    {
+     "t_s": 201.8,
+     "file": "e1_f08.png",
+     "sha256": "d9c1b7d8e40f3f0f137fc8397eddf1a573f8cf0ce4293242e0faa33053dde5a3",
+     "lit_px": 0
+    }
+   ]
+  }
+ ],
+ "zones": [
+  {
+   "id": "Z00",
+   "t_s": 60.0,
+   "centre_in": [
+    -0.57,
+    0.19
+   ],
+   "screen_bbox_px": [
+    888,
+    736,
+    1060,
+    908
+   ]
+  },
+  {
+   "id": "Z01",
+   "t_s": 71.4,
+   "centre_in": [
+    -0.19,
+    0.19
+   ],
+   "screen_bbox_px": [
+    1092,
+    736,
+    1264,
+    908
+   ]
+  },
+  {
+   "id": "Z02",
+   "t_s": 84.9,
+   "centre_in": [
+    0.19,
+    0.19
+   ],
+   "screen_bbox_px": [
+    1296,
+    736,
+    1468,
+    908
+   ]
+  },
+  {
+   "id": "Z03",
+   "t_s": 100.9,
+   "centre_in": [
+    0.57,
+    0.19
+   ],
+   "screen_bbox_px": [
+    1500,
+    736,
+    1672,
+    908
+   ]
+  },
+  {
+   "id": "Z04",
+   "t_s": 120.0,
+   "centre_in": [
+    -0.57,
+    -0.29
+   ],
+   "screen_bbox_px": [
+    888,
+    478,
+    1060,
+    650
+   ]
+  },
+  {
+   "id": "Z05",
+   "t_s": 142.7,
+   "centre_in": [
+    -0.19,
+    -0.29
+   ],
+   "screen_bbox_px": [
+    1092,
+    478,
+    1264,
+    650
+   ]
+  },
+  {
+   "id": "Z06",
+   "t_s": 169.7,
+   "centre_in": [
+    0.19,
+    -0.29
+   ],
+   "screen_bbox_px": [
+    1296,
+    478,
+    1468,
+    650
+   ]
+  },
+  {
+   "id": "Z07",
+   "t_s": 201.8,
+   "centre_in": [
+    0.57,
+    -0.29
+   ],
+   "screen_bbox_px": [
+    1500,
+    478,
+    1672,
+    650
+   ]
+  }
+ ]
+}
