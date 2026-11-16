@@ -67,6 +67,7 @@ cands = [
     ("Edmund #32-597 11x11 in, 8.2 in FL", 208.28, "10.5 x 10.5 in", 25.4 / 50, "hedge, cut to fit", True),
     ("Edmund #32-594 6.7x6.7 in, 6 in FL", 152.40, "6.0 in dia", 25.4 / 125, "hedge?", True),
     ("Edmund #43-013 5.5x5.5 in, 10 in FL", 254.00, "5.0 in eff", 25.4 / 100, "main?", False),
+    ("Budget PMMA 240x240 mm, 250 FL (eBay)", 250.00, "240 mm square", 0.3, "main, budget, cut to fit; pitch EST", True),
 ]
 
 print("\n== Fresnel candidates")
@@ -105,3 +106,23 @@ for v_in in (12.0, 11.75):
         print(f"  L {l_uh:>2} uH at 320 kHz: dI = {v_in}x{d:.3f}/({l_uh}u x 320k) = {di:.3f} A; peak {pk:.2f} A = {pk/4:.0%} of the 4 A limit")
     p_sw = i_in ** 2 * d * 0.120
     print(f"  switch conduction (EST, no ripple or switching loss): {i_in:.3f}^2 x {d:.3f} x 0.120 = {p_sw:.3f} W -> +{p_sw*30:.1f} C at 30 C/W")
+
+print("\n== D-12 C with off-the-shelf 20 mm PMMA TIR collimators (EST; options for Dallas, 2026-11-16)")
+# Beam full angle is the optic's FWHM rating; half-angle taken as half of it (EST: tails ignored,
+# and a 3528 package may widen the beam vs the 1-3 W star LEDs these optics are rated on).
+PITCH = 20.0                                     # mm, 20 mm optics touching
+for full in (5, 15, 25):
+    half = full / 2
+    s_b, s_e = smear_mil(half, T_BASIS), smear_mil(half, T_EST)
+    gap = PITCH / (2 * math.tan(math.radians(half)))   # calc §6c: one cell of overlap
+    ok_b = "ok" if s_b <= 2.5 else "over"
+    ok_e = "ok" if s_e <= 2.5 else "over"
+    print(f"{full:>2} deg beam: smear {s_b:.2f} mil at 0.725 mm ({ok_b}), {s_e:.2f} mil at 0.326 mm ({ok_e}); "
+          f"one-cell overlap gap {PITCH}/(2 tan {half} deg) = {gap:.1f} mm ({gap/MM:.2f} in)")
+print(f"round optics touching in a square grid fill pi/4 = {math.pi/4:.3f} of the area: the corners need overlap")
+area = (7 * PITCH) * (3 * H_MM / 3) / 100          # cm^2: 7 columns at 20 mm by the 68.04 mm image height
+a_mean = 21 * 0.210 * 1000 * 0.0387 / (W_MM * H_MM / 100) * 0.85   # A's mean after an 85 % Fresnel
+print(f"A mean after the Fresnel: 21 x 210 mW x 3.87 % / {W_MM*H_MM/100:.2f} cm^2 x 0.85 = {a_mean:.2f} mW/cm^2")
+for eta in (0.5, 0.8):
+    c_mean = 21 * 0.210 * 1000 * eta / area
+    print(f"C, 3 x 7 at 20 mm, capture {eta:.0%} (EST): 21 x 210 mW x {eta} / {area:.2f} cm^2 = {c_mean:.1f} mW/cm^2 = {c_mean/a_mean:.0f}x A")
