@@ -293,8 +293,10 @@ for f, r_p, fr_p, mean_p, dim_p, m28_p in ((6, "0.686", "9.93", "5.32", "4.15", 
     fr = frac_m1(f)
     mean_w = fr * 1000 / AREA_CM2
     dim_w = e0_per_w(f, 1) * r
+    a_f = math.degrees(math.atan(R21 / (f * IN)))
     print(f"  f {f:5.2f} in ({f * IN:5.1f} mm): ratio {r:.3f}; on image {fr * 100:.2f} %; mean {mean_w:.3f}/W x {FLUX21:.2f} = {mean_w * FLUX21:.2f}; "
-          f"dimmest E0 {e0_per_w(f, 1):.3f} x {r:.3f} = {dim_w:.3f}/W x {FLUX21:.2f} = {dim_w * FLUX21:.2f} mW/cm2; 28 LEDs mean {mean_w * FLUX28:.2f}")
+          f"dimmest E0 {e0_per_w(f, 1):.3f} x {r:.3f} = {dim_w:.3f}/W x {FLUX21:.2f} = {dim_w * FLUX21:.2f} mW/cm2; 28 LEDs mean {mean_w * FLUX28:.2f}; "
+          f"cluster {a_f:.2f} deg, {smear(a_f):.2f} mil")
     check("rev 3", f"6b ratio f {f:.2f}", r, r_p)
     check("rev 3", f"6b on image % f {f:.2f}", fr * 100, fr_p)
     check("rev 3", f"6b mean 21 f {f:.2f}", mean_w * FLUX21, mean_p)
@@ -576,6 +578,11 @@ for _ in range(60):                       # t where alpha_max reaches the corner
     mid = (lo + hi) / 2
     lo, hi = (mid, hi) if alpha_max(mid) > math.degrees(math.atan(42.5 / 254)) else (lo, mid)
 print(f"  the reflector exit reaches the 42.5 mm corner cap (alpha_max {math.degrees(math.atan(42.5 / 254)):.2f} deg) at t <= {lo:.3f} mm ({lo / IN:.4f} in)")
+print(f"  louver D held to alpha_max(t), share of flux (vs A's {fr10 * 100:.2f} % at f 10 in):")
+for t_mm in (0.25, 0.50, 0.725, 1.00):
+    at = math.tan(math.radians(alpha_max(t_mm)))
+    print(f"    t {t_mm:5.3f} mm: square on axis {at ** 2 / math.pi * 100:.2f} %, square on diagonal {0.5 * at ** 2 / math.pi * 100:.2f} %, "
+          f"hex {(3 * math.sqrt(3) / 8) * at ** 2 / math.pi * 100:.2f} %, cone bound {math.sin(math.radians(alpha_max(t_mm))) ** 2 * 100:.2f} %")
 
 print("F10. Irradiance per W for L6 (EST, f 10 in, before Fresnel and LCD losses)")
 mpw, dpw = frac_m1(10) * 1000 / AREA_CM2, e0_per_w(10, 1) * ratio(10, 1)
