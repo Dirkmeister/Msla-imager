@@ -1,4 +1,4 @@
-# L1: L1.2 reference for the board-identity check. Reads the KiCad boards in GitHub Dirkmeister/UV-Backlight-Prototype (read only) at the production commit and at HEAD, and prints what a physical board can be checked against: outline, silkscreen text, LED grid, connectors with pin nets, mounting holes, parts and values. Run: python3 calcs/l1_kicad_board_ref.py <path to a clone of UV-Backlight-Prototype with history> > calcs/l1_kicad_board_ref_out.md
+# L1: L1.2 reference for the board-identity check. Reads the KiCad boards in GitHub Dirkmeister/UV-Backlight-Prototype (read only) at the production commit and at HEAD, and prints what a physical board can be checked against: outline, silkscreen text, LED grid, connectors with pin nets, mounting holes, parts and values. Run: python3 calcs/l1_kicad_board_ref.py <path to a clone of UV-Backlight-Prototype with history> > calcs/l1_kicad_board_ref_out.md; for Dallas's local 2022 projects: python3 calcs/l1_kicad_board_ref.py --local <.kicad_pcb/.kicad_sch paths>
 import math
 import subprocess
 import sys
@@ -102,17 +102,23 @@ def board(text):
             at = nums(kid(g, "at"))
             fp = {"lib": val(g[1]), "x": at[0], "y": at[1], "rot": at[2] if len(at) > 2 else 0.0,
                   "side": val(kid(g, "layer")[1]), "ref": "", "value": "", "ref_silk": False, "pads": []}
-            for t in kids(g, "fp_text"):
-                kind, txt, layer = t[1], val(t[2]), val(kid(t, "layer")[1])
-                hidden = "hide" in t[3:] or any(isinstance(e, list) and e[0] == "effects" and "hide" in e for e in t)
+            # KiCad 6/7 write fp_text reference/value; KiCad 8+ write (property "Reference" ...)
+            texts = [(t[1], val(t[2]), t) for t in kids(g, "fp_text")]
+            texts += [({"Reference": "reference", "Value": "value"}.get(val(t[1]), ""), val(t[2]), t)
+                      for t in kids(g, "property")]
+            for kind, txt, t in texts:
+                lay = kid(t, "layer")
+                layer = val(lay[1]) if lay else ""
+                hidden = "hide" in t[3:] or (kid(t, "hide") is not None and "yes" in kid(t, "hide")) or \
+                    any(isinstance(e, list) and e[0] == "effects" and ("hide" in e or (kid(e, "hide") and "yes" in kid(e, "hide"))) for e in t)
                 if kind == "reference":
                     fp["ref"] = txt
-                    fp["ref_silk"] = layer.endswith("SilkS") and not hidden and txt not in ("", "REF**")
+                    fp["ref_silk"] = layer.endswith(("SilkS", "Silkscreen")) and not hidden and txt not in ("", "REF**")
                 elif kind == "value":
                     fp["value"] = txt
             for p in kids(g, "pad"):
-                net = kid(p, "net")
-                fp["pads"].append((val(p[1]), val(net[2]) if net else ""))
+                net = kid(p, "net")   # KiCad 6: (net 3 "VCC"); KiCad 10: (net "VCC")
+                fp["pads"].append((val(p[1]), val(net[-1]) if net and len(net) > 1 else ""))
             out["fps"].append(fp)
     return out
 
@@ -151,7 +157,7 @@ def f_mm_in(v):
     return f"{v:.2f} mm ({v / MM_PER_IN:.3f} in)"
 
 
-def describe(label, text, emit):
+def describe(label, text, emit, nets_for=("J",)):
     b = board(text)
     emit(f"\n## {label}\n")
     if not b["edges"]:
@@ -209,10 +215,10 @@ def describe(label, text, emit):
             emit(f"  - Hole centres {hx[1] - hx[0]:.2f} x {hy[1] - hy[0]:.2f} mm apart = "
                  f"{(hx[1] - hx[0]) / MM_PER_IN:.3f} x {(hy[1] - hy[0]) / MM_PER_IN:.3f} in")
     for fp in sorted(b["fps"], key=lambda f: f["ref"]):
-        if fp["ref"].startswith("J"):
+        if fp["ref"].startswith(nets_for):
             pins = "; ".join(f"{p} {n or 'no net'}" for p, n in sorted(fp["pads"], key=lambda t: int(t[0]) if t[0].isdigit() else 999) if p)
-            emit(f"- {fp['ref']}: {fp['lib'].split(':')[-1]} at {rel(fp)[0]:.2f}, {rel(fp)[1]:.2f} mm, rot {fp['rot']:g}. Pins: {pins}")
-    others = [fp for fp in b["fps"] if fp["ref"] and fp["ref"] != "REF**" and not fp["ref"].startswith(("D", "J", "H", "TP"))]
+            emit(f"- {fp['ref']} {fp['value']}: {fp['lib'].split(':')[-1]} at {rel(fp)[0]:.2f}, {rel(fp)[1]:.2f} mm, rot {fp['rot']:g}. Pads: {pins}")
+    others = [fp for fp in b["fps"] if fp["ref"] and fp["ref"] != "REF**" and not fp["ref"].startswith(("D", "H", "TP") + tuple(nets_for))]
     if others:
         emit("- Other parts: " + "; ".join(f"{fp['ref']} {fp['value']} ({fp['lib'].split(':')[-1]})"
                                          for fp in sorted(others, key=lambda f: f["ref"])))
@@ -220,6 +226,30 @@ def describe(label, text, emit):
     if tps:
         emit(f"- Test points ({len(tps)}): " + "; ".join(f"{fp['ref']} {fp['value']}" for fp in sorted(tps, key=lambda f: int(f['ref'][2:]))))
     return b
+
+
+def sch_summary(text, emit):
+    """Parts, text notes, and pin number -> name for every transistor symbol embedded in the schematic."""
+    root = parse_sexp(text)
+    emit("- Parts: " + "; ".join(f"{r} {v} ({lib})" for r, v, lib in sch_parts(text)))
+    notes = [val(t[1]).replace("\n", " / ").strip(" /") for t in kids(root, "text")]
+    if notes:
+        emit("- Text notes: " + " | ".join(f'"{n}"' for n in notes))
+    ls = kid(root, "lib_symbols")
+    for sym in (kids(ls, "symbol") if ls else []):
+        name = val(sym[1])
+        if not name.startswith(("Transistor_BJT", "Transistor_FET")):
+            continue
+        pins = set()
+
+        def walk(node):
+            for k in node:
+                if isinstance(k, list) and k and k[0] == "pin":
+                    pins.add((val(kid(k, "number")[1]), val(kid(k, "name")[1])))
+                elif isinstance(k, list):
+                    walk(k)
+        walk(sym)
+        emit(f"- Symbol {name} pins: " + ", ".join(f"{n} {nm}" for n, nm in sorted(pins)))
 
 
 def sch_parts(text):
@@ -236,10 +266,26 @@ def sch_parts(text):
 
 def main():
     if len(sys.argv) < 2:
-        sys.exit("usage: python3 calcs/l1_kicad_board_ref.py <UV-Backlight-Prototype clone with history>")
-    repo = sys.argv[1]
+        sys.exit("usage: python3 calcs/l1_kicad_board_ref.py <UV-Backlight-Prototype clone with history>\n"
+                 "       python3 calcs/l1_kicad_board_ref.py --local <file.kicad_pcb or .kicad_sch> ...")
     lines = []
     emit = lines.append
+    if sys.argv[1] == "--local":
+        # Dallas's own 2022 KiCad projects (desktop-dk, ...\2PCB IMAGER), staged copies passed as paths
+        emit("\n# Local KiCad files (--local): Dallas's 2022 UV-light projects, desktop-dk folder 2PCB IMAGER")
+        emit("\nCoordinates are from each board's top-left Edge.Cuts corner. Pads list each footprint's pad number and net.")
+        for path in sys.argv[2:]:
+            label = "/".join(path.replace("\\", "/").split("/")[-2:])
+            text = open(path, encoding="utf-8").read()
+            if path.endswith(".kicad_pcb"):
+                ver = val(kid(parse_sexp(text), "version")[1])
+                describe(f"{label} (format {ver})", text, emit, nets_for=("J", "Q", "R", "U"))
+            else:
+                emit(f"\n## {label}\n")
+                sch_summary(text, emit)
+        print("\n".join(lines))
+        return
+    repo = sys.argv[1]
     emit("# L1: L1.2 board-identity reference, GitHub Dirkmeister/UV-Backlight-Prototype (read only)")
     emit("\nGenerated by calcs/l1_kicad_board_ref.py. Coordinates are from each board's top-left Edge.Cuts corner, x right, y down.")
     emit("p.89 sketch for comparison: 5 x 2.75 in board, 3 rows of 7 at 5/8 x 7/8 in pitch, so first to last LED centre "

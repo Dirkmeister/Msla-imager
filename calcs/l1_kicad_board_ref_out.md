@@ -16,10 +16,10 @@ p.89 sketch for comparison: 5 x 2.75 in board, 3 rows of 7 at 5/8 x 7/8 in pitch
   - LED block centre 50.1, 40.1 mm vs board centre 50.0, 50.0 mm: offset +0.1 mm across, -9.9 mm down
 - Mounting holes (MountingHole_3.2mm_M3_Pad_Via): H1 at 5.00, 95.00 mm; H2 at 5.00, 5.00 mm; H3 at 95.00, 5.00 mm; H4 at 95.00, 95.00 mm
   - Hole centres 90.00 x 90.00 mm apart = 3.543 x 3.543 in
-- J1: IDC-Header_2x08_P2.54mm_Vertical at 41.11, 93.75 mm, rot 90. Pins: 1 GND-LED1; 2 VCC-LED1; 3 T1-Out; 4 T1-In; 5 T2-Out; 6 T2-In; 7 GND-LED2; 8 VCC-LED2; 9 T3-Out; 10 T3-In; 11 T4-Out; 12 T4-In; 13 GND-LED3; 14 VCC-LED3; 15 unconnected-(J1-Pad15); 16 unconnected-(J1-Pad16)
-- JP16: PinHeader_1x02_P2.54mm_Vertical at 48.75, 79.00 mm, rot 180. Pins: 1 GND-LED2; 2 Net-(D14-Pad1)
-- JP24: PinHeader_1x02_P2.54mm_Vertical at 56.25, 79.00 mm, rot 180. Pins: 1 GND-LED3; 2 Net-(D21-Pad1)
-- JP8: PinHeader_1x02_P2.54mm_Vertical at 41.00, 79.00 mm, rot 180. Pins: 1 GND-LED1; 2 Net-(D7-Pad1)
+- J1 Conn_02x08_Odd_Even: IDC-Header_2x08_P2.54mm_Vertical at 41.11, 93.75 mm, rot 90. Pads: 1 GND-LED1; 2 VCC-LED1; 3 T1-Out; 4 T1-In; 5 T2-Out; 6 T2-In; 7 GND-LED2; 8 VCC-LED2; 9 T3-Out; 10 T3-In; 11 T4-Out; 12 T4-In; 13 GND-LED3; 14 VCC-LED3; 15 unconnected-(J1-Pad15); 16 unconnected-(J1-Pad16)
+- JP16 Jumper_2_Open: PinHeader_1x02_P2.54mm_Vertical at 48.75, 79.00 mm, rot 180. Pads: 1 GND-LED2; 2 Net-(D14-Pad1)
+- JP24 Jumper_2_Open: PinHeader_1x02_P2.54mm_Vertical at 56.25, 79.00 mm, rot 180. Pads: 1 GND-LED3; 2 Net-(D21-Pad1)
+- JP8 Jumper_2_Open: PinHeader_1x02_P2.54mm_Vertical at 41.00, 79.00 mm, rot 180. Pads: 1 GND-LED1; 2 Net-(D7-Pad1)
 - Other parts: TH1 10K (R_1206_3216Metric_Pad1.30x1.75mm_HandSolder); TH2 10K (R_1206_3216Metric_Pad1.30x1.75mm_HandSolder); TH3 10K (R_1206_3216Metric_Pad1.30x1.75mm_HandSolder); TH4 10K (R_1206_3216Metric_Pad1.30x1.75mm_HandSolder)
 - Test points (26): TP2 -LED1/+LED2; TP3 -LED2/+LED3; TP4 -LED3/+LED4; TP5 -LED4/+LED5; TP6 -LED5/+LED6; TP7 -LED6/+LED7; TP10 -LED8/+LED9; TP11 -LED9/+LED10; TP12 -LED10/+LED11; TP13 -LED11/+LED12; TP14 -LED12/+LED13; TP15 -LED13/+LED14; TP18 -LED15/+LED16; TP19 -LED16/+LED17; TP20 -LED17/+LED18; TP21 -LED18/+LED19; TP22 -LED19/+LED20; TP23 -LED20/+LED21; TP25 T1-In; TP26 T1-Out; TP27 T3-In; TP28 T3-Out; TP29 T2-In; TP30 T2-Out; TP31 T4-In; TP32 T4-Out
 
@@ -35,10 +35,10 @@ p.89 sketch for comparison: 5 x 2.75 in board, 3 rows of 7 at 5/8 x 7/8 in pitch
   - LED block centre 50.1, 40.1 mm vs board centre 50.0, 50.0 mm: offset +0.1 mm across, -9.9 mm down
 - Mounting holes (MountingHole_3.2mm_M3_Pad_Via): H1 at 5.00, 95.00 mm; H2 at 5.00, 5.00 mm; H3 at 95.00, 5.00 mm; H4 at 95.00, 95.00 mm
   - Hole centres 90.00 x 90.00 mm apart = 3.543 x 3.543 in
-- J1: JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical at 43.75, 94.65 mm, rot 0. Pins: 1 VCC-LED1; 2 VCC-LED2; 3 VCC-LED3; 4 GND-LED3; 5 GND-LED2; 6 GND-LED1
-- JP16: PinHeader_1x02_P2.54mm_Vertical at 53.75, 86.70 mm, rot 180. Pins: 1 GND-LED2; 2 Net-(D14-Pad1)
-- JP24: PinHeader_1x02_P2.54mm_Vertical at 49.95, 86.70 mm, rot 180. Pins: 1 GND-LED3; 2 Net-(D21-Pad1)
-- JP8: PinHeader_1x02_P2.54mm_Vertical at 57.55, 86.70 mm, rot 180. Pins: 1 GND-LED1; 2 Net-(D7-Pad1)
+- J1 Conn_01x06: JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical at 43.75, 94.65 mm, rot 0. Pads: 1 VCC-LED1; 2 VCC-LED2; 3 VCC-LED3; 4 GND-LED3; 5 GND-LED2; 6 GND-LED1
+- JP16 Jumper_2_Open: PinHeader_1x02_P2.54mm_Vertical at 53.75, 86.70 mm, rot 180. Pads: 1 GND-LED2; 2 Net-(D14-Pad1)
+- JP24 Jumper_2_Open: PinHeader_1x02_P2.54mm_Vertical at 49.95, 86.70 mm, rot 180. Pads: 1 GND-LED3; 2 Net-(D21-Pad1)
+- JP8 Jumper_2_Open: PinHeader_1x02_P2.54mm_Vertical at 57.55, 86.70 mm, rot 180. Pads: 1 GND-LED1; 2 Net-(D7-Pad1)
 - Test points (18): TP2 -LED1/+LED2; TP3 -LED2/+LED3; TP4 -LED3/+LED4; TP5 -LED4/+LED5; TP6 -LED5/+LED6; TP7 -LED6/+LED7; TP10 -LED8/+LED9; TP11 -LED9/+LED10; TP12 -LED10/+LED11; TP13 -LED11/+LED12; TP14 -LED12/+LED13; TP15 -LED13/+LED14; TP18 -LED15/+LED16; TP19 -LED16/+LED17; TP20 -LED17/+LED18; TP21 -LED18/+LED19; TP22 -LED19/+LED20; TP23 -LED20/+LED21
 
 ## UV-PS board, HEAD (528a10d, 2023-01-31)
@@ -47,8 +47,8 @@ p.89 sketch for comparison: 5 x 2.75 in board, 3 rows of 7 at 5/8 x 7/8 in pitch
 - Footprints: 16
 - Board text on silkscreen (gr_text): none
 - Reference designators printed on silk (16): Cf1, Cin1, Cout1, D1, J1, J2, L1, Rfbb1, Rfbt1, Rp1, TP1, TP2, TP3, TP4, TP5, U1
-- J1: JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical at 36.08, 21.61 mm, rot -90. Pins: 1 VCC; 2 GND
-- J2: JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical at 36.08, 6.37 mm, rot -90. Pins: 1 /Vout,1; 2 GND
+- J1 Conn_01x02_Female: JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical at 36.08, 21.61 mm, rot -90. Pads: 1 VCC; 2 GND
+- J2 Conn_01x02_Female: JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical at 36.08, 6.37 mm, rot -90. Pads: 1 /Vout,1; 2 GND
 - Other parts: Cf1 390pF (C_0805_2012Metric_Pad1.18x1.45mm_HandSolder); Cin1 4.7uF (C_1206_3216Metric_Pad1.33x1.80mm_HandSolder); Cout1 4.7uF (C_1206_3216Metric_Pad1.33x1.80mm_HandSolder); L1 10uH (SDR0403-100ML); Rfbb1 14.3kΩ (R_1206_3216Metric_Pad1.30x1.75mm_HandSolder); Rfbt1 267kΩ (R_1206_3216Metric_Pad1.30x1.75mm_HandSolder); Rp1 1MΩ (R_1206_3216Metric_Pad1.30x1.75mm_HandSolder); U1 LMR64010XMF (SOT-23-5)
 - Test points (5): TP1 Vin,1; TP2 Gnd; TP3 Vout,1; TP4 Gnd; TP5 En
 
@@ -67,3 +67,57 @@ p.89 sketch for comparison: 5 x 2.75 in board, 3 rows of 7 at 5/8 x 7/8 in pitch
 ## UV-PS schematic, HEAD (528a10d)
 
 - Cf1 390pF (Device:C); Cin1 4.7uF (Device:C); Cout1 4.7uF (Device:C); D1 410mV 1A (Diode:B130-E3); J1 Conn_01x02_Female (Connector:Conn_01x02_Female); J2 Conn_01x02_Female (Connector:Conn_01x02_Female); L1 10uH (Device:L_Ferrite); NT1 NetTie_2 (Device:NetTie_2); NT2 NetTie_2 (Device:NetTie_2); NT3 NetTie_2 (Device:NetTie_2); Rfbb1 14.3kΩ (Device:R); Rfbt1 267kΩ (Device:R); Rp1 1MΩ (Device:R); TP1 Vin,1 (Connector:TestPoint); TP2 Gnd (Connector:TestPoint); TP3 Vout,1 (Connector:TestPoint); TP4 Gnd (Connector:TestPoint); TP5 En (Connector:TestPoint); U1 LMR64010XMF (Regulator_Switching:LMR64010XMF)
+
+# Local KiCad files (--local): Dallas's 2022 UV-light projects, desktop-dk folder 2PCB IMAGER
+
+Coordinates are from each board's top-left Edge.Cuts corner. Pads list each footprint's pad number and net.
+
+## Toggle-CC/Toggle-CC.kicad_sch
+
+- Parts: H1 MountingHole (Mechanical:MountingHole); H2 MountingHole (Mechanical:MountingHole); H3 MountingHole (Mechanical:MountingHole); H4 MountingHole (Mechanical:MountingHole); J1 Screw_Terminal_01x02 (Connector:Screw_Terminal_01x02); J2 Screw_Terminal_01x02 (Connector:Screw_Terminal_01x02); Q1 BC547 (Transistor_BJT:BC547); Q2 BD139 (Transistor_BJT:BD139); R1 2.2K (Device:R); R2 330 (Device:R); R3 1200 (Device:R); R4 470 (Device:R)
+- Symbol Transistor_BJT:BC547 pins: 1 C, 2 B, 3 E
+- Symbol Transistor_BJT:BD139 pins: 1 E, 2 C, 3 B
+
+## Toggle-CC/Toggle-CC.kicad_pcb (format 20211014)
+
+- Outline: 49.53 x 80.65 mm = 1.950 x 3.175 in (Edge.Cuts x 44.45 to 93.98, y 63.5 to 144.145); corner radius 0.00 mm (0.000 in); 4 edge segments
+- Footprints: 12
+- Board text on silkscreen (gr_text): none
+- Reference designators printed on silk (12): H1, H2, H3, H4, J1, J2, Q1, Q2, R1, R2, R3, R4
+- Mounting holes (MountingHole_3.2mm_M3): H1 at 3.81, 3.81 mm; H2 at 45.72, 3.81 mm; H3 at 3.81, 76.84 mm; H4 at 45.72, 76.84 mm
+  - Hole centres 41.91 x 73.03 mm apart = 1.650 x 2.875 in
+- J1 Screw_Terminal_01x02: TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal at 16.51, 5.72 mm, rot 180. Pads: 1 VCC; 2 GND
+- J2 Screw_Terminal_01x02: TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal at 38.10, 5.72 mm, rot 180. Pads: 1 VCC; 2 Net-(J2-Pad2)
+- Q1 BC547: TO-92_Inline at 21.86, 20.95 mm, rot -90. Pads: 1 Net-(Q1-Pad1); 2 Net-(R2-Pad1); 3 GND
+- Q2 BD139: TO-126-3_Vertical at 35.56, 20.58 mm, rot 180. Pads: 1 Net-(R2-Pad1); 2 Net-(J2-Pad2); 3 Net-(Q1-Pad1)
+- R1 2.2K: R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal at 16.51, 13.33 mm, rot -90. Pads: 1 VCC; 2 Net-(Q1-Pad1)
+- R2 330: R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal at 24.13, 31.75 mm, rot 180. Pads: 1 Net-(R2-Pad1); 2 Net-(R2-Pad2)
+- R3 1200: R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal at 16.51, 28.58 mm, rot 0. Pads: 1 Net-(R2-Pad2); 2 GND
+- R4 470: R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal at 34.29, 28.58 mm, rot 180. Pads: 1 Net-(R2-Pad1); 2 GND
+
+## LED-ARRAY-Prototype/LED-ARRAY-Prototype.kicad_sch
+
+- Parts: D1 LED (Device:LED); D2 LED (Device:LED); D3 LED (Device:LED); D4 LED (Device:LED); D5 LED (Device:LED); D6 LED (Device:LED); D7 LED (Device:LED); H1 MountingHole (Mechanical:MountingHole); H2 MountingHole (Mechanical:MountingHole); H3 MountingHole (Mechanical:MountingHole); H4 MountingHole (Mechanical:MountingHole); J1 Screw_Terminal_01x02 (Connector:Screw_Terminal_01x02)
+- Text notes: "Vf = 3.3V / If = 180mA /  / Vload = 7xVf"
+
+## LED-ARRAY-Prototype/LED-ARRAY-Prototype.kicad_pcb (format 20260206)
+
+- Outline: 23.50 x 127.00 mm = 0.925 x 5.000 in (Edge.Cuts x 133.35 to 156.845, y 31.75 to 158.75); corner radius 0.00 mm (0.000 in); 4 edge segments
+- Footprints: 12
+- Board text on silkscreen (gr_text): none
+- Reference designators printed on silk (12): D1, D2, D3, D4, D5, D6, D7, H1, H2, H3, H4, J1
+- LEDs: 7 x LED_PLCC_2835_Handsoldering, value "LED"; columns at x = 12.06 mm; rows at y = 15.88, 31.75, 47.62, 63.5, 79.38, 94.61, 111.12 mm (from the top-left corner)
+  - Pitch x [] mm, y [15.87, 15.87, 15.88, 15.88, 15.23, 16.51] mm. First to last LED centre: 12.06 - 12.06 = 0.00 mm (0.000 in) across, 111.12 - 15.88 = 95.24 mm (3.750 in) down
+  - LED block centre 12.1, 63.5 mm vs board centre 11.7, 63.5 mm: offset +0.3 mm across, +0.0 mm down
+- Mounting holes (MountingHole_3.2mm_M3): H1 at 3.18, 3.17 mm; H2 at 20.32, 3.17 mm; H3 at 3.81, 123.19 mm; H4 at 19.69, 123.19 mm
+- J1 Screw_Terminal_01x02: TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal at 14.61, 4.77 mm, rot 180. Pads: 1 GND; 2 +24V
+
+## BoostConverter_XL6009/BoostConverter_XL6009.kicad_sch
+
+- Parts: C? 100uF/50V (Device:C_Polarized); C? 1uF (Device:C); C? 1uf (Device:C); C? 220uF/35V (Device:C_Polarized); D? 1N5821 (Diode:1N5821); L? 47uH/3A (Device:L); R1 R (Device:R); R2 R (Device:R); VR? XL6009 (Custom Parts:XL6009)
+- Text notes: "Vout = 1.25(1+(R2/R1))"
+
+## 16LEDs/_autosave-16LEDs.kicad_sch
+
+- Parts: D1 LED (Device:LED); D10 LED (Device:LED); D11 LED (Device:LED); D12 LED (Device:LED); D13 LED (Device:LED); D14 LED (Device:LED); D15 LED (Device:LED); D16 LED (Device:LED); D17 1N4148 (Diode:1N4148); D18 1N4148 (Diode:1N4148); D2 LED (Device:LED); D3 LED (Device:LED); D4 LED (Device:LED); D5 LED (Device:LED); D6 LED (Device:LED); D7 LED (Device:LED); D8 LED (Device:LED); D9 LED (Device:LED); J1 Screw_Terminal_01x02 (Connector:Screw_Terminal_01x02); Q1 BC547 (Transistor_BJT:BC547); R1 2k2 (Device:R); R2 10R (Device:R)
+- Symbol Transistor_BJT:BC547 pins: 1 C, 2 B, 3 E
