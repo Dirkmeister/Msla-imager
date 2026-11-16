@@ -259,3 +259,6 @@ for name, face, across in (("HHDLMTOYS B0F8HZ5NGR / AMNOUR B0CZNLWWZW, 156 x 102
     print(f"{name}: fits with {f_} mm along the face; uncut it hangs {drop:.1f} mm lower -> height "
           f"{BASE} + {HOLDER} + ({f_}/sqrt2 - {u_top:.2f} + {l_v:.2f})/25.4 + {TOP:.2f} = {h_uncut:.2f} in; "
           f"reflector variant {'fits' if ok_r else 'SHORT'}")
+    w_box = max(WIDTH, (a_ + 2.0) / MM + 2 * WALL)          # 1 mm side clearance for the uncut mirror
+    print(f"  box width max({WIDTH:.2f}, ({a_} + 2)/25.4 + 2 x {WALL}) = {w_box:.2f} in")
+print(f"corner/center at the LED-to-Fresnel distance: cos^4(atan({R_CORNER:.2f}/{P:.1f})) = {ratio(P):.3f}")
