@@ -2,7 +2,8 @@
 """fbtest.py: IMG L2 test patterns for the imager LCD (T-LCD-1, -2, -3, -5).
 
 On the Pi:
-    sudo python3 fbtest.py info                     # what the firmware actually set
+    sudo python3 fbtest.py info                     # what the firmware actually set; PASS/FAIL
+    sudo python3 fbtest.py info --clock 206000000   # check against a clock not in config.txt
     sudo python3 fbtest.py checker                  # T-LCD-2, holds until Ctrl-C
     sudo python3 fbtest.py PATTERN [--mirror x|y] [--hold S]
 Dry run anywhere:
@@ -23,10 +24,18 @@ y along the 2560 px side.
 
 --mirror x reflects about the long centerline (x -> 1439 - x); --mirror y about the
 short centerline (y -> 2559 - y). Patterns need no packages; --png needs Pillow.
+
+info PASS needs both: the framebuffer at native 1440 x 2560, and `vcgencmd
+measure_clock pixel` within 1% of the timing line's clock. The size alone isn't
+enough: the firmware can apply framebuffer_width/height, ignore hdmi_timings, and
+scale the framebuffer onto whatever mode it picked. The line comes from `vcgencmd
+get_config hdmi_timings`, else the last active hdmi_timings= in config.txt, else
+--clock. Exit 0 PASS, 2 FAIL, 3 no clock to check against.
 """
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 
@@ -130,23 +139,93 @@ def _run(cmd):
         return f"({' '.join(cmd)}: {e})"
 
 
-def info(fbdev):
+CLOCK_TOL = 0.01  # lead note 5 (L2, 2026-11-15): measured pixel clock within 1% of the line
+
+
+def parse_timings(text):
+    """17 ints from 'hdmi_timings=...' or a bare line, else None."""
+    m = re.search(r"(?:hdmi_timings\s*=\s*)?((?:\d+\s+){16}\d+)", text or "")
+    return [int(n) for n in m.group(1).split()] if m else None
+
+
+def timing_line(cfg_paths=("/boot/firmware/config.txt", "/boot/config.txt")):
+    """(17 ints, source) for the active hdmi_timings line, or (None, why)."""
+    out = _run(["vcgencmd", "get_config", "hdmi_timings"])
+    t = parse_timings(out) if "hdmi_timings" in out else None
+    if t:
+        return t, "vcgencmd get_config"
+    for path in cfg_paths:
+        if os.path.exists(path):
+            active = [l for l in open(path).read().splitlines()
+                      if l.strip().startswith("hdmi_timings")]
+            t = parse_timings(active[-1]) if active else None
+            return (t, f"last active line in {path}") if t else (None, f"no hdmi_timings in {path}")
+    return None, "no config.txt found"
+
+
+def timing_summary(t):
+    """Totals, clock and refresh implied by a 17-field hdmi_timings line."""
+    htot = t[0] + t[2] + t[3] + t[4]            # active + front porch + sync + back porch
+    vtot = t[5] + t[7] + t[8] + t[9]
+    return htot, vtot, t[15], t[15] / (htot * vtot)
+
+
+def measured_hz(text):
+    """'frequency(29)=206000000' -> 206000000, else None."""
+    m = re.search(r"=\s*(\d+)", text or "")
+    return int(m.group(1)) if m else None
+
+
+def info(fbdev, clock=None):
     g = probe(fbdev)
-    print("model:      ", open("/proc/device-tree/model").read().rstrip("\x00")
+    print("model:       ", open("/proc/device-tree/model").read().rstrip("\x00")
           if os.path.exists("/proc/device-tree/model") else "?")
-    print("framebuffer:", g.describe())
-    for what in ("pixel", "hdmi", "core"):
-        print(f"clock {what:5}:", _run(["vcgencmd", "measure_clock", what]))
+    print("framebuffer: ", g.describe())
+    print("tvservice -s:", _run(["tvservice", "-s"]))
+    t, src = timing_line()
+    tot = None
+    if t:
+        htot, vtot, pclk, hz = tot = timing_summary(t)
+        print(f"timing:       hdmi_timings={' '.join(map(str, t))} ({src})")
+        print(f"              total {htot} x {vtot}; {pclk / 1e6:.3f} MHz / ({htot} x {vtot}) "
+              f"= {hz:.3f} Hz")
+    else:
+        print(f"timing:       none ({src})")
+    raw = {w: _run(["vcgencmd", "measure_clock", w]) for w in ("pixel", "hdmi", "core")}
+    for what, out in raw.items():
+        print(f"clock {what:6}:", out)
     cfg = [l for l in _run(["vcgencmd", "get_config", "str"]).splitlines() if "hdmi" in l]
     cfg += [l for l in _run(["vcgencmd", "get_config", "int"]).splitlines()
-            if any(k in l for k in ("hdmi", "framebuffer", "overscan", "hvs", "gpu_mem"))]
+            if any(k in l for k in ("hdmi", "framebuffer", "overscan", "hvs", "gpu_mem",
+                                    "transpose"))]
     print("firmware config:", *cfg, sep="\n  ")
     kern = [l for l in _run(["dmesg"]).splitlines()
             if any(k in l for k in ("bcm2708_fb", "simple-framebuffer", "simplefb", "vc4"))]
     print("kernel:", *(kern or ["(none matched; run with sudo)"]), sep="\n  ")
-    ok = g.size == NATIVE
-    print(f"\n{'PASS' if ok else 'FAIL'}: framebuffer {g.xres}x{g.yres}, panel native "
+
+    size_ok = g.size == NATIVE
+    want = clock or (tot[2] if tot else None)
+    got = measured_hz(raw["pixel"])
+    print()
+    print(f"{'ok  ' if size_ok else 'FAIL'} framebuffer {g.xres}x{g.yres}, panel native "
           f"{NATIVE[0]}x{NATIVE[1]}")
+    if not want:
+        print("---- no clock to check: no hdmi_timings line and no --clock")
+        print("NO VERDICT: pass --clock HZ (the mode's pixel clock) to check it")
+        return 3
+    if not got:
+        print(f"FAIL pixel clock unreadable ({raw['pixel']!r}); expected {want / 1e6:.3f} MHz")
+        return 2
+    err = got / want - 1
+    clock_ok = abs(err) <= CLOCK_TOL
+    refresh = f", {got / (tot[0] * tot[1]):.3f} Hz on this line's totals" if tot else ""
+    print(f"{'ok  ' if clock_ok else 'FAIL'} pixel clock {got / 1e6:.3f} MHz vs "
+          f"{want / 1e6:.3f} MHz: ({got} / {want} - 1) = {err:+.3%}, limit ±{CLOCK_TOL:.0%}"
+          f"{refresh}")
+    ok = size_ok and clock_ok
+    print(f"{'PASS' if ok else 'FAIL'}: "
+          + ("native framebuffer and the line's pixel clock" if ok else
+             "the firmware is not running this line at native size (scaled, or another mode)"))
     return 0 if ok else 2
 
 
@@ -185,6 +264,8 @@ def main(argv=None):
     ap.add_argument("--hold", type=float, metavar="S", help="seconds to hold (default: until Ctrl-C)")
     ap.add_argument("--fb", default="/dev/fb0")
     ap.add_argument("--tty", default="/dev/tty0")
+    ap.add_argument("--clock", type=int, metavar="HZ",
+                    help="info: expected pixel clock, instead of the hdmi_timings line's")
     ap.add_argument("--force", action="store_true", help="draw even if the framebuffer is not native size")
     ap.add_argument("--sim", metavar="WxHxBPP", help="dry run without a framebuffer, e.g. 1440x2560x16")
     ap.add_argument("--stride", type=int, help="with --sim: row stride in bytes (test padding)")
@@ -193,7 +274,7 @@ def main(argv=None):
     args = ap.parse_args(argv)
 
     if args.pattern == "info":
-        return info(args.fb)
+        return info(args.fb, args.clock)
     geom = sim_geometry(args.sim, args.stride) if args.sim else probe(args.fb)
     if geom.size != NATIVE and not args.force:
         raise SystemExit(f"FAIL: framebuffer is {geom.xres}x{geom.yres}, not {NATIVE[0]}x{NATIVE[1]}. "

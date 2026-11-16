@@ -10,8 +10,13 @@ exposing a wrong image.
 On the Pi (root, so it can take the console out of text mode):
     sudo python3 show_png.py layer.png              # hold until Ctrl-C, then blank
     sudo python3 show_png.py layer.png --hold 30    # hold 30 s, then blank
+    sudo python3 show_png.py layer.png --writes 20 --hold 5   # time 20 more frame writes
 Dry run anywhere (no framebuffer needed):
     python3 show_png.py layer.png --sim 1440x2560x16 --out frame.raw
+
+Prints the PNG decode, pack and framebuffer write times; --writes N repeats the
+write N times and prints min, median and max (L4.2's frame-change time, REQ-012).
+Setup and the T-LCD-2 steps: lcd/README.md.
 
 Needs Pillow (Raspberry Pi OS: sudo apt install python3-pil).
 """
@@ -20,6 +25,7 @@ import argparse
 import fcntl
 import os
 import signal
+import statistics
 import struct
 import sys
 import time
@@ -215,6 +221,8 @@ def main(argv=None):
     ap.add_argument("--fb", default="/dev/fb0")
     ap.add_argument("--tty", default="/dev/tty0", help="console to put in graphics mode")
     ap.add_argument("--threshold", type=int, metavar="N", help="binarize grey at N (0-255) instead of refusing")
+    ap.add_argument("--writes", type=int, default=0, metavar="N",
+                    help="after showing, rewrite the frame N times and print min/median/max write time")
     ap.add_argument("--sim", metavar="WxHxBPP", help="dry run without a framebuffer, e.g. 1440x2560x16")
     ap.add_argument("--out", metavar="FILE", help="with --sim: write the packed frame here")
     args = ap.parse_args(argv)
@@ -223,19 +231,28 @@ def main(argv=None):
     if geom.size != NATIVE:
         raise SystemExit(f"framebuffer is {geom.xres}x{geom.yres}, panel native is "
                          f"{NATIVE[0]}x{NATIVE[1]}: the display path would scale. Fix config.txt "
-                         "(pi/README.md, T-LCD-2) before showing artwork.")
+                         "first: lcd/README.md, T-LCD-2 (and run `sudo python3 lcd/fbtest.py info`).")
+    t0 = time.monotonic()
     mask = load_png(args.png, geom.size, args.threshold)
+    t1 = time.monotonic()
     lit = len(mask) - mask.count(0)
     frame = frame_from_mask(geom, mask)
     dark = frame_from_mask(geom, bytes(len(mask)))
+    t2 = time.monotonic()
+    prep = f"decode {(t1 - t0) * 1e3:.0f} ms, pack {(t2 - t1) * 1e3:.0f} ms"
     if args.sim:
         dt = write_frame(None, geom, frame, out=args.out or os.devnull)
-        print(f"sim: {args.png} packed to {len(frame)} B ({lit / len(mask):.1%} lit) in {dt * 1e3:.0f} ms")
+        print(f"sim: {args.png} packed to {len(frame)} B ({lit / len(mask):.1%} lit); {prep}; "
+              f"write to file {dt * 1e3:.0f} ms")
         return 0
     with ConsoleGraphics(args.tty):
         dt = write_frame(args.fb, geom, frame)
         print(f"showing {args.png} 1:1 on {args.fb} ({geom.xres}x{geom.yres}, {geom.bpp} bpp, "
-              f"{lit / len(mask):.1%} lit); write took {dt * 1e3:.0f} ms. Ctrl-C blanks and exits.")
+              f"{lit / len(mask):.1%} lit); {prep}; write {dt * 1e3:.0f} ms. Ctrl-C blanks and exits.")
+        if args.writes > 0:
+            times = [write_frame(args.fb, geom, frame) * 1e3 for _ in range(args.writes)]
+            print(f"{args.writes} more writes of {len(frame)} B: min {min(times):.1f} ms, median "
+                  f"{statistics.median(times):.1f} ms, max {max(times):.1f} ms")
         held = hold(args.hold)
         write_frame(args.fb, geom, dark)
     print(f"held {held:.1f} s; LCD blanked")

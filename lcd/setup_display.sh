@@ -5,12 +5,21 @@
 #   sudo bash setup_display.sh 206                 # Waveshare's 50 Hz line, 206.0 MHz: try first
 #   sudo bash setup_display.sh 180                 # Waveshare's Pi 3B/Zero line, 180 MHz = 43.69 Hz
 #   sudo bash setup_display.sh custom "1440 0 ..." # any 17-field line, e.g. edid_timing.py --line
+#   sudo bash setup_display.sh 206 --ws            # same line, Waveshare's gpu_mem=256 and
+#                                                  #   extra_transpose_buffer=2 (kit: 128, none)
 #   sudo bash setup_display.sh kms                 # undo everything this script changed in config.txt
-# then: sudo reboot
+# then: sudo reboot. If a line won't come up, rerun it with --ws before changing the line.
 #
 # Why not KMS: the vc4 KMS driver caps HDMI at 162 MHz on Pi 0-3 class chips (Zero 2 W
 # included), and this board needs at least 184.32 MHz for 50 Hz (imager-04 section 2).
 set -euo pipefail
+
+WS=0
+ARGS=()
+for a in "$@"; do
+  if [[ $a == --ws ]]; then WS=1; else ARGS+=("$a"); fi
+done
+set -- "${ARGS[@]+"${ARGS[@]}"}"
 
 CFG=${IMGL2_CFG:-/boot/firmware/config.txt}
 CMD=${IMGL2_CMD:-/boot/firmware/cmdline.txt}
@@ -30,8 +39,16 @@ case ${1:-} in
     [[ $LINE =~ ^[0-9]+( [0-9]+){16}$ ]] || die "custom needs one quoted line of 17 integers"
     ;;
   kms) LINE= ;;
-  *) sed -n '2,12p' "$0"; exit 1 ;;
+  *) sed -n '2,14p' "$0"; exit 1 ;;
 esac
+
+if [[ $WS == 1 ]]; then
+  VARIANT="--ws: Waveshare's gpu_mem=256 and extra_transpose_buffer=2"
+  EXTRA=$'gpu_mem=256\nextra_transpose_buffer=2'
+else
+  VARIANT="kit: gpu_mem=128, no extra_transpose_buffer (Waveshare: 256 and 2; rerun with --ws)"
+  EXTRA='gpu_mem=128'
+fi
 
 [[ -e $CFG.imgl2-orig ]] || cp "$CFG" "$CFG.imgl2-orig"
 [[ -e $CMD.imgl2-orig ]] || cp "$CMD" "$CMD.imgl2-orig"
@@ -52,6 +69,7 @@ cat >>"$CFG" <<EOF
 # IMGL2-BEGIN added by setup_display.sh (IMG L2, T-LCD-2). Undo: setup_display.sh kms
 [all]
 # Waveshare 5.5inch 1440x2560 LCD wiki block, as listed in imager-06 T-LCD-2
+# variant $VARIANT
 hdmi_force_hotplug=1
 hdmi_group=2
 hdmi_mode=87
@@ -68,7 +86,7 @@ framebuffer_height=2560
 max_framebuffer_width=1440
 max_framebuffer_height=2560
 framebuffer_depth=16
-gpu_mem=128
+$EXTRA
 # IMGL2-END
 EOF
 
@@ -76,4 +94,5 @@ EOF
 grep -q 'consoleblank=' "$CMD" || sed -i '1 s/$/ consoleblank=0/' "$CMD"
 
 echo "Firmware HDMI path set: hdmi_timings=$LINE"
+echo "Variant: $VARIANT"
 echo "Originals kept as $CFG.imgl2-orig and $CMD.imgl2-orig. Now: sudo reboot"
