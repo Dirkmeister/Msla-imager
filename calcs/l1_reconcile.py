@@ -427,6 +427,7 @@ for lab, v, p in (("cell long mm", cw, "17.28"), ("cell short mm", ch, "17.01"),
                   ("0.2 mm shift mil", smear(math.degrees(math.atan(0.2 / F_L))), "0.22"),
                   ("0.2 mm front-to-back mil", 2 * smear(math.degrees(math.atan(0.2 / F_L))), "0.45")):
     check("rev 3", f"C {lab}", v, p)
+print(f"  ideal C over ideal A with the 25 mm reflector: {meanC:.2f} / 10.3 = {meanC / 10.3:.2f}x")
 xtalk = math.degrees(math.atan(cw / F_L))
 print(f"  new: the {100 * (1 - cap):.0f} % of each LED's flux outside its own lens enters neighbours {cw:.2f} mm off their axis and leaves "
       f"at about atan({cw:.2f}/{F_L:.0f}) = {xtalk:.1f} deg, far past {AMAX:.2f}: C needs an absorbing baffle grid between LEDs and lenses")
@@ -466,7 +467,20 @@ for name, L, z, t_mm, refs in (("V1, z 0.59 in, t 0.725", V1, 15.0, 0.725, ("30.
     for lab, v, p in zip(("centre long", "centre short", "corner long", "shift long", "shift short", "shift radial"),
                          (cl, cs, kl, mx, my, math.hypot(mx, my)), refs):
         check("rev 3/§5", f"{name} {lab}", v, p)
-print("  Note: the 10-90 % spreads use the step percentile; a mid-point convention moves them by up to 4 mil. B fails by 10x either way.")
+def pct_mid(x, w, q):
+    """Weighted percentile, mid-point convention, for comparison."""
+    o = np.argsort(x)
+    c = (np.cumsum(w[o]) - w[o] / 2) / w.sum()
+    return np.interp(q, c, x[o])
+
+
+dmax = 0.0
+for L, z, t_mm in ((V1, 15.0, 0.725), (L2538, 32.0, 0.725), (V1, 15.0, 0.25), (L2538, 32.0, 0.25)):
+    for P_ in ((0, 0), (W_MM / 2, H_MM / 2)):
+        ox, oy, w = diffuse(L, z, t_mm, P_)
+        for comp in (ox, oy):
+            dmax = max(dmax, abs((pct(comp, w, 0.9) - pct(comp, w, 0.1)) - (pct_mid(comp, w, 0.9) - pct_mid(comp, w, 0.1))))
+print(f"  Note: the 10-90 % spreads use the step percentile; a mid-point convention moves them by up to {dmax:.1f} mil. B fails by 10x either way.")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -500,6 +514,8 @@ print(f"  worst, Z5 with VBE 0.729: {VS} - {7 * VF_MAX:.1f} - 0.729 = {vce_worst
 pd = {"typ": (VS - 7 * VF - VBE[1]) * I_SINK[1], "Z2, typ VBE": (VS - 7 * VF_MIN - VBE[1]) * I_SINK[1],
       "worst (Z2, VBE 0.729)": (VS - 7 * VF_MIN - VBE[2]) * I_SINK[2]}
 print("  BD139 dissipation: " + "; ".join(f"{k} {v:.3f} W" for k, v in pd.items()))
+print(f"  BD139 Tj, worst, 100 C/W and Ta 40 C (imager-04 §9 basis, EST): {pd['worst (Z2, VBE 0.729)']:.3f} x 100 + 40 = "
+      f"{pd['worst (Z2, VBE 0.729)'] * 100 + 40:.1f} C")
 print(f"  waste in the 3 sinks plus sense at typ: 3 x ({VS} - {7 * VF:.1f}) x {I_SINK[1]:.3f} = {3 * (VS - 7 * VF) * I_SINK[1]:.2f} W")
 
 print("F3. Sink drift (REQ-015, +-3 % over 15 min)")
