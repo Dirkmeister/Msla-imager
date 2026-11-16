@@ -67,7 +67,11 @@ cands = [
     ("Edmund #32-597 11x11 in, 8.2 in FL", 208.28, "10.5 x 10.5 in", 25.4 / 50, "hedge, cut to fit", True),
     ("Edmund #32-594 6.7x6.7 in, 6 in FL", 152.40, "6.0 in dia", 25.4 / 125, "hedge?", True),
     ("Edmund #43-013 5.5x5.5 in, 10 in FL", 254.00, "5.0 in eff", 25.4 / 100, "main?", False),
-    ("Budget PMMA 240x240 mm, 250 FL (eBay)", 250.00, "240 mm square", 0.3, "main, budget, cut to fit; pitch EST", True),
+    ("Generic PMMA 240x240 mm, 250 FL (eBay; Amazon B0BC8BFPWF)", 250.00, "240 mm square", None, "main, budget, cut to fit", True),
+    ("Six Seasons 2-pack dia 250 mm, 240 FL (Amazon B07BJLFPDJ)", 240.00, "250 mm dia", 0.5, "main, budget", True),
+    ("Six Seasons 2-pack dia 250 mm, 260 FL (Amazon B07BJLFPDJ)", 260.00, "250 mm dia", 0.5, "main, budget", True),
+    ("Six Seasons 2-pack dia 250 mm, 290 FL (Amazon B07BJLFPDJ)", 290.00, "250 mm dia", 0.5, "main, budget", True),
+    ("Six Seasons 300x300 mm, 300 FL (Amazon B0CL3CRN55)", 300.00, "300 mm square", None, "main, budget, cut to fit", True),
 ]
 
 print("\n== Fresnel candidates")
@@ -80,13 +84,18 @@ for name, f, ap, pitch, role, ap_ok in cands:
     s_b, s_e = smear_mil(a, T_BASIS), smear_mil(a, T_EST)
     refl_cap = min(f * math.tan(math.radians(a_b)), 42.5)
     blur = 2 * GAP * math.tan(math.radians(a))
+    r_lo = ratio(0.95 * f)      # EST tolerance: Knight's standard range is +-5 %; budget lenses state none
     print(f"{name} [{role}]")
     print(f"  f {f:.2f} mm = {f_in:.2f} in; main range 9.05-12 in: {'yes' if in_range else 'no'}; aperture {ap}: {'ok' if ap_ok else 'FAILS spec'}")
     print(f"  corner/center cos^4(atan({R_CORNER:.2f}/{f:.2f})) = {r:.3f} -> {verdict(r)}")
     print(f"  dimmest-point light vs f 254: (254/{f:.2f})^2 x {r:.4f}/{ratio(254.0):.4f} = {g:.2f}x")
     print(f"  cluster half-angle atan({R_SRC}/{f:.2f}) = {a:.2f} deg; smear {s_b:.2f} mil at 0.725 mm, {s_e:.2f} mil at 0.326 mm (EST)")
     print(f"  reflector exit cap = {f:.2f} x tan {a_b:.2f} deg = {refl_cap:.1f} mm")
-    print(f"  groove blur at the LCD (EST): 2 x {GAP:.2f} x tan {a:.2f} deg = {blur:.3f} mm over pitch {pitch:.3f} mm = {blur/pitch:.2f} grooves")
+    print(f"  at f -5 % (EST tolerance): {0.95*f:.1f} mm -> corner/center {r_lo:.3f} ({verdict(r_lo)})")
+    if pitch is None:
+        print(f"  groove blur at the LCD (EST): {blur:.3f} mm; pitch not stated by the seller")
+    else:
+        print(f"  groove blur at the LCD (EST): 2 x {GAP:.2f} x tan {a:.2f} deg = {blur:.3f} mm over pitch {pitch:.3f} mm = {blur/pitch:.2f} grooves")
 
 print("\n== XL6009, 3 strings at 26.2 V")
 i_str = 0.729 / 3.9
