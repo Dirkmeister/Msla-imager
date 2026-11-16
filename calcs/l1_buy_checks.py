@@ -262,3 +262,19 @@ for name, face, across in (("HHDLMTOYS B0F8HZ5NGR / AMNOUR B0CZNLWWZW, 156 x 102
     w_box = max(WIDTH, (a_ + 2.0) / MM + 2 * WALL)          # 1 mm side clearance for the uncut mirror
     print(f"  box width max({WIDTH:.2f}, ({a_} + 2)/25.4 + 2 x {WALL}) = {w_box:.2f} in")
 print(f"corner/center at the LED-to-Fresnel distance: cos^4(atan({R_CORNER:.2f}/{P:.1f})) = {ratio(P):.3f}")
+
+print("\n== C design map (D-12 = C, Dallas 2026-11-16): one-cell overlap gap and stack, same EST items as above")
+# C21: 7 x 3 at 20 mm (columns) by 22.68 mm (rows), 20 mm TIR optics, 3 strings of 7 (XL6009 plan as is).
+# C28: calc 6c's 4 x 7 at 17.28 x 17.01 mm, singlets f 17 mm (lens 0.2 in thick, EST), 4 strings (T-PWR-1).
+for name, pitch, full, opt_h in (("C21, 20 mm TIR 15 deg", ROW, 15.0, OPTIC),
+                                 ("C21, 20 mm TIR 25 deg", ROW, 25.0, OPTIC),
+                                 ("C28, 17 mm lens at 7.52 deg", 120.96 / 7, 2 * 7.52, 17 / MM + 0.2)):
+    half = full / 2
+    gap = pitch / (2 * math.tan(math.radians(half)))
+    st = BASE + PLATE + BOARD + opt_h + gap / MM + T_LCD + T_COVER
+    s_b, s_e = smear_mil(half, T_BASIS), smear_mil(half, T_EST)
+    print(f"{name}: smear {s_b:.2f} mil at 0.725 mm ({'ok' if s_b <= 2.5 else 'over'}), {s_e:.2f} at 0.326 mm; "
+          f"gap {pitch:.2f}/(2 tan {half:.2f}) = {gap:.1f} mm ({gap/MM:.2f} in); stack {BASE} + {PLATE} + {BOARD:.2f} + "
+          f"{opt_h:.2f} + {gap/MM:.2f} + {T_LCD} + {T_COVER} = {st:.2f} in")
+for n in (21, 28):
+    print(f"{n} LEDs electrical at typ: {n} x 3.3 V x 0.18 A = {n*3.3*0.18:.2f} W")
