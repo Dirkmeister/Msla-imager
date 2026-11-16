@@ -1,0 +1,360 @@
+# L1: output of calcs/l1_reconcile.py (package L1.1). Regenerate: python3 calcs/l1_reconcile.py > calcs/l1_reconcile_out.txt
+
+====================================================================================================
+A. Inputs
+====================================================================================================
+image 2560 x 0.04725 = 120.96 mm (4.7622 in); 1440 x 0.04725 = 68.04 mm (2.6787 in)
+diagonal 5.464 in (138.8 mm); corner radius 2.732 in (69.39 mm); area 82.30 cm2
+CUN0LF1B (DS Rev3.0): 210 mW typ at 180 mA; flux bins G5 0.19-0.21 .. H5 0.33-0.36 W; Vf 3.3 V typ, bins 3.1-3.5 V; 120 deg; IF 50-250 mA; Tj <= 95 C; RthJ-S 17.4 C/W
+3528 body 3.5 x 2.8 mm: half-diagonal sqrt(3.5^2 + 2.8^2)/2 = 2.241 mm (0.0882 in)
+sink current VBE/R: 0.609/3.9 = 156.2, 0.689/3.9 = 176.7, 0.729/3.9 = 186.9 mA
+non-UV lines (imager-04 §10, ratings basis): 0.48 + 1.02 + 14.71 + 5.88 + 3.00 = 25.09 W
+UV available at 12 V on that basis: 48 - 25.09 = 22.91 W; at the strings x 0.85: 19.47 W
+
+====================================================================================================
+B. imager-04 formulas, rebuilt
+====================================================================================================
+m for 120 deg (half angle 60): -ln2/ln cos60 = 1.000
+alpha_max at t 0.725 mm: asin(1.5 sin(atan(2.5/28.54))) = 7.52 deg
+m = 1 closed form vs Gauss-Legendre at f 10 in: 3.8693 % vs 3.8693 %
+
+====================================================================================================
+C. Rev 2's scripted numbers (ce543be scripts), recomputed independently
+====================================================================================================
+ f 8 in: cos^4(atan(2.732/8)) = 0.802; on image 5.89 %; span 2 x 8 x tan 7.5 = 2.11 in
+  CHECK [rev 2] corner/center f 8: 0.80203 vs packet 0.802 -> OK
+  CHECK [rev 2] flux on image % f 8: 5.8911 vs packet 5.89 -> OK
+  CHECK [rev 2] max source span in f 8: 2.1064 vs packet 2.11 -> OK
+ f 9 in: cos^4(atan(2.732/9)) = 0.838; on image 4.73 %; span 2 x 9 x tan 7.5 = 2.37 in
+  CHECK [rev 2] corner/center f 9: 0.83838 vs packet 0.838 -> OK
+  CHECK [rev 2] flux on image % f 9: 4.7250 vs packet 4.73 -> OK
+  CHECK [rev 2] max source span in f 9: 2.3697 vs packet 2.37 -> OK
+ f 10 in: cos^4(atan(2.732/10)) = 0.866; on image 3.87 %; span 2 x 10 x tan 7.5 = 2.63 in
+  CHECK [rev 2] corner/center f 10: 0.86592 vs packet 0.866 -> OK
+  CHECK [rev 2] flux on image % f 10: 3.8693 vs packet 3.87 -> OK
+  CHECK [rev 2] max source span in f 10: 2.6330 vs packet 2.63 -> OK
+ f 12 in: cos^4(atan(2.732/12)) = 0.904; on image 2.73 %; span 2 x 12 x tan 7.5 = 3.16 in
+  CHECK [rev 2] corner/center f 12: 0.90388 vs packet 0.904 -> OK
+  CHECK [rev 2] flux on image % f 12: 2.7261 vs packet 2.73 -> OK
+  CHECK [rev 2] max source span in f 12: 3.1597 vs packet 3.16 -> OK
+  CHECK [rev 2] f for 0.84, m = 1 (in): 9.0519 vs packet 9.05 -> OK
+ 6 x 6 at 0.200 in: span 5 x 0.200 + 0.1378 = 1.138 in; half side atan(0.569/10) = 3.26 deg; smear 1.08 mil
+  CHECK [rev 2] 6x6 span in: 1.13780 vs packet 1.138 -> OK
+  CHECK [rev 2] 6x6 half-side angle deg: 3.2560 vs packet 3.26 -> OK
+  CHECK [rev 2] 6x6 smear half side mil: 1.0816 vs packet 1.08 -> OK
+  CHECK [rev 2] 36 x 3.3 x 0.180 W: 21.384 vs packet 21.4 -> OK
+  CHECK [rev 2] 6.8 mm package in: 0.26772 vs packet 0.268 -> OK
+ PMMA EST (nd 1.49, Vd 58): n405 1.5042, n550 1.4918, f405/f550 = 0.9755
+ PMMA EST (nd 1.49, Vd 55): n405 1.5049, n550 1.4919, f405/f550 = 0.9742
+
+====================================================================================================
+D. Rev 2's hand-worked numbers
+====================================================================================================
+D1. '>= 50.25 W': not printed in the rev 2 packet; it is the packet's 21.4 W of LED power taken to the 12 V input
+  36 x 3.3 x 0.18 = 21.384 W at the LEDs; / 0.85 boost = 25.158 W at 12 V; + 25.088 non-UV = 50.246 W
+  CHECK [rev 2 via HQ] rev 2 cluster total W: 50.2459 vs packet 50.25 -> OK
+  '>=': the 21.38 W leaves out the sinks. Example, 6 strings of 6 at 22.73 V (6 x 3.5 + 0.729 + 1.0): 6 x 0.18 x 22.73 / 0.85 = 28.88 W in, total 53.97 W
+  most LEDs at 180 mA inside 48 W, ratings basis: LEDs alone 19.47 / (3.3 x 0.18) = 32.8; strings of 7 at 26.2 V: floor(19.47 / (0.18 x 26.2)) = 4 strings = 28 LEDs
+D2. Option D's 0.55 %: the louver geometry
+  Square-cell absorbing louver, cell width w, wall height L, w/L = tan 7.5 = 0.13165 (cutoff 7.5 deg along a cell axis).
+  A ray with projected tangents (tx, ty) passes T = (1 - |tx|/a)(1 - |ty|/a). A Lambertian source sends equal flux per unit
+  projected solid angle, and that element is dtx dty / (1 + tx^2 + ty^2)^2, about dtx dty here, out of pi in total. So
+  share = (1/pi) [integral of (1 - |t|/a) dt]^2 = a^2 / pi = 0.13165^2 / pi = 0.552 %
+  CHECK [rev 2] louver square cell %: 0.5517 vs packet 0.55 -> OK
+  same integral without the small-angle step: 0.545 %
+  ideal cone, everything inside 7.5 deg passes and nothing outside: sin^2 7.5 = 1.704 %  (lead's figure)
+  CHECK [lead] cone sin^2 7.5 %: 1.7037 vs packet 1.70 -> OK
+  louver / cone = 0.324 (about 1/pi = 0.318): the cell walls vignette linearly in each axis
+  Any cell shape: share = cell area / (pi L^2); its cutoff is (widest cell width)/L. Held to 7.5 deg in every direction:
+    square cell, 7.5 deg on its diagonal (45 deg edges): 0.5 a^2/pi = 0.276 %; diagonal cutoff of the axis-held cell atan(sqrt2 a) = 10.55 deg
+    hex cell, 7.5 deg corner to corner: (3 sqrt3/8) a^2/pi = 0.358 %;  round tube: (pi/4) a^2/pi = 0.433 %
+D3. The 1/7 ratio = D's 0.55 % over the cluster's share on the image at f = 10 in
+  0.5517 / 3.8693 = 0.1426 = 1/7.01
+  CHECK [rev 2] 1/x of the 1/7 ratio: 7.01 vs packet 7 -> OK
+  cone bound 1.704 / 3.869 = 1/2.27; hex all directions 1/10.8; square on its diagonal 1/14.0. D is darker than A in every case.
+D4. Rev 2's 6 x 6 cluster on the diagonal (HQ's rule: largest radius, package included)
+  corner LED centre 2.5 x 0.200 x sqrt2 = 0.7071 in + 0.0882 = 0.7953 in; atan(0.7953/10) = 4.55 deg; smear 1.51 mil
+  CHECK [HQ] 6x6 smear on the diagonal mil: 1.5108 vs packet 1.51 -> OK
+
+====================================================================================================
+E. Diagram rev 3: every stated number
+====================================================================================================
+E1. Cluster geometry (5 x 5 less corners at 4.0 mm; 28-LED variant)
+  21 sites: 21; farthest centre sqrt(8^2 + 4^2) = 8.94 mm; + 2.24 = 11.19 mm (0.440 in), 22.4 mm (0.88 in) across
+  28 sites: 28; farthest centre sqrt(10^2 + 6^2) = 11.66 mm; r = 13.90 mm
+  CHECK [rev 3] farthest centre 21 mm: 8.9443 vs packet 8.94 -> OK
+  CHECK [rev 3] package half-diagonal mm: 2.2411 vs packet 2.24 -> OK
+  CHECK [rev 3] r 21 mm: 11.1854 vs packet 11.19 -> OK
+  CHECK [rev 3] farthest centre 28 mm: 11.6619 vs packet 11.66 -> OK
+  CHECK [rev 3] r 28 mm: 13.9030 vs packet 13.90 -> OK
+  f  6.00 in: atan(11.19/152.4) = 4.20 deg, smear 1.39 mil
+  CHECK [rev 3] cluster half-angle deg f 6.00: 4.1977 vs packet 4.20 -> OK
+  CHECK [rev 3] cluster smear mil f 6.00: 1.3945 vs packet 1.39 -> OK
+  f  9.05 in: atan(11.19/229.9) = 2.79 deg, smear 0.93 mil
+  CHECK [rev 3] cluster half-angle deg f 9.05: 2.7852 vs packet 2.79 -> OK
+  CHECK [rev 3] cluster smear mil f 9.05: 0.9251 vs packet 0.93 -> OK
+  f 10.00 in: atan(11.19/254.0) = 2.52 deg, smear 0.84 mil
+  CHECK [rev 3] cluster half-angle deg f 10.00: 2.5215 vs packet 2.52 -> OK
+  CHECK [rev 3] cluster smear mil f 10.00: 0.8375 vs packet 0.84 -> OK
+  f 12.00 in: atan(11.19/304.8) = 2.10 deg, smear 0.70 mil
+  CHECK [rev 3] cluster half-angle deg f 12.00: 2.1017 vs packet 2.10 -> OK
+  CHECK [rev 3] cluster smear mil f 12.00: 0.6980 vs packet 0.70 -> OK
+  CHECK [rev 3] alpha_max deg: 7.5203 vs packet 7.52 -> OK
+  CHECK [rev 3] allowed radius at f 10 mm: 33.532 vs packet 33.5 -> OK
+  CHECK [rev 3] 28-LED smear mil f 10: 1.0407 vs packet 1.04 -> OK
+  CHECK [rev 3] 28-LED smear mil f 6: 1.7319 vs packet 1.73 -> OK
+E2. §6b table, m = 1, 21 LEDs x 0.210 W = 4.41 W; 28 LEDs x 0.210 = 5.88 W
+  f  6.00 in (152.4 mm): ratio 0.686; on image 9.93 %; mean 1.206/W x 4.41 = 5.32; dimmest E0 1.371 x 0.686 = 0.940/W x 4.41 = 4.15 mW/cm2; 28 LEDs mean 7.09
+  CHECK [rev 3] 6b ratio f 6.00: 0.68605 vs packet 0.686 -> OK
+  CHECK [rev 3] 6b on image % f 6.00: 9.9294 vs packet 9.93 -> OK
+  CHECK [rev 3] 6b mean 21 f 6.00: 5.3206 vs packet 5.32 -> OK
+  CHECK [rev 3] 6b dimmest 21 f 6.00: 4.1464 vs packet 4.15 -> OK
+  CHECK [rev 3] 6b mean 28 f 6.00: 7.0941 vs packet 7.09 -> OK
+  f  8.00 in (203.2 mm): ratio 0.802; on image 5.89 %; mean 0.716/W x 4.41 = 3.16; dimmest E0 0.771 x 0.802 = 0.618/W x 4.41 = 2.73 mW/cm2; 28 LEDs mean 4.21
+  CHECK [rev 3] 6b ratio f 8.00: 0.80203 vs packet 0.802 -> OK
+  CHECK [rev 3] 6b on image % f 8.00: 5.8911 vs packet 5.89 -> OK
+  CHECK [rev 3] 6b mean 21 f 8.00: 3.1566 vs packet 3.16 -> OK
+  CHECK [rev 3] 6b dimmest 21 f 8.00: 2.7267 vs packet 2.73 -> OK
+  CHECK [rev 3] 6b mean 28 f 8.00: 4.2089 vs packet 4.21 -> OK
+  f  9.05 in (229.9 mm): ratio 0.840; on image 4.67 %; mean 0.568/W x 4.41 = 2.50; dimmest E0 0.602 x 0.840 = 0.506/W x 4.41 = 2.23 mW/cm2; 28 LEDs mean 3.34
+  CHECK [rev 3] 6b ratio f 9.05: 0.84000 vs packet 0.840 -> OK
+  CHECK [rev 3] 6b on image % f 9.05: 4.6741 vs packet 4.67 -> OK
+  CHECK [rev 3] 6b mean 21 f 9.05: 2.5045 vs packet 2.50 -> OK
+  CHECK [rev 3] 6b dimmest 21 f 9.05: 2.2306 vs packet 2.23 -> OK
+  CHECK [rev 3] 6b mean 28 f 9.05: 3.3394 vs packet 3.34 -> OK
+  f 10.00 in (254.0 mm): ratio 0.866; on image 3.87 %; mean 0.470/W x 4.41 = 2.07; dimmest E0 0.493 x 0.866 = 0.427/W x 4.41 = 1.88 mW/cm2; 28 LEDs mean 2.76
+  CHECK [rev 3] 6b ratio f 10.00: 0.86592 vs packet 0.866 -> OK
+  CHECK [rev 3] 6b on image % f 10.00: 3.8693 vs packet 3.87 -> OK
+  CHECK [rev 3] 6b mean 21 f 10.00: 2.0733 vs packet 2.07 -> OK
+  CHECK [rev 3] 6b dimmest 21 f 10.00: 1.8841 vs packet 1.88 -> OK
+  CHECK [rev 3] 6b mean 28 f 10.00: 2.7644 vs packet 2.76 -> OK
+  f 12.00 in (304.8 mm): ratio 0.904; on image 2.73 %; mean 0.331/W x 4.41 = 1.46; dimmest E0 0.343 x 0.904 = 0.310/W x 4.41 = 1.37 mW/cm2; 28 LEDs mean 1.95
+  CHECK [rev 3] 6b ratio f 12.00: 0.90388 vs packet 0.904 -> OK
+  CHECK [rev 3] 6b on image % f 12.00: 2.7261 vs packet 2.73 -> OK
+  CHECK [rev 3] 6b mean 21 f 12.00: 1.4607 vs packet 1.46 -> OK
+  CHECK [rev 3] 6b dimmest 21 f 12.00: 1.3657 vs packet 1.37 -> OK
+  CHECK [rev 3] 6b mean 28 f 12.00: 1.9476 vs packet 1.95 -> OK
+  CHECK [rev 3] f for 0.840 in: 9.0519 vs packet 9.05 -> OK
+  CHECK [rev 3] f for 0.840 mm: 229.918 vs packet 229.9 -> OK
+  CHECK [rev 3] f for 0.707 in: 6.2806 vs packet 6.28 -> OK
+  masking 9.05 -> 6 in: dimmest per W 0.940 / 0.506 = 1.86x
+  CHECK [rev 3] masking gain: 1.8589 vs packet 1.86 -> OK
+  CHECK [rev 3] 28/21 scale: 1.3333 vs packet 1.33 -> OK
+  §4 grid-search layout on the image: 32.9 % of flux; mean 4.41 x 0.3285 x 1000 / 82.30 = 17.6 mW/cm2; vs the cluster at f 10: 32.9 / 3.87 = 8.5x
+  CHECK [rev 3] §4 layout on image %: 32.853 vs packet 32.8 -> OK
+  CHECK [rev 3] §4 layout mean mW/cm2: 17.604 vs packet 17.6 -> OK
+  CHECK [rev 3] 32.8/3.87: 8.475 vs packet 8.5 -> OK
+E3. LED-part levers
+  60 deg full angle: m = -ln2/ln cos30 = 4.82; 0.84 at f = 12.79 in; on image 6.81 %; CUN at 9.05 in 4.67 %; 1.46x
+  CHECK [rev 3] m 60 full: 4.8188 vs packet 4.82 -> OK
+  CHECK [rev 3] f 0.84 at m 4.82 in: 12.7925 vs packet 12.79 -> OK
+  CHECK [rev 3] on image % m 4.82: 6.8130 vs packet 6.81 -> OK
+  CHECK [rev 3] narrow-beam gain: 1.4576 vs packet 1.46 -> OK
+  CUN wall-plug 0.21 / (3.3 x 0.18) = 0.354; strings' share of 48 W: (48 - 25.09) x 0.85 = 19.47 W
+  CHECK [rev 3] WPE %: 35.35 vs packet 35 -> OK
+  CHECK [rev 3] string budget W: 19.4750 vs packet 19.47 -> OK
+E4. Power, strings of 7 at 180 mA, 26.2 V, 85 %
+  3 strings: 3 x 0.18 x 26.2 = 14.15 W out; / 0.85 = 16.64 W in; total 41.73 W; 1.39 A at 12 V; 0.54 A out
+  CHECK [rev 3] 3 strings in W: 16.6447 vs packet 16.64 -> OK
+  CHECK [rev 3] 3 strings total W: 41.7329 vs packet 41.73 -> OK
+  CHECK [rev 3] 3 strings switch A: 1.3871 vs packet 1.39 -> OK
+  4 strings: 4 x 0.18 x 26.2 = 18.86 W out; / 0.85 = 22.19 W in; total 47.28 W; 1.85 A at 12 V; 0.72 A out
+  CHECK [rev 3] 4 strings in W: 22.1929 vs packet 22.19 -> OK
+  CHECK [rev 3] 4 strings total W: 47.2812 vs packet 47.28 -> OK
+  CHECK [rev 3] 4 strings switch A: 1.8494 vs packet 1.85 -> OK
+  5 strings: 5 x 0.18 x 26.2 = 23.58 W out; / 0.85 = 27.74 W in; total 52.83 W; 2.31 A at 12 V; 0.90 A out
+  CHECK [rev 3] 5 strings in W: 27.7412 vs packet 27.74 -> OK
+  CHECK [rev 3] 5 strings total W: 52.8294 vs packet 52.83 -> OK
+  CHECK [rev 3] 5 strings switch A: 2.3118 vs packet 2.31 -> OK
+  CHECK [rev 3] 4 strings out W: 18.8640 vs packet 18.86 -> OK
+  CHECK [rev 3] 3 strings out A: 0.5400 vs packet 0.54 -> OK
+  CHECK [rev 3] 4 strings out A: 0.7200 vs packet 0.72 -> OK
+  CHECK [rev 3] coarse wedge top s (15 x 2^(11/2)): 678.82 vs packet 679 -> OK
+  CHECK [rev 3] p.81 out W: 23.3870 vs packet 23.39 -> OK
+  CHECK [rev 3] §10 3-string A: 3.4777 vs packet 3.48 -> OK
+  CHECK [rev 3] §10 3-string % of 60 W: 69.55 vs packet 70 -> OK
+  CHECK [rev 3] §10 margin W: 6.2671 vs packet 6.27 -> OK
+  CHECK [rev 3] IBT input W (p.81): 27.4950 vs packet 27.50 -> OK
+  CHECK [rev 3] IBT-era total W: 52.5832 vs packet 52.58 -> OK
+  CHECK [atlas] old §10 3528 total less switch W: 41.2529 vs packet 41.25 -> OK
+E5. Thermal and switch
+  21 x (3.3 x 0.18 - 0.21) = 8.06 W, Rth <= (85 - 35 - 0.384 x 17.4) / 8.06 = 5.37 C/W; 28: 10.75 W, 4.03 C/W
+  CHECK [rev 3] heat 21 W: 8.0640 vs packet 8.06 -> OK
+  CHECK [rev 3] Rth 21: 5.3718 vs packet 5.37 -> OK
+  CHECK [rev 3] heat 28 W: 10.7520 vs packet 10.75 -> OK
+  CHECK [rev 3] Rth 28: 4.0289 vs packet 4.03 -> OK
+  CHECK [rev 3] REQ-030 junction check C: 81.682 vs packet 81.7 -> OK
+  CHECK [rev 3] gate loss at 1.39 A: 0.08501 vs packet 0.085 -> OK
+  CHECK [rev 3] gate loss doubled at 1.39 A: 0.1700 vs packet 0.17 -> OK
+  CHECK [rev 3] gate loss at 1.85 A: 0.1506 vs packet 0.15 -> OK
+  CHECK [rev 3] gate loss doubled at 1.85 A: 0.3012 vs packet 0.30 -> OK
+  CHECK [rev 3] 0.48 W switch line: 0.4819 vs packet 0.48 -> OK
+  CHECK [rev 3] BD139 W at 26.2 V, min bin, typ VBE: 0.6744 vs packet 0.67 -> OK
+  IBT record: 25.7 x 0.91 / 4 = 5.85 W/module; junction rise 0.6 x 5.85 = 3.5 C; (85 - 35 - 3.5 - 2) / 5.85 = 7.61 C/W, four on one sink 1.90
+  CHECK [rev 3] IBT W/module: 5.8468 vs packet 5.85 -> OK
+  CHECK [rev 3] IBT Rth one: 7.6111 vs packet 7.61 -> OK
+  CHECK [rev 3] IBT Rth four: 1.9028 vs packet 1.90 -> OK
+E6. Reflector (ideal CPC, exit in the focal plane), f = 10 in. Rev 3 feeds r_in as printed (11.19, 13.9 mm); so does this check
+  CHECK [rev 3] corner angle deg: 15.2801 vs packet 15.28 -> OK
+  CHECK [rev 3] r_out limit 21 mm: 42.461 vs packet 42.5 -> OK
+  CHECK [rev 3] r_out limit 28 mm: 52.744 vs packet 52.7 -> OK
+  unrounded r_in 11.185 and 13.903 mm: limits 42.44 and 52.76 mm; gains at 20/25/33.5 mm 3.20/5.00/8.97: third-digit changes only
+  r_in 11.19, r_out 20.0 mm (0.79 in): theta_out 34.02 deg; gain (20.0/11.19)^2 = 3.19; mean 2.07 x 3.19 = 6.6; angle 4.50 deg, smear 1.50 mil; length 46.2 mm (1.82 in)
+  CHECK [rev 3] reflector gain 11.19/20.0: 3.1945 vs packet 3.19 -> OK
+  CHECK [rev 3] reflector mean 11.19/20.0: 6.613 vs packet 6.6 -> OK
+  CHECK [rev 3] reflector angle 20.0: 4.5022 vs packet 4.50 -> OK
+  CHECK [rev 3] reflector smear 20.0: 1.4958 vs packet 1.50 -> OK
+  CHECK [rev 3] CPC length 11.19/20.0: 46.204 vs packet 46.2 -> OK
+  r_in 11.19, r_out 25.0 mm (0.98 in): theta_out 26.59 deg; gain (25.0/11.19)^2 = 4.99; mean 2.07 x 4.99 = 10.3; angle 5.62 deg, smear 1.87 mil; length 72.3 mm (2.85 in)
+  CHECK [rev 3] reflector gain 11.19/25.0: 4.9914 vs packet 4.99 -> OK
+  CHECK [rev 3] reflector mean 11.19/25.0: 10.332 vs packet 10.3 -> OK
+  CHECK [rev 3] reflector angle 25.0: 5.6212 vs packet 5.62 -> OK
+  CHECK [rev 3] reflector smear 25.0: 1.8679 vs packet 1.87 -> OK
+  CHECK [rev 3] CPC length 11.19/25.0: 72.302 vs packet 72.3 -> OK
+  r_in 11.19, r_out 33.5 mm (1.32 in): theta_out 19.51 deg; gain (33.5/11.19)^2 = 8.96; mean 2.07 x 8.96 = 18.6; angle 7.51 deg, smear 2.50 mil; length 126.1 mm (4.96 in)
+  CHECK [rev 3] reflector gain 11.19/33.5: 8.9625 vs packet 8.96 -> OK
+  CHECK [rev 3] reflector mean 11.19/33.5: 18.552 vs packet 18.6 -> OK
+  CHECK [rev 3] reflector angle 33.5: 7.5134 vs packet 7.51 -> OK
+  CHECK [rev 3] reflector smear 33.5: 2.4977 vs packet 2.50 -> OK
+  CHECK [rev 3] CPC length 11.19/33.5: 126.106 vs packet 126.1 -> OK
+  r_in 13.90, r_out 25.0 mm (0.98 in): theta_out 33.78 deg; gain (25.0/13.90)^2 = 3.23; mean 2.76 x 3.23 = 8.9; angle 5.62 deg, smear 1.87 mil; length 58.2 mm (2.29 in)
+  CHECK [rev 3] reflector gain 13.90/25.0: 3.2348 vs packet 3.23 -> OK
+  CHECK [rev 3] reflector mean 13.90/25.0: 8.928 vs packet 8.9 -> OK
+  CHECK [rev 3] reflector angle 25.0: 5.6212 vs packet 5.62 -> OK
+  CHECK [rev 3] reflector smear 25.0: 1.8679 vs packet 1.87 -> OK
+  CHECK [rev 3] CPC length 13.90/25.0: 58.153 vs packet 58.2 -> OK
+E7. Lens matrix (D-12 C)
+  cell 120.96/7 = 17.28 x 68.04/4 = 17.01 mm; f >= 7.57 r_e = 16.98 mm; D = f = 17: 7.51 deg, 2.50 mil; capture sin^2(26.57) = 0.200; mean 5.88 x 0.200 x 1000 / 82.30 = 14.29
+  CHECK [rev 3] C cell long mm: 17.2800 vs packet 17.28 -> OK
+  CHECK [rev 3] C cell short mm: 17.0100 vs packet 17.01 -> OK
+  CHECK [rev 3] C f/r_e: 7.5750 vs packet 7.57 -> OK
+  CHECK [rev 3] C f min mm: 16.9762 vs packet 16.98 -> OK
+  CHECK [rev 3] C lens angle deg: 7.5099 vs packet 7.51 -> OK
+  CHECK [rev 3] C lens smear mil: 2.4965 vs packet 2.50 -> OK
+  CHECK [rev 3] C capture: 0.20000 vs packet 0.200 -> OK
+  CHECK [rev 3] C on image W: 1.17600 vs packet 1.176 -> OK
+  CHECK [rev 3] C mean mW/cm2: 14.2890 vs packet 14.29 -> OK
+  CHECK [rev 3] C vs A 28: 5.177 vs packet 5.2 -> OK
+  CHECK [rev 3] C aperture edge cos^4: 0.6400 vs packet 0.64 -> OK
+  CHECK [rev 3] C cell half-diagonal mm: 12.1237 vs packet 12.12 -> OK
+  CHECK [rev 3] C cell corner cos^4: 0.4394 vs packet 0.44 -> OK
+  CHECK [rev 3] C gap 7.52 mm: 65.448 vs packet 65.4 -> OK
+  CHECK [rev 3] C gap 7.52 in: 2.5767 vs packet 2.58 -> OK
+  CHECK [rev 3] C gap 4.0 mm: 123.558 vs packet 123.6 -> OK
+  CHECK [rev 3] C gap 4.0 in: 4.8645 vs packet 4.86 -> OK
+  CHECK [rev 3] C 0.2 mm tilt deg: 0.6740 vs packet 0.67 -> OK
+  CHECK [rev 3] C 0.2 mm shift mil: 0.2239 vs packet 0.22 -> OK
+  CHECK [rev 3] C 0.2 mm front-to-back mil: 0.4477 vs packet 0.45 -> OK
+  new: the 80 % of each LED's flux outside its own lens enters neighbours 17.28 mm off their axis and leaves at about atan(17.28/17) = 45.5 deg, far past 7.52: C needs an absorbing baffle grid between LEDs and lenses
+E8. Diffuse arrays (D-12 B), imager-04 §5 model: ray offsets at the mask, weighted by flat-target irradiance
+  V1, z 0.59 in, t 0.725: centre 10-90 % long 30.5, short 26.2; corner long 12.1; corner shift 14.3 long, 15.3 short, 21.0 radial (mil)
+  CHECK [rev 3/§5] V1, z 0.59 in, t 0.725 centre long: 30.514 vs packet 30.5 -> OK
+  CHECK [rev 3/§5] V1, z 0.59 in, t 0.725 centre short: 26.193 vs packet 26.2 -> OK
+  CHECK [rev 3/§5] V1, z 0.59 in, t 0.725 corner long: 12.061 vs packet 12.1 -> OK
+  CHECK [rev 3/§5] V1, z 0.59 in, t 0.725 shift long: 14.339 vs packet 14.3 -> OK
+  CHECK [rev 3/§5] V1, z 0.59 in, t 0.725 shift short: 15.299 vs packet 15.3 -> OK
+  CHECK [rev 3/§5] V1, z 0.59 in, t 0.725 shift radial: 20.969 vs packet 21.0 -> OK
+  25 x 38, z 1.26 in, t 0.725: centre 10-90 % long 25.7, short 31.0; corner long 24.4; corner shift 2.8 long, 2.4 short, 3.7 radial (mil)
+  CHECK [rev 3/§5] 25 x 38, z 1.26 in, t 0.725 centre long: 25.694 vs packet 25.7 -> OK
+  CHECK [rev 3/§5] 25 x 38, z 1.26 in, t 0.725 centre short: 31.021 vs packet 31.0 -> OK
+  CHECK [rev 3/§5] 25 x 38, z 1.26 in, t 0.725 corner long: 24.370 vs packet 24.4 -> OK
+  CHECK [rev 3/§5] 25 x 38, z 1.26 in, t 0.725 shift long: 2.814 vs packet 2.8 -> OK
+  CHECK [rev 3/§5] 25 x 38, z 1.26 in, t 0.725 shift short: 2.409 vs packet 2.4 -> OK
+  CHECK [rev 3/§5] 25 x 38, z 1.26 in, t 0.725 shift radial: 3.704 vs packet 3.7 -> OK
+  V1, t 0.25: centre 10-90 % long 10.5, short 9.0; corner long 4.2; corner shift 4.9 long, 5.3 short, 7.2 radial (mil)
+  CHECK [rev 3/§5] V1, t 0.25 centre long: 10.522 vs packet 10.5 -> OK
+  CHECK [rev 3/§5] V1, t 0.25 centre short: 9.032 vs packet 9.0 -> OK
+  CHECK [rev 3/§5] V1, t 0.25 corner long: 4.159 vs packet 4.2 -> OK
+  CHECK [rev 3/§5] V1, t 0.25 shift long: 4.945 vs packet 4.9 -> OK
+  CHECK [rev 3/§5] V1, t 0.25 shift short: 5.276 vs packet 5.3 -> OK
+  CHECK [rev 3/§5] V1, t 0.25 shift radial: 7.231 vs packet 7.2 -> OK
+  25 x 38, t 0.25: centre 10-90 % long 8.9, short 10.7; corner long 8.4; corner shift 1.0 long, 0.8 short, 1.3 radial (mil)
+  CHECK [rev 3/§5] 25 x 38, t 0.25 centre long: 8.860 vs packet 8.9 -> OK
+  CHECK [rev 3/§5] 25 x 38, t 0.25 centre short: 10.697 vs packet 10.7 -> OK
+  CHECK [rev 3/§5] 25 x 38, t 0.25 corner long: 8.403 vs packet 8.4 -> OK
+  CHECK [rev 3/§5] 25 x 38, t 0.25 shift long: 0.970 vs packet 1.0 -> OK
+  CHECK [rev 3/§5] 25 x 38, t 0.25 shift short: 0.831 vs packet 0.8 -> OK
+  CHECK [rev 3/§5] 25 x 38, t 0.25 shift radial: 1.277 vs packet 1.3 -> OK
+  Note: the 10-90 % spreads use the step percentile; a mid-point convention moves them by up to 4 mil. B fails by 10x either way.
+
+====================================================================================================
+F. L1.1 new numbers
+====================================================================================================
+F1. UV allocation, ratings basis (§10 lines as printed: Pi and driver at supply ratings, switch at its 2.34 A loss)
+  3 strings, sinks min 156.2 mA: 0.468 A out x 26.2 = 12.27 W; / 0.85 = 14.44 W in; 1.20 A at 12 V, 1.23 A at 11.75 V; total 39.53 W
+  3 strings, sinks typ 176.7 mA: 0.530 A out x 26.2 = 13.89 W; / 0.85 = 16.34 W in; 1.36 A at 12 V, 1.39 A at 11.75 V; total 41.42 W
+  3 strings, sinks max 186.9 mA: 0.561 A out x 26.2 = 14.69 W; / 0.85 = 17.28 W in; 1.44 A at 12 V, 1.47 A at 11.75 V; total 42.37 W
+  allocation 17.28 W of the 22.91 W available; spare 5.63 W; total 42.37 W = 3.53 A, 71 % of 60 W
+  4 strings at 186.9 mA: 23.05 W in, total 48.13 W, +0.13 W vs 48 W. With L3's switch line reset to 1.92 A (doubled RDS 0.325 W, not 0.48): 47.98 W
+  switch loss at 1.44 A: 1.44^2 x 0.044 = 0.091 W, doubled 0.183 W (L3's §10 line is 0.48)
+  CC backstop, if the boost has CC: above 3 x 0.187 = 0.561 A max; set 0.60 A (EST)
+F2. String headroom at 26.2 V, DS Vf bins at 180 mA (Vf at 187 mA not readable from the DS)
+  Z2 min: 7 x 3.1 = 21.7 V; VCE = 26.2 - 21.7 - 0.689 = 3.81 V
+  typ: 7 x 3.3 = 23.1 V; VCE = 26.2 - 23.1 - 0.689 = 2.41 V
+  Z5 max: 7 x 3.5 = 24.5 V; VCE = 26.2 - 24.5 - 0.689 = 1.01 V
+  worst, Z5 with VBE 0.729: 26.2 - 24.5 - 0.729 = 0.971 V; 1.0 V needs 26.23 V, so 26.3 V if the stock is Z5
+  BD139 dissipation: typ 0.426 W; Z2, typ VBE 0.673 W; worst (Z2, VBE 0.729) 0.705 W
+  waste in the 3 sinks plus sense at typ: 3 x (26.2 - 23.1) x 0.177 = 1.64 W
+F3. Sink drift (REQ-015, +-3 % over 15 min)
+  I = VBE/R, VBE about -2 mV/C (silicon, EST): -0.29 %/C; 10 C on the BC547 = -2.9 %
+F4. Heatsink target
+  21 LEDs: typ 8.06 W, worst 21 x (3.5 x 0.187 - 0.19) = 9.75 W; board <= 75 C at 35 C: Rth(s-a) <= 40 / Q = 4.96 typ, 4.10 worst C/W
+  28 LEDs: typ 10.75 W, worst 28 x (3.5 x 0.187 - 0.19) = 13.00 W; board <= 75 C at 35 C: Rth(s-a) <= 40 / Q = 3.72 typ, 3.08 worst C/W
+  Tj at a 75 C board, worst: 75 + 0.4642 x 17.4 = 83.1 C (REQ-030 85, DS 95); at REQ-033's 80 C cutoff: 88.1 C
+  rev 3's 5.37 C/W puts the board at 35 + 5.37 x 8.06 = 78.3 C, over its own 75 C REQ-030 line
+F5. Fresnel spec
+  clear area: diagonal 5.464 + 2 x (0.5 tan 2.52 + 0.05 placement) = 5.608 in (142.4 mm) circle; rectangle 4.91 x 2.82 in
+  groove wash-out: lens 5 mm under the LCD blurs ring shadows over 2 x 5 x tan 2.52 = 0.44 mm
+  groove wash-out: lens 10 mm under the LCD blurs ring shadows over 2 x 10 x tan 2.52 = 0.88 mm
+  rev 2's '6 in circle or 5.5 x 3.5 in' clears it: 0.39 in spare on the circle, 0.59 x 0.68 in on the rectangle
+  f trade, 21 LEDs (before Fresnel and LCD losses):
+    f  9.05 in (229.9 mm): ratio 0.840, mean 2.51, dimmest 2.23 mW/cm2, smear 0.93 mil
+    f 10.00 in (254.0 mm): ratio 0.866, mean 2.07, dimmest 1.88 mW/cm2, smear 0.84 mil
+    f 11.00 in (279.4 mm): ratio 0.887, mean 1.73, dimmest 1.60 mW/cm2, smear 0.76 mil
+    f 12.00 in (304.8 mm): ratio 0.904, mean 1.46, dimmest 1.37 mW/cm2, smear 0.70 mil
+  405 nm focus, EST: 0.9742 to 0.9755 x f(550); at 10.0 in visible: 9.74-9.76 in, shift 0.245-0.258 in (6.2-6.6 mm)
+F6. LED-height tolerance, f = 10 in: a defocus d tilts the edge rays by r d / f^2, a pure scale change
+  corner: 69.39 / 254^2 = 0.0616 deg per mm; angle budget left 7.52 - 2.52 = 5.00 deg = 81 mm of defocus
+  +-0.25 in (6.35 mm): 0.391 deg; worst corner angle 2.91 deg, smear 0.97 mil; corner shift 0.130 mil (scale only)
+  front-to-back if the flip axis sits 0.2 in off the optical axis: 2 x 4.76e-05 x 5.08 mm = 0.019 mil
+F7. L1.5 method M1, two-hole check (EST)
+  holes at +-2.00 in, target 24.0 in: beamlet separation changes 2 x 610 x 50.8 / 254^2 = 0.961 mm per mm of LED height
+  blur, one LED (package bound 2.24 mm): +-5.4 mm; whole cluster: +-26.9 mm
+  one LED at 50 mA: 58 mW (EST, linear in current); a 0.40 in hole at 10 in takes sin^2(atan(5.08/254)) = 4.00e-04: 23 uW per beamlet
+F8. L1.5 method M2, transmission (EST)
+  one CUN at 180 mA, detector 1.0 in away: I0 = 0.21/pi = 0.0668 W/sr; E = 10.36 mW/cm2
+  one CUN at 180 mA, detector 2.0 in away: I0 = 0.21/pi = 0.0668 W/sr; E = 2.59 mW/cm2
+  film variant: half a sqrt2 step = 2^(1/4) = +18.9 %; half a fine step = 2^(1/8) = +9.1 %
+F9. Stack thickness t: what holds as L2.1 measures it
+  t, in (mm)       alpha_max        A, 21 at f 10     A+R, 25 mm exit  C, package-bound lens  rev 2 6x6 diagonal   reflector exit cap, gain
+  0.0098 (0.250)    21.67                 0.29                0.64                0.86                0.52      42.4 mm, 14.40x
+  0.0197 (0.500)    10.89                 0.58                1.29                1.72                1.04      42.4 mm, 14.40x
+  0.0285 (0.725)     7.52                 0.84                1.87                2.50                1.51      33.5 mm,  8.99x
+  0.0394 (1.000)     5.45                 1.16                2.58                3.44                2.08      24.3 mm,  4.70x
+  0.0571 (1.450)     3.76                 1.68                3.74                4.99                3.02      16.7 mm,  2.23x
+  A, 21 at f 10 (2.52 deg): holds 2.5 mil up to t = 2.164 mm (0.0852 in)
+  A+R, 25 mm exit (5.62 deg): holds 2.5 mil up to t = 0.970 mm (0.0382 in)
+  C, package-bound lens (7.51 deg): holds 2.5 mil up to t = 0.726 mm (0.0286 in)
+  rev 2 6x6 diagonal (4.55 deg): holds 2.5 mil up to t = 1.200 mm (0.0472 in)
+  the reflector exit reaches the 42.5 mm corner cap (alpha_max 9.50 deg) at t <= 0.574 mm (0.0226 in)
+F10. Irradiance per W for L6 (EST, f 10 in, before Fresnel and LCD losses)
+  mean 0.470, dimmest 0.427 mW/cm2 per W of LED flux; x 4.41 W = 2.07 and 1.88; after an 85 % Fresnel 1.76 and 1.60
+F11. Flux bins (DS), against the 0.210 W typ
+  G5: 0.19-0.21 W, mid 0.95x
+  H1: 0.21-0.24 W, mid 1.07x
+  H2: 0.24-0.27 W, mid 1.21x
+  H3: 0.27-0.3 W, mid 1.36x
+  H4: 0.3-0.33 W, mid 1.50x
+  H5: 0.33-0.36 W, mid 1.64x
+
+====================================================================================================
+G. Check summary
+====================================================================================================
+  HQ: 1 of 1 match
+  atlas: 1 of 1 match
+  lead: 1 of 1 match
+  rev 2: 20 of 20 match
+  rev 2 via HQ: 1 of 1 match
+  rev 3: 132 of 132 match
+  rev 3/§5: 24 of 24 match
+  total: 180 of 180 match
