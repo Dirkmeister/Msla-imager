@@ -164,7 +164,7 @@ A_HALF = 2.8 * MM / 2             # mm, clear-area half-width along the fold
 B_HALF = 4.9 * MM / 2             # mm, clear-area half-length across the fold
 CLR = 0.2 * MM                    # mm, mirror top edge to Fresnel underside (EST: frame lip)
 # EST stack items, the same for every configuration below (in):
-BASE, HOLDER, T_FRES, T_LCD, T_COVER = 0.12, 0.12, 0.08, 0.12, 0.12
+BASE, HOLDER, T_FRES, T_LCD, T_COVER = 0.12, 0.12, 0.08, 0.12, 0.12   # T_COVER: LCD frame/top plate
 SINK, WALL, LIP = 1.25, 0.12, 0.20     # LED board + heatsink behind the LED face; wall; Fresnel frame lip
 WIDTH = 6.0 + 2 * WALL                 # in: the 6 in side of the 4.5 x 6 in panel (D-09) across the box
 TOP = (T_FRES + GAP / MM + T_LCD + T_COVER)   # in, Fresnel underside to the top of the cover
@@ -230,3 +230,32 @@ print(f"C (3 x 7, 20 mm TIR, 15 deg): {BASE} + {PLATE} + {BOARD:.2f} + {OPTIC} +
 gap6c = 65.4 / MM
 c6_h = BASE + PLATE + BOARD + 17 / MM + 0.2 + gap6c + T_LCD + T_COVER   # calc 6c: f 17 mm, lens 0.2 in (EST)
 print(f"C (calc 6c, 4 x 7, 17 mm singlets, 7.52 deg): ... + 17 mm + 0.2 + {gap6c:.2f} + ... = {c6_h:.2f} tall")
+
+print("\n== Fold mirror candidates: Amazon first-surface glass (DIY-projector type), sizes from the listings")
+# Need (bare cluster / reflector): along the 45 deg face and across. The top edge sits at u_top;
+# any extra length hangs below the beam and lowers the floor (box gets taller) unless cut.
+q, l_h, l_v, u_top, u_bot = fold(R_SRC)
+need_face, need_across = (u_top - u_bot) * math.sqrt(2), 2 * y_env(R_SRC, l_h + u_top)
+qr, l_hr, l_vr, u_topr, u_botr = fold(25.0)
+need_face_r, need_across_r = (u_topr - u_botr) * math.sqrt(2), 2 * y_env(25.0, l_hr + u_topr)
+print(f"need {need_face:.1f} along x {need_across:.1f} across mm (bare); {need_face_r:.1f} x {need_across_r:.1f} (25 mm reflector)")
+for name, face, across in (("HHDLMTOYS B0F8HZ5NGR / AMNOUR B0CZNLWWZW, 156 x 102 x 2 mm", 102, 156),
+                           ("HHDLMTOYS B0F8H75D4L, 160 x 115 x 3 mm option", 115, 160),
+                           ("HHDLMTOYS B0F8H75D4L, 122 x 106 x 3 mm option", 106, 122),
+                           ("RUEHALF B0GW4WT69F, 100 x 100 x 3 mm", 100, 100),
+                           ("AMNOUR B0CZNLWWZW, 128 x 80 x 2 mm option", 80, 128)):
+    best = None
+    for f_, a_ in ((face, across), (across, face)):          # try both orientations
+        if f_ >= need_face and a_ >= need_across:
+            if best is None or f_ < best[0]:
+                best = (f_, a_)
+    if best is None:
+        print(f"{name}: SHORT (no orientation covers {need_face:.1f} x {need_across:.1f})")
+        continue
+    f_, a_ = best
+    drop = f_ / math.sqrt(2) - (u_top - u_bot)               # mm of extra glass below the beam, vertical
+    h_uncut = BASE + HOLDER + (f_ / math.sqrt(2) - u_top + l_v) / MM + TOP
+    ok_r = f_ >= need_face_r and a_ >= need_across_r
+    print(f"{name}: fits with {f_} mm along the face; uncut it hangs {drop:.1f} mm lower -> height "
+          f"{BASE} + {HOLDER} + ({f_}/sqrt2 - {u_top:.2f} + {l_v:.2f})/25.4 + {TOP:.2f} = {h_uncut:.2f} in; "
+          f"reflector variant {'fits' if ok_r else 'SHORT'}")
