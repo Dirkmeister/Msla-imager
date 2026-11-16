@@ -3,7 +3,7 @@ L2 LCD mask
 
 Package L2.1 (imager-09): T-LCD-1, T-LCD-4, panel outline, driver ID. Bench work by Dallas; photo readings by the L2.1 thread.
 
-Status: photo batch 1 in (2026-11-15). Measurements pending.
+Status: closed 2026-11-15. Photos batch 1; outline, stripes and connector from the Sharp datasheet; stack t is an estimate (no bench thickness readings).
 
 Marks: [?] unsure reading. (inference) not measured or not printed on the part. EST estimate.
 
@@ -54,21 +54,23 @@ The listing's two pin counts fit this chain (inference): 60 pins on the driver b
 
 Converter board, ribbon side: no ICs.
 
-### Backlight (inference, to confirm at the bench)
+### Backlight
 
-A white backlight looks fitted: the silver back (P03), the white band in the edge (P04), and a 3-conductor flex from the module soldered to the "LE" tab on the panel FPC (Z08), which reads as the backlight's LED flex. If that is confirmed, it counts as bonded under the L2 lead's rule and stays on in L2.1.
+Fitted: the silver back (P03), the white band in the edge (P04), and a 3-conductor flex from the module soldered to the "LE" tab on the panel FPC (Z08). The datasheet backs this: the module includes the white-LED backlight, the LCD panel is held to it by double-sided tape (p.5), and Fig. 13 puts a soldering area on the FPC at the FPC-end corner, where the LE tab sits. Soldered counts as bonded under the L2 lead's rule, so it stayed on in L2.1. It has to come off before the imager uses the panel (imager-03).
 
 ### Panel type
 
-The MDF board label says "2K Monochrome LCD" (P01, Dallas's marker). The listing gives 1440 (RGB) x 2560, and the vendor spec gives R, G, B vertical stripes (imager-03 D-13). The stripe check (T-LCD-1) decides.
+R, G, B vertical stripes (datasheet Table 1, p.5); the Fig. 13 pixel callout reads R G B R from the left, front view with the FPC end toward the viewer. The MDF board's marker label "2K Monochrome LCD" (P01) is wrong for this panel. Not checked under magnification: no loupe or USB microscope on hand.
 
 ### Front face
 
-Fine scratches across much of the front (P02). The blue tabs at both FPC-end corners (P08) may belong to a film over the polarizer [?]. Nothing peeled.
+Fine scratches across much of the front (P02). Blue tabs at both FPC-end corners (P08). The datasheet ships the panel with a protective film and draws its pull tab at the FPC-end corner (Fig. 13), so the blue tab is most likely that film's tab and the scratches may be in the film (inference). Nothing peeled.
 
 ## Panels on hand
 
-Two (Dallas, 2026-11-15). Panel 1: on the MDF board with the converter and driver boards, backlight fitted (inference above). Panel 2: "the same, but from the printer, and has everything removed" (Dallas). Panel 2 takes the cell readings A, B, C (no backlight under the glass); panel 1 takes the module reading M and the stripe check. Label and outline comparison pending.
+Two (Dallas, 2026-11-15). Panel 1: on the MDF board with the converter and driver boards, backlight fitted. Panel 2: "the same, but from the printer, and has everything removed"; the printer was taken apart to learn its construction.
+
+Decided (Dallas, 2026-11-15): panel 1 is the imager's mask, and its datasheet is the reference. Nothing from the printer is reused.
 
 ## Vendor pages
 
@@ -124,4 +126,33 @@ What the datasheet settles, pending the bench checks below: stripes (R, G, B ver
 
 ## Measurements
 
-Pending.
+None. Dallas can't measure the glass and polarizer layers accurately at his bench (2026-11-15), so T-LCD-4's caliper method was not run, and the outline comes from the datasheet. All numbers below are from `calcs/l2_stack_t.py` (run: `python3 calcs/l2_stack_t.py`).
+
+### Stack t (EST, not measured)
+
+t = top glass + top polarizer + any film left on + the dry film's cover sheet.
+- Top glass 0.15 mm: same-size Sharp 1440 x 2560 cell, 0.15 + 0.15 mm glass and 0.30 mm without polarizers (imager-04 §1, vendor).
+- Top polarizer 0.125 mm = (0.55 - 0.30)/2: a Sharp 5.5 in cell with polarizers has an outline depth of 0.55 mm typ (LS055T3SX03, lcds-screen.com; same active area, different model). Polarizers assumed equal.
+- Factory protective film: excluded, it comes off before use. Added protector: none.
+- Cover sheet: TBD (the Amazon film has no datasheet; not measured).
+- t = 0.15 + 0.125 = 0.275 mm (0.0108 in), plus the cover sheet.
+
+alpha_max = asin(1.5 sin(atan(2.5 mil / t))), 2.5 mil = 0.0635 mm:
+
+| t | atan(0.0635/t) | alpha_max |
+|---|---|---|
+| 0.0108 in (0.275 mm), no cover sheet | 13.00° | 19.7° |
+| + 0.0005 in cover sheet: 0.0113 in (0.288 mm) | 12.45° | 18.9° |
+| + 0.001 in cover sheet: 0.0118 in (0.300 mm) | 11.94° | 18.1° |
+| + 0.002 in cover sheet: 0.0128 in (0.326 mm) | 11.03° | 16.7° |
+| Old EST 0.0285 in (0.725 mm), half the listing's 1.45 mm module | 5.01° | 7.5° |
+| Half the datasheet's 1.35 mm module, 0.0266 in (0.675 mm) | 5.37° | 8.1° |
+
+The old basis took half of the whole module, which includes the backlight (about 1.35 - 0.55 = 0.80 mm of it on this estimate), so it overstates t.
+
+### Open, for L2.2's bench session
+
+- Back label: the serial should start "04" (datasheet p.30); P03 reads "04DS40?9" [?].
+- Driver board chip markings: the center QFN, the TSSOP-20 and the small QFN by the "4R7" inductor were not legible in P13. The converter board's back is not photographed.
+- The 12 to 5 V buck's rating.
+- Old Pi Zero card (Dallas: a Pi Zero, "w 2 or something", drove the panel before): if it turns up, its config.txt.
