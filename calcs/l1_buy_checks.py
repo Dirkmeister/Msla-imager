@@ -278,3 +278,23 @@ for name, pitch, full, opt_h in (("C21, 20 mm TIR 15 deg", ROW, 15.0, OPTIC),
           f"{opt_h:.2f} + {gap/MM:.2f} + {T_LCD} + {T_COVER} = {st:.2f} in")
 for n in (21, 28):
     print(f"{n} LEDs electrical at typ: {n} x 3.3 V x 0.18 A = {n*3.3*0.18:.2f} W")
+
+print("\n== Fusion Optix 20XPS 25 deg out of stock (Dallas, 2026-11-16): is the in-family 30 deg a substitute?")
+for full in (25.0, 30.0):
+    half = full / 2
+    gap = ROW / (2 * math.tan(math.radians(half)))
+    print(f"{full:.0f} deg FWHM: smear {smear_mil(half, T_BASIS):.2f} mil at 0.725 mm, {smear_mil(half, T_EST):.2f} at 0.326 mm "
+          f"(margin {1 - smear_mil(half, T_EST)/2.5:.0%} of 2.5); gap {gap/MM:.2f} in")
+# a 3528 under an optic rated on XP LEDs may come out wider (EST); what widening eats the 30 deg margin at t 0.326 mm?
+lo, hi = 15.0, 25.0
+for _ in range(60):
+    mid = (lo + hi) / 2
+    lo, hi = (mid, hi) if smear_mil(mid, T_EST) < 2.5 else (lo, mid)
+print(f"2.5 mil at t 0.326 mm is reached at a half-angle of {lo:.2f} deg ({2*lo:.1f} deg full): "
+      f"30 deg has {2*lo - 30:.1f} deg of room for widening, 25 deg has {2*lo - 25:.1f} deg")
+
+print("\n== XL6009 load (no listing read: Amazon blocks agents)")
+r_load = v_out / i_out
+print(f"dummy load {v_out} V / {i_out:.4f} A = {r_load:.1f} ohm at {v_out*i_out:.2f} W; "
+      f"loss at 85 % (EST) = {p_in:.2f} - {p_out:.2f} = {p_in - p_out:.2f} W in the module")
+print(f"average input at 11.75 V: {p_in/11.75:.2f} A = {p_in/11.75/4:.0%} of a 4 A peak-input listing rating")
