@@ -1,0 +1,73 @@
+== 1. Smear: hard edge at the half-maximum angle (L1.3's reading) vs the beam's tails (Gaussian, EST)
+alpha_max = asin(1.5 sin(atan(2.5/t))): 7.52 deg at t 0.725 mm; 16.68 deg at t 0.326 mm (EST t)
+  check calc §5's list: 21.7 deg at t 0.25 mm
+  check calc §5's list: 10.9 deg at t 0.5 mm
+  check calc §5's list: 5.5 deg at t 1.0 mm
+calc §5 table, new column t 0.0128 in (0.326 mm, EST):
+  alpha  1 deg: 12.83 x tan(asin(sin 1/1.5)) = 0.15 mil
+  alpha  3 deg: 12.83 x tan(asin(sin 3/1.5)) = 0.45 mil
+  alpha 10 deg: 12.83 x tan(asin(sin 10/1.5)) = 1.49 mil
+  alpha 60 deg: 12.83 x tan(asin(sin 60/1.5)) = 9.07 mil
+Gaussian beam: sigma = FWHM/2.3548; per-axis edge sigma_x = t tan(asin(sin sigma/1.5)); 10-90 % half-width = 1.2816 sigma_x
+  FWHM 10 deg: hard edge at 5.0 deg 1.66 mil at 0.725 mm, 0.75 at 0.326 mm | tails (10-90 %) 1.81 mil at 0.725 mm, 0.81 at 0.326 mm
+  FWHM 15 deg: hard edge at 7.5 deg 2.49 mil at 0.725 mm, 1.12 at 0.326 mm | tails (10-90 %) 2.71 mil at 0.725 mm, 1.22 at 0.326 mm
+  FWHM 20 deg: hard edge at 10.0 deg 3.33 mil at 0.725 mm, 1.49 at 0.326 mm | tails (10-90 %) 3.62 mil at 0.725 mm, 1.63 at 0.326 mm
+  FWHM 25 deg: hard edge at 12.5 deg 4.16 mil at 0.725 mm, 1.87 at 0.326 mm | tails (10-90 %) 4.53 mil at 0.725 mm, 2.03 at 0.326 mm
+  FWHM 30 deg: hard edge at 15.0 deg 5.00 mil at 0.725 mm, 2.25 at 0.326 mm | tails (10-90 %) 5.44 mil at 0.725 mm, 2.44 at 0.326 mm
+15 deg FWHM: sigma 6.37 deg; 90 % of the flux inside 13.67 deg (2.146 sigma); that angle as a hard edge: 4.55 mil at 0.725 mm, 2.05 at 0.326 mm
+15 deg FWHM holds 2.5 mil up to t = 0.727 mm (0.0286 in) read as a hard edge, 0.668 mm (0.0263 in) with tails (EST)
+Largest Gaussian FWHM inside 2.5 mil (EST): 13.8 deg at t 0.725 mm, 30.7 deg at t 0.326 mm
+calc §6d at t 0.326 mm: cone bound sin^2 16.68 = 8.23%; square cell tan^2/pi = 2.86%
+
+== 2. C21 one-cell gap and stack (L1.3's EST items), with and without the heatsink
+FWHM 15 deg: gap 22.68/(2 tan 7.5) = 86.1 mm (3.39 in); stack 0.12 + 0.25 + 0.063 + 0.45 + 3.39 + 0.12 + 0.12 = 4.51 in on a plate; + 0.984 in ATS under the plate = 5.50 in
+FWHM 10 deg: gap 22.68/(2 tan 5.0) = 129.6 mm (5.10 in); stack 0.12 + 0.25 + 0.063 + 0.45 + 5.10 + 0.12 + 0.12 = 6.23 in on a plate; + 0.984 in ATS under the plate = 7.21 in
+
+== 3. Uniformity over the image, C21 (EST model, see header)
+gap 86.1 mm, no walls: footprint sigma sqrt((86.1 tan 6.37)^2 + 5^2) = 10.84 mm; min/max 0.409; interior 0.896; long-edge center 0.479; short-edge center 0.855; corner 0.409
+gap 86.1 mm, walls R 0.85: footprint sigma sqrt((86.1 tan 6.37)^2 + 5^2) = 10.84 mm; min/max 0.866; interior 0.943; long-edge center 0.885; short-edge center 0.978; corner 0.866
+gap 86.1 mm, walls R 0.92: footprint sigma sqrt((86.1 tan 6.37)^2 + 5^2) = 10.84 mm; min/max 0.906; interior 0.944; long-edge center 0.919; short-edge center 0.988; corner 0.908
+  ripple vs gap, walls R 0.85: gap 55 mm (2.17 in): min/max 0.537, interior 0.581
+  ripple vs gap, walls R 0.85: gap 65 mm (2.56 in): min/max 0.692, interior 0.749
+  ripple vs gap, walls R 0.85: gap 75 mm (2.95 in): min/max 0.803, interior 0.868
+  ripple vs gap, walls R 0.85: gap 100 mm (3.94 in): min/max 0.888, interior 0.975
+  ripple vs gap, walls R 0.85: gap 120 mm (4.72 in): min/max 0.893, interior 0.967
+String currents at the sinks' spread (calc §9: 156/177/187 mA), walls R 0.85, gap 86.1 mm:
+  one string per row, worst order: min/max 0.737
+  strings interleaved on the diagonals ((column + row) mod 3), worst order: min/max 0.766
+  trimmed to +-1% and interleaved, worst order: min/max 0.855
+  trimmed to +-2% and interleaved, worst order: min/max 0.843
+LED flux spread inside one bin (G5 0.19-0.21 W: uniform +-5 %), strings trimmed to +-1 %, walls R 0.85, 200 random draws (seed 1):
+  min/max: median 0.819, 5th percentile 0.803, worst 0.791
+
+== 4. C thermal (REQ-030: solder point <= 75 C at Ta 35 C, so 40 C of rise)
+heat per LED = Vf x I - Phi: 0.384 W typ, 0.4645 W worst; 21 LEDs 8.06 / 9.75 W
+  one ATS, 100 LFM: plate rise 9.75 x 2.700 = 26.3 C; each LED's solder point to plate <= (40 - 26.3)/0.4645 = 29.4 C/W
+  three ATS in parallel, 100 LFM: plate rise 9.75 x 0.900 = 8.8 C; each LED's solder point to plate <= (40 - 8.8)/0.4645 = 67.2 C/W
+  one ATS, 200 LFM: plate rise 9.75 x 1.400 = 13.7 C; each LED's solder point to plate <= (40 - 13.7)/0.4645 = 56.7 C/W
+  three ATS, 200 LFM: plate rise 9.75 x 0.467 = 4.6 C; each LED's solder point to plate <= (40 - 4.6)/0.4645 = 76.3 C/W
+Tj at the 75 C board limit: 75 + 0.4645 x 17.4 = 83.1 C (REQ-030 85, DS 95)
+REQ-033's 80 C trip, by NTC position (worst-case LED):
+  on the board at the center LED: Tj = 80 + 8.08 = 88.1 C
+  on the plate, solder point 29.4 C/W above it: solder point 80 + 0.4645 x 29.4 = 93.7 C, Tj 101.7 C
+  on the plate, solder point 67.2 C/W above it: solder point 80 + 0.4645 x 67.2 = 111.2 C, Tj 119.3 C
+NTC trip resistance at 80 C: 1599 ohm; a +10 % part trips at 83.4 C, a -10 % part at 76.3 C (B taken as exact, EST); Tj at the late trip 91.5 C
+
+== 5. Light and LCD heat (L1.3's C mean, EST capture 50-80 %, before walls and T_LCD)
+  capture 50%: 21 x 210 mW x 0.5 / 95.26 cm^2 = 23.1 mW/cm^2 = 13.2x A's 1.76; onto the LCD's 82.30 cm^2 image: 1.91 W, all heat if T_LCD -> 0
+  capture 80%: 21 x 210 mW x 0.8 / 95.26 cm^2 = 37.0 mW/cm^2 = 21.0x A's 1.76; onto the LCD's 82.30 cm^2 image: 3.05 W, all heat if T_LCD -> 0
+  A for comparison: 1.76 x 82.30 = 0.145 W
+
+== 6. Optic-test drive: 3 strings of 3 from the 12 V brick, one ballast resistor each (EST)
+R = (12.0 - 3 x 3.3)/0.180 = 11.67 ohm -> 12 ohm (E12)
+  at 12.0 V: I = 225 / 175 / 125 mA at Vf 3.1 / 3.3 / 3.5 V (DS max IF 250 mA); P_R typ 0.37 W, max 0.61 W
+  at 11.75 V: I = 204 / 154 / 104 mA at Vf 3.1 / 3.3 / 3.5 V (DS max IF 250 mA); P_R typ 0.29 W, max 0.50 W
+  with the calc §9 sinks from 12 V instead: VCE = 12 - 3 x 3.3 - 0.689 = 1.41 V typ, 12 - 3 x 3.5 - 0.729 = 0.77 V at the top bin
+  test-board heat: 9 x 0.4645 = 4.18 W worst at 187 mA
+
+== 7. XL6009 dummy load (L1.3: 46.7 ohm = 26.2 / 0.5608 A)
+two 24 ohm in series = 48 ohm: 0.5458 A, 14.30 W total, 7.15 W each; 97.3% of L1.3's 14.69 W
+
+== 8. Optic-test expectations (EST)
+On-axis gain of a 15 deg FWHM Gaussian beam over the bare LED (m = 1, I0 = Phi/pi): eta / (2 sigma^2) = eta / (2 x 0.1112^2) = 40.5 eta
+Far field: 12 in (305 mm) = 15.2 optic diameters
