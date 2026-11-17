@@ -1,0 +1,22 @@
+key,value,unit,how
+cap_out_rating_V,,V,voltage printed on the output electrolytic (the one on the OUT side)
+V_brick_noload_V,,V,brick alone; 20 V range
+V_out_noload_V,,V,trimmed to 26.2 with no load; 200 V range
+R_leads_ohm,,ohm,probes touched together; 200 ohm range
+R_load_cold_ohm,,ohm,both 24 ohm loads in series before the run; 200 ohm range
+V_out_1min_V,,V,48 ohm on; 200 V range at the OUT terminals
+V_in_2min_V,,V,20 V range at the module's IN terminals
+V_out_5min_V,,V,200 V range
+V_in_6min_V,,V,20 V range
+V_out_10min_V,,V,200 V range
+V_in_10min_V,,V,20 V range
+I_in_A,,A,after the 10 min: power off; meter in series with IN on the 10 A jack; power on; read within 30 s
+I_out_A,,A,optional: meter in series with OUT on the 10 A jack
+dropout_or_hiccup,,yes/no,did Vout ever drop or the output click off during the 10 min
+T_room_C,,C,IR thermometer at the bench surface away from the rig
+T_ic_C,,C,IR on the XL6009 chip (TO-263 body) at 10 min
+T_diode_C,,C,IR on the Schottky diode
+T_inductor_C,,C,IR on the inductor
+T_capout_C,,C,IR on the output capacitor
+T_load1_C,,C,IR on load 1 (shiny housing reads low: aim at a matte spot or a strip of masking tape)
+T_load2_C,,C,IR on load 2
