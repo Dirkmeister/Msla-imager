@@ -1,0 +1,168 @@
+** Drc report for /home/claude/msla-imager/light/l1_11/test_board/l1_11_test_board.kicad_pcb **
+** Created on 2026-11-17 15:30:26 **
+
+** Found 52 DRC violations **
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; Severity: warning
+    @(102.5000 mm, 101.6000 mm): Line on F.Silkscreen
+    @(103.1800 mm, 100.0000 mm): Reference 'TH1'
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(89.5000 mm, 168.1000 mm): Rect on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(89.5000 mm, 148.2500 mm): Rect on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(89.5000 mm, 158.1000 mm): Rect on F.Silkscreen
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(100.0000 mm, 100.0000 mm): Footprint D5
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(61.5000 mm, 100.0000 mm): Footprint TP2
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(73.5000 mm, 73.5000 mm): Footprint H1
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(100.0000 mm, 77.3200 mm): Footprint D2
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(126.5000 mm, 73.5000 mm): Footprint H2
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(65.5000 mm, 150.1500 mm): Footprint TP13
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(138.5000 mm, 122.6800 mm): Footprint TP6
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(80.0000 mm, 100.0000 mm): Footprint D4
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(126.0000 mm, 168.0000 mm): Footprint H9
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(95.0000 mm, 182.6000 mm): Footprint TP27
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(65.5000 mm, 160.0000 mm): Footprint TP14
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(60.5000 mm, 178.6000 mm): Footprint TP21
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(61.5000 mm, 77.3200 mm): Footprint TP1
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(138.0000 mm, 168.0000 mm): Footprint H10
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(80.0000 mm, 77.3200 mm): Footprint D1
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(132.0000 mm, 156.0000 mm): Footprint D10
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(138.0000 mm, 64.5000 mm): Footprint H6
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(83.5000 mm, 178.6000 mm): Footprint TP22
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(126.0000 mm, 176.5000 mm): Footprint TP31
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(112.5000 mm, 150.0000 mm): Footprint TP12
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(107.4000 mm, 97.3000 mm): Footprint TP7
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(120.0000 mm, 77.3200 mm): Footprint D3
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(73.5000 mm, 126.5000 mm): Footprint H3
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(62.0000 mm, 64.5000 mm): Footprint H5
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(100.0000 mm, 122.6800 mm): Footprint D8
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(120.0000 mm, 122.6800 mm): Footprint D9
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(72.5000 mm, 150.1500 mm): Footprint TP16
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(138.0000 mm, 135.5000 mm): Footprint H8
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(65.5000 mm, 170.0000 mm): Footprint TP15
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(72.5000 mm, 160.0000 mm): Footprint TP17
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(80.0000 mm, 122.6800 mm): Footprint D7
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(83.0000 mm, 182.6000 mm): Footprint TP26
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(138.5000 mm, 100.0000 mm): Footprint TP5
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(107.4000 mm, 102.7000 mm): Footprint TP8
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(105.0000 mm, 100.0000 mm): Footprint TH1
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(90.5000 mm, 178.6000 mm): Footprint TP23
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(72.5000 mm, 170.0000 mm): Footprint TP18
+[lib_footprint_issues]: The current configuration does not include the library 'LED_SMD'.
+    Local override; Severity: warning
+    @(120.0000 mm, 100.0000 mm): Footprint D6
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(61.0000 mm, 182.6000 mm): Footprint TP25
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(61.5000 mm, 122.6800 mm): Footprint TP3
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(126.5000 mm, 126.5000 mm): Footprint H4
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(109.0000 mm, 182.6000 mm): Footprint TP28
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(138.0000 mm, 176.5000 mm): Footprint TP32
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(60.5000 mm, 150.0000 mm): Footprint TP11
+[lib_footprint_issues]: The current configuration does not include the library 'MountingHole'.
+    Local override; Severity: warning
+    @(62.0000 mm, 135.5000 mm): Footprint H7
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(113.0000 mm, 178.6000 mm): Footprint TP24
+[lib_footprint_issues]: The current configuration does not include the library 'TestPoint'.
+    Local override; Severity: warning
+    @(138.5000 mm, 77.3200 mm): Footprint TP4
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; Severity: warning
+    @(57.0000 mm, 145.0000 mm): Rect on Edge.Cuts
+    @(96.0000 mm, 145.0500 mm): Reference 'R1'
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **
