@@ -9,8 +9,8 @@ Boards (all copper is large islands with 0.4 mm (15.7 mil) isolation cuts, strai
      3 strings = the 3 rows, anode on the left. Each row: VIN_Rr | LED c1 | Rr_N1 | LED c2 | Rr_N2 | LED c3 | Rr_OUT.
      The isolation cuts run through each LED's pad gap, so every LED's cathode pad (the large pad) sits in a
      20 x 22 mm island. NTC TH1 (1206) on two isolated islands 5 mm right of the center LED, beside its cathode pad.
-     M3 holes: 4 on the ATS's 53.00 x 53.00 mm square, centred on the center LED; 4 corner holes for the holder and
-     stand. Every hole has an isolated copper ring under the screw head. No ballasts on this board: their heat
+     M3 holes: 4 on the ATS's 53.00 x 53.00 mm square, centred on the center LED; 4 on a 71.0 mm square for the
+     holder and the rig frame, so the board mounts at 0 or 90 deg. Every hole has an isolated copper ring under the screw head. No ballasts on this board: their heat
      would bias L1.12's per-LED theta.
   B. Control board, 60 x 40 mm: brick +12 V to the three VIN wires; per string a link (solder or clip) where the
      meter reads the string current, then the ballast (12 ohm axial flat, or four 47 ohm 1206 in parallel) to GND;
@@ -158,8 +158,9 @@ place("TestPoint", "TestPoint_Pad_1.5x1.5mm", "TP8", "NTC_B wire", 107.4, 102.7,
 for i, (hx, hy) in enumerate([(CX - 26.5, CY - 26.5), (CX + 26.5, CY - 26.5), (CX - 26.5, CY + 26.5),
                               (CX + 26.5, CY + 26.5)]):
     hole(f"H{i+1}", hx, hy)                         # ATS 4-corner pattern, 53.00 mm square
-for i, (hx, hy) in enumerate([(62.0, 64.5), (138.0, 64.5), (62.0, 135.5), (138.0, 135.5)]):
-    hole(f"H{i+5}", hx, hy)                         # holder and stand
+for i, (hx, hy) in enumerate([(CX - 35.5, CY - 35.5), (CX + 35.5, CY - 35.5), (CX - 35.5, CY + 35.5),
+                              (CX + 35.5, CY + 35.5)]):
+    hole(f"H{i+5}", hx, hy)                         # holder and frame: 71.0 mm square, so the board mounts at 0 or 90 deg
 
 text("L1.11 C TEST 3x3  20.00 x 22.68  -DK", CX, 62.4, 1.0)
 text("NTC", 105.8, 94.6, 0.8)

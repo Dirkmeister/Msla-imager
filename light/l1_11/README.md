@@ -42,7 +42,7 @@ One KiCad 7 file, three boards on one 2-sided 1.6 mm (0.063 in) 1 oz FR4 blank. 
 - `gerber/`: F.Cu (isolate), Edge.Cuts (cut out), PTH drill (10 x 0.126 in (3.2 mm), all unplated on a milled board), F.SilkS and F.Fab for reference. B.Cu is empty on purpose: don't mill the bottom.
 - `drc_report.txt`: 0 clearance, short or unconnected errors. Left: library warnings (this sandbox has no global footprint table; they clear in your KiCad) and a few silkscreen warnings (no silk on a milled board).
 
-**A. Test board, 86 x 80 mm (3.39 x 3.15 in).** 9 CUN0LF1B at C21's pitch, 0.787 x 0.893 in (20.00 x 22.68 mm), footprint `LED_SMD:LED_PLCC_2835_Handsoldering` (KiCad 7's stock part matches the V1 board @ 8208f05 pad for pad: large pad 1 = K at -1.05 mm, pad 2 = A at +1.525 mm). The strings are the rows, anode on the left: `VIN_Rr | D | Rr_N1 | D | Rr_N2 | D | Rr_OUT`. Each cut runs through an LED's pad gap, so every inner cathode pad sits in a 0.77 x 0.88 in (19.6 x 22.3 mm) island (119.325 - 99.725 by 111.14 - 88.86 for the center LED): most of the copper stays (L1.12 reads FR4's per-LED θ from this board). NTC TH1 (1206) sits on two isolated islands 0.20 in (5 mm) right of the center LED, beside its cathode pad, with two wire pads. No ballasts on this board: their 1.1 W typ would bias L1.12's θ. Holes: 4 x M3 on the ATS's 53.00 mm (2.087 in) square centred on the center LED, 4 x M3 at the corners for the holder and stand; each has an isolated copper ring under the screw head, so a screw can't join two nets through the ATS.
+**A. Test board, 86 x 80 mm (3.39 x 3.15 in).** 9 CUN0LF1B at C21's pitch, 0.787 x 0.893 in (20.00 x 22.68 mm), footprint `LED_SMD:LED_PLCC_2835_Handsoldering` (KiCad 7's stock part matches the V1 board @ 8208f05 pad for pad: large pad 1 = K at -1.05 mm, pad 2 = A at +1.525 mm). The strings are the rows, anode on the left: `VIN_Rr | D | Rr_N1 | D | Rr_N2 | D | Rr_OUT`. Each cut runs through an LED's pad gap, so every inner cathode pad sits in a 0.77 x 0.88 in (19.6 x 22.3 mm) island (119.325 - 99.725 by 111.14 - 88.86 for the center LED): most of the copper stays (L1.12 reads FR4's per-LED θ from this board). NTC TH1 (1206) sits on two isolated islands 0.20 in (5 mm) right of the center LED, beside its cathode pad, with two wire pads. No ballasts on this board: their 1.1 W typ would bias L1.12's θ. Holes: 4 x M3 on the ATS's 53.00 mm (2.087 in) square centred on the center LED, 4 x M3 on a 71.0 mm (2.795 in) square for the holder and the rig frame, so the board mounts at 0° or 90° for the two scan axes; each hole has an isolated copper ring under the screw head, so a screw can't join two nets through the ATS.
 
 **B. Control board, 60 x 40 mm, outside the shroud.** Brick +12 V in → three VIN wires. Each string's OUT wire → a link (JP1-3: solder bridge, or clip lead; open it and clip the meter's 200 mA range across to read that string's current; leave it open to switch the string off) → ballast R1-3 → GND. Ballast footprint takes either your 12 Ω ≥ 0.61 W axial laid flat (leads bent to the outer pads) or four 47 Ω 1206 in parallel (11.75 Ω): fit one. Detector load RL across DET A+/K- (1206 or axial, 100 kΩ to start) with meter pads; NTC wire and meter pads.
 
@@ -65,3 +65,37 @@ If the large pad turns out to be the anode, nothing changes on the board: all ni
 | Brick | +12 and GND | control +12 IN, GND IN |
 
 At the brick's 12.0 V each string runs 125-225 mA across the Vf bins, 175 mA typ, through 12 Ω; ballast 0.61 W max (calcs/l1_c_lead_checks.py section 6, EST). With 4 x 47 Ω (11.75 Ω) the top bin reaches (12.0 - 3 x 3.1)/11.75 = 230 mA, still under the DS's 250 mA.
+
+## 3. Rotation rig (`rig/`)
+
+Dallas picked the turntable over the hand-moved slide (2026-11-17): the board turns under a knob on the shroud lid, the detector stays put, and the shroud never opens during a scan. The axis runs through the center optic's exit face. It replaces imager-06's linear detector scan (proposed to the lead in the packet).
+
+![Rig assembly](rig/l1_11_rig_assembly.png)
+
+`l1_11_rig.scad` (OpenSCAD 2021.01, parametric) → `sh export.sh` writes `stl/` (binary STL) and the picture. Every part fits the MK3S+ bed (250 x 210 x 210 mm); the largest is a track segment at 226 x 44 mm.
+
+| Part | Qty | Filament | Notes |
+|---|---|---|---|
+| `base` | 1 | black PLA | 150 x 150 mm; pivot boss, sockets for track 1 |
+| `rotor` | 1 | black PLA | Ø140 mm, rim ticks every 5°; nut traps underneath |
+| `frame` | 1 | black PETG or ASA | holds the board on its 71.0 mm hole square at 0° or 90°; the ATS passes through; the top arm carries the shaft. Next to warm parts, so not PLA |
+| `shaft` | 1 | any | 10 mm square, prints 6.30 in (160 mm): cut from the top end to L = box inside height + lid thickness − 99 mm |
+| `knob` | 1 | any | pointer reaches the scale's ticks |
+| `scale` | 1 | any | Ø140 mm, 1° ticks, labels every 10° from −170 to 180; tape it to the lid |
+| `track1`, `track2` | 1 each | black PLA | dovetail rib, joined by dovetail tabs (no screws); mm from the axis engraved; detents at 4, 12 and 18 in |
+| `carriage` | 1 | black PLA | rides the rib; lock screw into the detents; post for the detector board |
+
+Black inside the shroud keeps stray UV off the detector. Prints: 0.2 mm layers, 3 perimeters, 20-30 % infill, no supports (the frame prints on its back face; the carriage upright).
+
+**Hardware (M3, from stock; check the lengths you have):**
+- Frame foot to rotor: 2 x M3 x 14, nuts in the rotor's underside. The screw tip must not stick out below the rotor.
+- Board to frame: 4 x M3 x 10 with no holder (board + frame = 7.6 mm); M3 x 20 once the holder goes on. Nuts in the frame's back face.
+- Board to ATS: 4 x M3, length = 1.6 mm + the ATS base thickness + a nut (caliper the base).
+- Shaft pin: 1 x M3 x 16 through the arm into the shaft. Knob set screw: 1 x M3 x 10.
+- Carriage lock: 1 x M3 x 10 down into a detent. Detector board: 2 x M3 x 10.
+
+**Assembly.** Base on the shroud floor. Rotor over the boss. Board plus ATS onto the frame (4 corner screws), frame onto the rotor through the foot slots: slide it until the center optic's exit face sits over the boss, then tighten. Shaft into the arm, pinned. Tracks into the base's sockets. Carriage on the rib from the far end, the detector board on its post facing the board. Lid on, knob on the shaft, set screw. With the board square to the track (rotor 0 tick at the base's index), turn the scale until the pointer reads 0 and tape it down.
+
+**Shroud (yours to build: cardboard box or foam board).** Inside at least 24 x 12 x 8 in (610 x 305 x 203 mm): the rig runs from the base's back edge at -75 mm to the track's end at +495 mm, 570 mm, plus 10 mm at the back wall = 580 mm (22.8 in). Lid: one Ø1.42 in (36 mm) hole over the boss, 3.35 in (85 mm) from the back wall, centred across; the knob's skirt covers it. One small hole low in a side wall for the 10 wires. Matte black inside if you can: wall reflections show up as false tails in the profile. A background reading with the beam turned away (±150°) measures what's left.
+
+**Waits for the optics.** The holder plate, the black blanks (they block a lit LED's pocket) and the 0.010 in (0.25 mm) shims. No public 20XPS drawing turned up (LEDSupply lists Ø20 x 8.5 mm only), so the holder gets drawn from calipers when they land. Measure on one optic: overall diameter and height; any rim or flange, its diameter and thickness; the bottom face diameter; the entrance cavity's diameter and depth; any legs or pins. Plus the height of a spare 3528 off the tape. A side-on and a bottom-up phone photo helps. The frame's foot slots take ±0.47 in (±12 mm) of exit-face height, so the holder can come out at whatever height the optic needs.
