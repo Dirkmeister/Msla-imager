@@ -1,0 +1,865 @@
+test,pass,config,axis,D_in,shim_mm,led,angle_deg,reading,unit,kind,notes
+TUV7,1,bare,x,4,0,5,,,mV,dark,UV off holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-85,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-80,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-75,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-70,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-65,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-60,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-55,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-50,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-45,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-40,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-35,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-30,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-25,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-20,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-15,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-10,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,-5,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,0,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,5,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,10,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,15,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,20,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,25,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,30,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,35,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,40,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,45,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,50,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,55,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,60,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,65,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,70,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,75,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,80,,mV,scan,holder off; string 2 on
+TUV7,1,bare,x,4,0,5,85,,mV,scan,holder off; string 2 on
+TUV7,1,optic,x,4,0,5,,,mV,dark,"UV off optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-85,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-80,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-75,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-70,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-65,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-60,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-55,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-50,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-45,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-40,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-37.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-35,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-32.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-30,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-27.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-25,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-22.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-20,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-17.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-15,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-14,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-13,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-12,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-11,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-10,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-9,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-8,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-7,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-6,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-4,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-3,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-2,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,-1,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,0,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,1,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,2,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,3,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,4,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,6,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,7,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,8,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,9,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,10,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,11,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,12,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,13,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,14,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,15,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,17.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,20,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,22.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,25,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,27.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,30,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,32.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,35,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,37.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,40,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,45,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,50,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,55,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,60,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,65,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,70,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,75,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,80,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,x,4,0,5,85,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,bare,y,4,0,5,,,mV,dark,UV off holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-85,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-80,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-75,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-70,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-65,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-60,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-55,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-50,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-45,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-40,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-35,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-30,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-25,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-20,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-15,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-10,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,-5,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,0,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,5,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,10,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,15,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,20,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,25,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,30,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,35,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,40,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,45,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,50,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,55,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,60,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,65,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,70,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,75,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,80,,mV,scan,holder off; string 2 on
+TUV7,1,bare,y,4,0,5,85,,mV,scan,holder off; string 2 on
+TUV7,1,optic,y,4,0,5,,,mV,dark,"UV off optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-85,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-80,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-75,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-70,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-65,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-60,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-55,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-50,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-45,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-40,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-37.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-35,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-32.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-30,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-27.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-25,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-22.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-20,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-17.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-15,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-14,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-13,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-12,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-11,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-10,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-9,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-8,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-7,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-6,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-4,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-3,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-2,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,-1,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,0,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,1,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,2,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,3,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,4,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,6,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,7,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,8,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,9,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,10,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,11,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,12,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,13,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,14,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,15,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,17.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,20,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,22.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,25,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,27.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,30,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,32.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,35,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,37.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,40,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,45,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,50,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,55,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,60,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,65,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,70,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,75,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,80,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,1,optic,y,4,0,5,85,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,bare,x,4,0,5,,,mV,dark,UV off holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-85,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-80,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-75,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-70,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-65,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-60,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-55,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-50,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-45,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-40,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-35,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-30,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-25,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-20,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-15,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-10,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,-5,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,0,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,5,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,10,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,15,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,20,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,25,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,30,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,35,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,40,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,45,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,50,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,55,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,60,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,65,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,70,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,75,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,80,,mV,scan,holder off; string 2 on
+TUV7,2,bare,x,4,0,5,85,,mV,scan,holder off; string 2 on
+TUV7,2,optic,x,4,0,5,,,mV,dark,"UV off optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-85,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-80,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-75,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-70,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-65,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-60,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-55,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-50,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-45,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-40,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-37.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-35,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-32.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-30,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-27.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-25,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-22.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-20,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-17.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-15,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-14,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-13,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-12,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-11,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-10,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-9,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-8,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-7,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-6,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-4,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-3,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-2,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,-1,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,0,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,1,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,2,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,3,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,4,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,6,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,7,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,8,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,9,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,10,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,11,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,12,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,13,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,14,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,15,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,17.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,20,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,22.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,25,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,27.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,30,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,32.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,35,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,37.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,40,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,45,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,50,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,55,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,60,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,65,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,70,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,75,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,80,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,2,optic,x,4,0,5,85,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,bare,x,4,0,5,,,mV,dark,UV off holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-85,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-80,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-75,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-70,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-65,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-60,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-55,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-50,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-45,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-40,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-35,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-30,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-25,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-20,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-15,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-10,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,-5,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,0,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,5,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,10,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,15,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,20,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,25,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,30,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,35,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,40,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,45,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,50,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,55,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,60,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,65,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,70,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,75,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,80,,mV,scan,holder off; string 2 on
+TUV7,3,bare,x,4,0,5,85,,mV,scan,holder off; string 2 on
+TUV7,3,optic,x,4,0,5,,,mV,dark,"UV off optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-85,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-80,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-75,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-70,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-65,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-60,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-55,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-50,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-45,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-40,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-37.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-35,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-32.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-30,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-27.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-25,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-22.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-20,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-17.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-15,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-14,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-13,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-12,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-11,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-10,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-9,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-8,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-7,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-6,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-4,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-3,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-2,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,-1,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,0,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,1,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,2,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,3,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,4,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,6,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,7,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,8,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,9,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,10,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,11,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,12,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,13,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,14,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,15,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,17.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,20,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,22.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,25,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,27.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,30,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,32.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,35,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,37.5,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,40,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,45,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,50,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,55,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,60,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,65,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,70,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,75,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,80,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV7,3,optic,x,4,0,5,85,,mV,scan,"optic on D5, blanks on D4 D6"
+TUV6H,1,optic,x,12,0,5,,,mV,dark,UV off shims 0 mm
+TUV6H,1,optic,x,12,0,5,-12,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,-11,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,-10,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,-9,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,-8,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,-7,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,-6,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,-5,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,-4,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,0,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,4,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,5,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,6,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,7,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,8,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,9,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,10,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,11,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0,5,12,,mV,scan,shims 0 mm
+TUV6H,1,optic,x,12,0.25,5,,,mV,dark,UV off shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-12,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-11,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-10,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-9,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-8,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-7,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-6,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-5,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,-4,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,0,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,4,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,5,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,6,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,7,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,8,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,9,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,10,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,11,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.25,5,12,,mV,scan,shims 0.25 mm
+TUV6H,1,optic,x,12,0.5,5,,,mV,dark,UV off shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-12,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-11,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-10,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-9,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-8,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-7,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-6,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-5,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,-4,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,0,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,4,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,5,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,6,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,7,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,8,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,9,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,10,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,11,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.5,5,12,,mV,scan,shims 0.5 mm
+TUV6H,1,optic,x,12,0.75,5,,,mV,dark,UV off shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-12,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-11,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-10,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-9,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-8,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-7,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-6,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-5,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,-4,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,0,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,4,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,5,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,6,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,7,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,8,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,9,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,10,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,11,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,12,0.75,5,12,,mV,scan,shims 0.75 mm
+TUV6H,1,optic,x,18,,5,,,mV,dark,UV off set height (blank shim)
+TUV6H,1,optic,x,18,,5,-12,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,-11,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,-10,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,-9,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,-8,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,-7,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,-6,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,-5,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,-4,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,0,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,4,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,5,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,6,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,7,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,8,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,9,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,10,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,11,,mV,scan,set height (blank shim)
+TUV6H,1,optic,x,18,,5,12,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,,,mV,dark,UV off set height (blank shim)
+TUV6H,1,optic,y,12,,5,-12,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,-11,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,-10,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,-9,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,-8,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,-7,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,-6,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,-5,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,-4,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,0,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,4,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,5,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,6,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,7,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,8,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,9,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,10,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,11,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,12,,5,12,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,,,mV,dark,UV off set height (blank shim)
+TUV6H,1,optic,y,18,,5,-12,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,-11,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,-10,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,-9,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,-8,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,-7,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,-6,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,-5,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,-4,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,0,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,4,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,5,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,6,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,7,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,8,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,9,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,10,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,11,,mV,scan,set height (blank shim)
+TUV6H,1,optic,y,18,,5,12,,mV,scan,set height (blank shim)
+TUV6P,1,optic,x,12,,5,,,mV,dark,"UV off set height, full profile"
+TUV6P,1,optic,x,12,,5,-40,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-37.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-35,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-32.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-30,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-27.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-25,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-22.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-20,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-19,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-18,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-17,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-16,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-15,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-14,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-13,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-12,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-11,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-10,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-9.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-9,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-8.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-8,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-7.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-7,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-6.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-6,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-5.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-4.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-4,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-3.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-3,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-2.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-2,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-1.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-1,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,-0.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,0,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,0.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,1,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,1.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,2,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,2.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,3,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,3.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,4,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,4.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,5.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,6,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,6.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,7,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,7.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,8,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,8.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,9,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,9.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,10,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,11,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,12,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,13,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,14,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,15,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,16,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,17,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,18,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,19,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,20,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,22.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,25,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,27.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,30,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,32.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,35,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,37.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,x,12,,5,40,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,,,mV,dark,"UV off set height, full profile"
+TUV6P,1,optic,y,12,,5,-40,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-37.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-35,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-32.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-30,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-27.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-25,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-22.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-20,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-19,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-18,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-17,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-16,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-15,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-14,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-13,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-12,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-11,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-10,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-9.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-9,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-8.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-8,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-7.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-7,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-6.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-6,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-5.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-4.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-4,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-3.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-3,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-2.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-2,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-1.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-1,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,-0.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,0,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,0.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,1,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,1.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,2,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,2.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,3,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,3.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,4,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,4.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,5.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,6,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,6.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,7,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,7.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,8,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,8.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,9,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,9.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,10,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,11,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,12,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,13,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,14,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,15,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,16,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,17,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,18,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,19,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,20,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,22.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,25,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,27.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,30,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,32.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,35,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,37.5,,mV,scan,"set height, full profile"
+TUV6P,1,optic,y,12,,5,40,,mV,scan,"set height, full profile"
+POINT,1,optic,x,12,,1,,,mV,dark,"UV off D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,1,-5,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,1,-2,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,1,1,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,1,4,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,1,7,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,1,10,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,1,13,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,2,,,mV,dark,"UV off D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,2,-9,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,2,-6,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,2,-3,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,2,0,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,2,3,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,2,6,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,2,9,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,3,,,mV,dark,"UV off D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,3,-13,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,3,-10,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,3,-7,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,3,-4,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,3,-1,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,3,2,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,3,5,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,4,,,mV,dark,"UV off D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,4,-5,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,4,-2,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,4,1,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,4,4,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,4,7,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,4,10,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,4,13,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,5,,,mV,dark,"UV off D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,5,-9,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,5,-6,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,5,-3,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,5,0,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,5,3,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,5,6,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,5,9,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,6,,,mV,dark,"UV off D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,6,-13,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,6,-10,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,6,-7,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,6,-4,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,6,-1,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,6,2,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,6,5,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,7,,,mV,dark,"UV off D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,7,-5,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,7,-2,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,7,1,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,7,4,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,7,7,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,7,10,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,7,13,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,8,,,mV,dark,"UV off D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,8,-9,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,8,-6,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,8,-3,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,8,0,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,8,3,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,8,6,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,8,9,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,9,,,mV,dark,"UV off D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,9,-13,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,9,-10,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,9,-7,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,9,-4,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,9,-1,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,9,2,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,x,12,,9,5,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,1,,,mV,dark,"UV off D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,1,-4.5,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,1,-1.5,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,1,1.5,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,1,4.5,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,1,7.5,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,1,10.5,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,1,13.5,,mV,scan,"D1 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,2,,,mV,dark,"UV off D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,2,-4.5,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,2,-1.5,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,2,1.5,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,2,4.5,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,2,7.5,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,2,10.5,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,2,13.5,,mV,scan,"D2 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,3,,,mV,dark,"UV off D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,3,-4.5,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,3,-1.5,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,3,1.5,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,3,4.5,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,3,7.5,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,3,10.5,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,3,13.5,,mV,scan,"D3 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,4,,,mV,dark,"UV off D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,4,-9,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,4,-6,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,4,-3,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,4,0,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,4,3,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,4,6,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,4,9,,mV,scan,"D4 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,5,,,mV,dark,"UV off D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,5,-9,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,5,-6,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,5,-3,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,5,0,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,5,3,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,5,6,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,5,9,,mV,scan,"D5 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,6,,,mV,dark,"UV off D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,6,-9,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,6,-6,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,6,-3,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,6,0,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,6,3,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,6,6,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,6,9,,mV,scan,"D6 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,7,,,mV,dark,"UV off D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,7,-13.5,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,7,-10.5,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,7,-7.5,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,7,-4.5,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,7,-1.5,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,7,1.5,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,7,4.5,,mV,scan,"D7 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,8,,,mV,dark,"UV off D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,8,-13.5,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,8,-10.5,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,8,-7.5,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,8,-4.5,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,8,-1.5,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,8,1.5,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,8,4.5,,mV,scan,"D8 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,9,,,mV,dark,"UV off D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,9,-13.5,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,9,-10.5,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,9,-7.5,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,9,-4.5,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,9,-1.5,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,9,1.5,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"
+POINT,1,optic,y,12,,9,4.5,,mV,scan,"D9 alone: its optic on, blanks on its row-mates"

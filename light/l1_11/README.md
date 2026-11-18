@@ -89,7 +89,7 @@ Black inside the shroud keeps stray UV off the detector. Prints: 0.2 mm layers, 
 
 **Hardware (M3, from stock; check the lengths you have):**
 - Frame foot to rotor: 2 x M3 x 14, nuts in the rotor's underside. The screw tip must not stick out below the rotor.
-- Board to frame: 4 x M3 x 10 with no holder (board + frame = 7.6 mm); M3 x 20 once the holder goes on. Nuts in the frame's back face.
+- Board to frame: 4 x M3 x 10 with no holder (board + frame = 7.6 mm); longer once the holder goes on (its thickness comes with its drawing). Nuts in the frame's back face.
 - Board to ATS: 4 x M3, length = 1.6 mm + the ATS base thickness + a nut (caliper the base).
 - Shaft pin: 1 x M3 x 16 through the arm into the shaft. Knob set screw: 1 x M3 x 10.
 - Carriage lock: 1 x M3 x 10 down into a detent. Detector board: 2 x M3 x 10.
@@ -99,3 +99,29 @@ Black inside the shroud keeps stray UV off the detector. Prints: 0.2 mm layers, 
 **Shroud (yours to build: cardboard box or foam board).** Inside at least 24 x 12 x 8 in (610 x 305 x 203 mm): the rig runs from the base's back edge at -75 mm to the track's end at +495 mm, 570 mm, plus 10 mm at the back wall = 580 mm (22.8 in). Lid: one Ø1.42 in (36 mm) hole over the boss, 3.35 in (85 mm) from the back wall, centred across; the knob's skirt covers it. One small hole low in a side wall for the 10 wires. Matte black inside if you can: wall reflections show up as false tails in the profile. A background reading with the beam turned away (±150°) measures what's left.
 
 **Waits for the optics.** The holder plate, the black blanks (they block a lit LED's pocket) and the 0.010 in (0.25 mm) shims. No public 20XPS drawing turned up (LEDSupply lists Ø20 x 8.5 mm only), so the holder gets drawn from calipers when they land. Measure on one optic: overall diameter and height; any rim or flange, its diameter and thickness; the bottom face diameter; the entrance cavity's diameter and depth; any legs or pins. Plus the height of a spare 3528 off the tape. A side-on and a bottom-up phone photo helps. The frame's foot slots take ±0.47 in (±12 mm) of exit-face height, so the holder can come out at whatever height the optic needs.
+
+## 4. T-UV-7: optic efficiency at 400 nm (first; go/no-go)
+
+Readings sheet: `calcs/l1_11_optic_readings.csv`, written in bench order by `python3 calcs/l1_11_optic_test.py --skeleton`, with every dial angle filled in. Fill only the `reading` column; `python3 calcs/l1_11_optic_test.py` does the rest (with no readings yet it runs its self-test on synthetic scans).
+
+Method (proposed, replaces imager-06's linear scan): the board turns, the detector stays at D = 4.00 in (101.6 mm). Flux through the sphere about the axis, Φ = 2π D² ∫ E(φ) sin φ dφ, from the mean of four half-profiles (two axes, both sides). η = Φ_optic / Φ_bare, three passes. Both are integrated, so the bare LED doesn't need to be Lambertian.
+
+1. **Setup.** Shroud closed for every reading. Detector wired to the control board's DET pads, RL = 100 kΩ across them, meter on 200 mV (2000 mV for the optic's peak). String 2 only: link S2 bridged, S1 and S3 open. That lights D4, D5 and D6; D5 is the center LED on the axis. During optic passes, D4 and D6 carry black blanks.
+2. **Range check, once, before pass 1.** Optic on D5, dial at 0, LED settled (step 3). Pick RL so this peak reads 200-500 mV: start at 100 kΩ, go up if it's under 200, down if it's over 500. Above about 0.5 V the detector starts to forward-bias itself and stops being linear (EST). The bare LED then reads about 1/23 of the peak (the self-test's on-axis gain at 4 in), about 9-22 mV, still 90-220 counts on the 200 mV range. Keep that RL for the whole session: every result is a ratio.
+3. **Settle.** After each power-up, wait until the on-axis reading holds within 1 % for a minute (EST 2-3 min) before scanning. Each scan starts with a dark reading (UV off).
+4. **Scans** (the sheet lists every angle): bare from −85° to +85° every 5° (35 readings); optic every 1° to ±15°, 2.5° to ±40°, 5° to ±85° (69). Pass 1 does both axes (board at 0° then 90°), passes 2 and 3 the x axis: 416 readings.
+5. **Result.** η ≥ 0.50 passes (EST, L1.3's low end). Under 0.50: stop and report (a UV-absorbing grade, or a poor fit on the 3528) before any T-UV-6 work.
+
+The plans' interpolation bias on η, checked on synthetic scans: −0.04 % optic (log-linear), −0.07 % bare (linear, 5° steps). Wide angles matter more than they look, because the sin φ weight grows with angle. In the self-test's beam (15° core plus 3 % of the peak in a 50° wide tail), 14.7 % of the flux lies beyond ±21.5°, where the intensity is only 2.1 % of the peak, and 3.9 % beyond ±40° at 0.51 %. A scan stopping at ±21.5° would read η about 15 % low on that beam.
+
+## 5. T-UV-6: height, beam, profile, pointing
+
+1. **Height.** D = 12 in (304.8 mm), x axis, holder seated then raised 0.010 in (0.25 mm) at a time: 0, 0.25, 0.50, 0.75 mm (add 1.00 if 0.75 is still the narrowest). Each scan: on axis plus every 1° from 4° to 12° each side (19 readings). The narrowest FWHM sets the height; record it, board to optic base.
+2. **Far field.** At the set height: 18 in on x, then 12 and 18 in on y (board at 90°). FWHM = 2 atan((D₂ tan φ₂ − D₁ tan φ₁)/(D₂ − D₁)) from the half-max angles φ; the difference takes out the 0.79 in (20 mm) aperture.
+3. **Profile.** At the set height, 12 in, both axes: every 0.5° to ±10°, 1° to ±20°, 2.5° to ±40° (77 readings each). Gives the flux outside ±7.5° and ±15°, and the 10-90 % edge half-width at the resist (calc §5), for t = 0.0128 and 0.0285 in (0.326, 0.725 mm) until T-LCD-4 measures t. A Gaussian of 15° FWHM gives 1.22 and 2.71 mil; the script's 2D rebuild reproduces both to 0.002 mil.
+4. **Pointing.** Each LED alone: its optic on, blanks on its two row-mates, its row's link bridged. 7 readings 3° apart around where its beam should land, −atan(s/D) on the dial for an LED s off the axis (±3.76° for ±0.787 in (20 mm) at 12 in). The script shift-fits the step 3 profile to them and corrects the parallax. Board at 0° for x, 90° for y: 126 readings.
+5. **Background.** Once per session: the beam turned to ±150° (away from the detector), one reading. That's the box's stray light; if it's over 1 % of the peak, blacken the walls before trusting the tails.
+
+**Bench time (EST):** T-UV-7 416 readings, T-UV-6 413, about 10 s a reading with the knob, plus about 3 min per shroud opening (holder swaps, board turns, blanks): about 1.5 h for T-UV-7 and 2.5 h for T-UV-6. Two sittings in this thread.
+
+**C21 or C28.** The script calls it: C21 if η ≥ 0.50 and the edge half-width ≤ 2.5 mil (REQ-008) at the governing t; if it holds only at the thin t, C21 rests on T-LCD-4. Build optics for C21: 21 + 4 spares − 9 reusable test optics = 16, about $26.36 before shipping at LEDSupply's 2026-11-17 listing (EST; confirm at order).
